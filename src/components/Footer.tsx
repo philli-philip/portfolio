@@ -13,7 +13,7 @@ const Footer = () => {
         See website{" "}
         <Link
           className="font-semibold hover:text-gray-700 dark:hover:text-gray-200"
-          href={"github"}
+          href={"https://github.com/philli-philip/portfolio"}
         >
           on Github
         </Link>{" "}
