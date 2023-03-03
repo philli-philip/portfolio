@@ -6,6 +6,13 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useHotkeys } from "react-hotkeys-hook";
 import Footer from "../components/Footer";
+import ReoLogo from "../components/logo/reo";
+import Creatext from "../components/logo/creatext";
+import UbsLogo from "../components/logo/ubs";
+import SpokeLogo from "../components/logo/spoke";
+import N26Logo from "../components/logo/n26";
+import LekkaLogo from "../components/logo/lekka";
+import FortoLogo from "../components/logo/forto";
 
 const shortCuts = [
   {
@@ -28,43 +35,43 @@ const shortCuts = [
 const brands = [
   {
     alt: "N26",
-    src: "/img/n26-logo.svg",
+    src: <N26Logo />,
     width: 46,
     height: 31,
   },
   {
     alt: "UBS",
-    src: "/img/ubs-logo.svg",
+    src: <UbsLogo />,
     width: 66,
     height: 24,
   },
   {
     alt: "REO",
-    src: "/img/reo-logo.svg",
+    src: <ReoLogo />,
     width: 85,
     height: 32,
   },
   {
     alt: "Forto",
-    src: "/img/forto-logo.svg",
+    src: <FortoLogo />,
     width: 82,
     height: 20,
   },
   {
     alt: "Spoke",
-    src: "/img/spoke-logo.svg",
+    src: <SpokeLogo />,
     width: 72,
     height: 24,
   },
   {
     alt: "Lekka",
-    src: "/img/lekka-logo.svg",
+    src: <LekkaLogo />,
     width: 79,
     height: 32,
   },
   {
     alt: "Creatext",
-    src: "/img/creatext-logo.svg",
+    src: <Creatext />,
     width: 90,
     height: 32,
   },
@@ -136,14 +143,9 @@ const Home: NextPage = () => {
             {brands.map((item, index) => (
               <div
                 key={index}
-                className="flex aspect-square w-full flex-grow justify-center border-r border-b border-gray-200 backdrop-blur-lg"
+                className="flex aspect-square w-full flex-grow place-items-center justify-center border-r border-b border-gray-200 backdrop-blur-lg"
               >
-                <Image
-                  height={item.height}
-                  width={item.width}
-                  alt={item.alt}
-                  src={item.src}
-                />
+                {item.src}
               </div>
             ))}
           </div>
