@@ -1,5 +1,6 @@
 import Footer from "../components/Footer";
 import { groupBy } from "lodash";
+import Head from "next/head";
 
 const content = [
   {
@@ -151,6 +152,11 @@ const groupByCategory = content.reduce((group: any, product) => {
 const About = () => {
   return (
     <>
+      <Head>
+        <title>About Philip</title>
+        <meta name="description" content="Philip's CV" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <main className="mx-8 mt-20 text-gray-800 md:container dark:text-gray-200 md:mx-auto">
         <h1 className="mb-4 text-3xl font-bold">Philip Mattha</h1>
         <p className="text-md text-gray-600 dark:text-gray-400">
