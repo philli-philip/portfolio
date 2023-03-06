@@ -157,9 +157,11 @@ const About = () => {
         <meta name="description" content="Philip's CV" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="mx-8 mt-20 text-gray-800 md:container dark:text-gray-200 md:mx-auto">
-        <h1 className="mb-4 text-3xl font-bold">Philip Mattha</h1>
-        <p className="text-md text-gray-600 dark:text-gray-400">
+      <main className="mx-auto mt-20 px-8 text-gray-800 md:container dark:text-gray-200 lg:pl-36">
+        <h1 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl xl:text-6xl">
+          Philip Mattha
+        </h1>
+        <p className="text-gray-600 dark:text-gray-400">
           Rubensstraße 15, 12150
           <br />
           philip@mattha.net
@@ -167,14 +169,14 @@ const About = () => {
           +49 1590 6800728
         </p>
         {Object.keys(grouppedContent).map((sections, index) => (
-          <>
+          <section className="relative">
             <h2
               key={index}
-              className="mb-6 text-lg text-gray-500 dark:text-gray-400"
+              className="mb-6 mt-8 max-w-2xl text-lg text-gray-500 dark:text-gray-400 lg:absolute lg:right-full lg:mt-0 lg:pr-6"
             >
               {sections}
             </h2>
-            <ul>
+            <ul className="max-w-2xl lg:mt-12">
               {grouppedContent[sections].map((item: Entry, index: number) => (
                 <li key={index} className="mb-6">
                   <h3 className="mr-4 inline-block text-lg font-medium text-gray-800 dark:text-gray-200">
@@ -191,7 +193,7 @@ const About = () => {
                 </li>
               ))}
             </ul>
-          </>
+          </section>
         ))}
       </main>
       <Footer />
