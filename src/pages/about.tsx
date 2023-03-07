@@ -16,7 +16,7 @@ const content = [
     timeStart: "2020",
     timeEnd: "2022",
     description:
-      "Design Lead – Creating the Design foundation for REO as a product, establishing an understanding for designs within among leadership, engineering and sales teams. Thanks to design efforts REO can offer creative services to users and creating a new significant revenue stream.",
+      "Design Lead – Creating the Design foundation for REO as a product, establishing an understanding for designs within among leadership, engineering and sales teams. Built additional revenue for REO through creative services for clients.",
   },
   {
     type: "Experience",
@@ -157,46 +157,51 @@ const About = () => {
         <meta name="description" content="Philip's CV" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="mx-auto mt-20 px-8 text-gray-800 md:container dark:text-gray-200 lg:pl-36">
-        <h1 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl xl:text-6xl">
+      <main className="mx-auto mt-20 px-8 text-gray-800 md:container dark:text-gray-200 lg:pl-36 print:mt-8 print:max-w-full">
+        <h1 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl xl:text-6xl print:mb-2 print:text-4xl">
           Philip Mattha
         </h1>
-        <p className="text-gray-600 dark:text-gray-400">
+        <p className="text-gray-600 dark:text-gray-400 print:text-xs">
           Rubensstraße 15, 12150
           <br />
           philip@mattha.net
           <br />
           +49 1590 6800728
         </p>
-        {Object.keys(grouppedContent).map((sections, index) => (
-          <section className="relative">
-            <h2
-              key={index}
-              className="mb-6 mt-8 max-w-2xl text-lg text-gray-500 dark:text-gray-400 lg:absolute lg:right-full lg:mt-0 lg:pr-6"
-            >
-              {sections}
-            </h2>
-            <ul className="max-w-2xl lg:mt-12">
-              {grouppedContent[sections].map((item: Entry, index: number) => (
-                <li key={index} className="mb-6">
-                  <h3 className="mr-4 inline-block text-lg font-medium text-gray-800 dark:text-gray-200">
-                    {item.title}
-                  </h3>
-                  <span className="text-lg text-gray-600 dark:text-gray-400">
-                    {item.timeStart}
+        <section className="print:columns-2 print:gap-24">
+          {Object.keys(grouppedContent).map((sections, index) => (
+            <section className="relative">
+              <h2
+                key={index}
+                className="mb-6 mt-8 max-w-2xl text-lg text-gray-500 dark:text-gray-400 lg:absolute lg:right-full lg:mt-0 lg:pr-6 print:absolute print:mt-0 print:mb-1 print:block print:w-[100px] print:translate-y-[50px] print:-translate-x-[70px] print:-rotate-90 print:text-right print:text-sm"
+              >
+                {sections}
+              </h2>
+              <ul className="max-w-2xl lg:mt-12 print:mt-12">
+                {grouppedContent[sections].map((item: Entry, index: number) => (
+                  <li
+                    key={index}
+                    className="mb-6 print:mb-4 print:break-inside-avoid"
+                  >
+                    <h3 className="mr-4 inline-block text-lg font-medium text-gray-800 dark:text-gray-200 print:mr-2 print:text-sm">
+                      {item.title}
+                    </h3>
+                    <span className="text-lg text-gray-600 dark:text-gray-400 print:text-sm">
+                      {item.timeStart}
 
-                    {item.timeEnd && <span> – {item.timeEnd}</span>}
-                  </span>
-                  <p className="text-gray-600 dark:text-gray-400">
-                    {item.description}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </section>
-        ))}
+                      {item.timeEnd && <span> – {item.timeEnd}</span>}
+                    </span>
+                    <p className="text-gray-600 dark:text-gray-400 print:text-xs">
+                      {item.description}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+        </section>
       </main>
-      <Footer />
+      <Footer className="print:hidden" />
     </>
   );
 };
