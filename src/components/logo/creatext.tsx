@@ -1,8 +1,13 @@
-const Creatext = () => {
+type Props = {
+  height?: number;
+  width?: number;
+};
+
+const Creatext = (props: Props) => {
   return (
     <svg
-      width="92"
-      height="32"
+      width={props.width || 92}
+      height={props.height || 32}
       viewBox="0 0 92 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -35,45 +35,31 @@ const shortCuts = [
 const brands = [
   {
     alt: "N26",
-    src: <N26Logo />,
-    width: 46,
-    height: 31,
+    src: <N26Logo width={46} height={31} />,
   },
   {
     alt: "UBS",
-    src: <UbsLogo />,
-    width: 66,
-    height: 24,
+    src: <UbsLogo width={66} height={24} />,
   },
   {
     alt: "REO",
-    src: <ReoLogo />,
-    width: 85,
-    height: 32,
+    src: <ReoLogo width={85} height={32} />,
   },
   {
     alt: "Forto",
-    src: <FortoLogo />,
-    width: 82,
-    height: 20,
+    src: <FortoLogo width={82} height={20} />,
   },
   {
     alt: "Spoke",
-    src: <SpokeLogo />,
-    width: 72,
-    height: 24,
+    src: <SpokeLogo height={24} width={72} />,
   },
   {
     alt: "Lekka",
-    src: <LekkaLogo />,
-    width: 79,
-    height: 32,
+    src: <LekkaLogo height={32} width={79} />,
   },
   {
     alt: "Creatext",
-    src: <Creatext />,
-    width: 90,
-    height: 32,
+    src: <Creatext width={90} height={32} />,
   },
 ];
 

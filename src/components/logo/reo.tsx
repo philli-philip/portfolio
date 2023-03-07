@@ -1,8 +1,13 @@
-const ReoLogo = () => {
+type Props = {
+  height?: number;
+  width?: number;
+};
+
+const ReoLogo = (props: Props) => {
   return (
     <svg
-      width="86"
-      height="32"
+      width={props.width || 86}
+      height={props.height || 32}
       viewBox="0 0 86 32"
       xmlns="http://www.w3.org/2000/svg"
     >

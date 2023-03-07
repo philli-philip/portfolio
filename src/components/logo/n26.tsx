@@ -1,8 +1,13 @@
-const N26Logo = () => {
+type Props = {
+  height?: number;
+  width?: number;
+};
+
+const N26Logo = (props: Props) => {
   return (
     <svg
-      width="47"
-      height="32"
+      width={props.width || 47}
+      height={props.height || 32}
       viewBox="0 0 47 32"
       xmlns="http://www.w3.org/2000/svg"
     >

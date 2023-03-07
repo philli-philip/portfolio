@@ -1,8 +1,12 @@
-const SpokeLogo = () => {
+type Props = {
+  height?: number;
+  width?: number;
+};
+const SpokeLogo = (props: Props) => {
   return (
     <svg
-      width="73"
-      height="24"
+      width={props.width || 73}
+      height={props.height || 24}
       viewBox="0 0 73 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

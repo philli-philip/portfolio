@@ -1,8 +1,13 @@
-const LekkaLogo = () => {
+type Props = {
+  height?: number;
+  width?: number;
+};
+
+const LekkaLogo = (props: Props) => {
   return (
     <svg
-      width="80"
-      height="32"
+      width={props.width || 79}
+      height={props.height || 32}
       viewBox="0 0 80 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

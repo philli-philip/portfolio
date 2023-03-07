@@ -1,8 +1,13 @@
-const UbsLogo = () => {
+type Props = {
+  height?: number;
+  width?: number;
+};
+
+const UbsLogo = (props: Props) => {
   return (
     <svg
-      width="67"
-      height="24"
+      width={props.width || 67}
+      height={props.height || 24}
       viewBox="0 0 67 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

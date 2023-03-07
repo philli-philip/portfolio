@@ -1,8 +1,13 @@
-const FortoLogo = () => {
+type Props = {
+  height?: number;
+  width?: number;
+};
+
+const FortoLogo = (props: Props) => {
   return (
     <svg
-      width="83"
-      height="20"
+      width={props.width || 83}
+      height={props.height || 20}
       viewBox="0 0 83 20"
       className="fill-[#071133] dark:fill-white"
       xmlns="http://www.w3.org/2000/svg"
