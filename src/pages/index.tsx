@@ -39,7 +39,7 @@ const brands = [
   },
   {
     alt: "UBS",
-    src: <UbsLogo width={66} height={24} />,
+    src: <UbsLogo width={66} height={32} />,
   },
   {
     alt: "REO",
