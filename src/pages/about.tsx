@@ -2,6 +2,8 @@ import Footer from "../components/Footer";
 import { groupBy } from "lodash";
 import Head from "next/head";
 import Print from "../components/icons/print";
+import LeftArrow from "../components/icons/left-arrow";
+import { useRouter } from "next/router";
 
 const content = [
   {
@@ -154,6 +156,8 @@ const About = () => {
   const handleClick = () => {
     window.print();
   };
+
+  const router = useRouter();
   return (
     <>
       <Head>
@@ -161,10 +165,16 @@ const About = () => {
         <meta name="description" content="Philip's CV" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="relative mx-auto mt-20 px-8 text-gray-800 md:container dark:text-gray-200 lg:pl-36 print:mt-8 print:max-w-full">
+      <main className="relative mx-auto mt-20 px-8 text-gray-800 md:container dark:text-gray-200 lg:pl-36 print:mt-8 print:max-w-full print:text-gray-800">
         <h1 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl xl:text-6xl print:mb-2 print:text-4xl">
           Philip Mattha
         </h1>
+        <button
+          onClick={() => router.back()}
+          className=" absolute hidden -translate-y-16 -translate-x-16 rounded-lg bg-gray-800 p-3 text-white shadow-lg hover:bg-gray-900 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 md:block"
+        >
+          <LeftArrow />
+        </button>
         <button
           onClick={handleClick}
           className="absolute top-0 right-0 mr-8 flex h-12 flex-row place-content-center items-center gap-4 rounded-lg p-3 text-sm text-gray-600 hover:bg-gray-100 focus-visible:outline-orange-600 dark:text-gray-400 dark:hover:bg-gray-700 print:hidden"
