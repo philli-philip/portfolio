@@ -82,7 +82,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center">
-        <section className="container mt-24 mb-48 grid grid-cols-12 gap-6 px-8 xl:mx-auto xl:mt-48 xl:mb-96">
+        <section className="container mt-24 mb-24 grid grid-cols-12 gap-6 px-8 lg:px-0 xl:mx-auto xl:mt-48 xl:mb-48">
           <h1 className="leading-12 text-grey-600 xl:col-start-0 col-span-12 text-4xl font-semibold dark:text-gray-200 md:col-span-10 md:text-4xl lg:text-5xl xl:col-span-12 xl:mx-0 xl:text-8xl">
             I am{" "}
             <Link
@@ -114,7 +114,7 @@ const Home: NextPage = () => {
             </Link>{" "}
             about Design & Product.
           </h1>
-          <div className=" xl:col-start-0 col-span-12 mt-4 flex flex-col items-start md:flex-row">
+          <div className="col-span-12 mt-4 flex flex-row flex-wrap items-start">
             {shortCuts.map((item, index) => (
               <Link
                 key={index}
@@ -128,7 +128,7 @@ const Home: NextPage = () => {
           </div>
         </section>
         <section className="container px-8 md:px-0">
-          <div className="lx:grid-cols-5 grid grid-cols-2 place-items-center border-t border-l border-gray-200 md:grid-cols-3 lg:grid-cols-4 xl:mx-auto">
+          <div className="lg:grid-cols-5xl:mx-auto grid grid-cols-2 place-items-center border-t border-l border-gray-200 md:grid-cols-3">
             {brands.map((item, index) => (
               <div
                 key={index}
