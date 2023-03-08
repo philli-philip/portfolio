@@ -6,13 +6,13 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useHotkeys } from "react-hotkeys-hook";
 import Footer from "../components/Footer";
-import ReoLogo from "../components/logo/reo";
-import Creatext from "../components/logo/creatext";
-import UbsLogo from "../components/logo/ubs";
-import SpokeLogo from "../components/logo/spoke";
-import N26Logo from "../components/logo/n26";
-import LekkaLogo from "../components/logo/lekka";
-import FortoLogo from "../components/logo/forto";
+import ReoLogo from "../components/icons/reo";
+import Creatext from "../components/icons/creatext";
+import UbsLogo from "../components/icons/ubs";
+import SpokeLogo from "../components/icons/spoke";
+import N26Logo from "../components/icons/n26";
+import LekkaLogo from "../components/icons/lekka";
+import FortoLogo from "../components/icons/forto";
 
 const shortCuts = [
   {
