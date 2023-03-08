@@ -1,6 +1,7 @@
 import Footer from "../components/Footer";
 import { groupBy } from "lodash";
 import Head from "next/head";
+import Print from "../components/icons/print";
 
 const content = [
   {
@@ -150,6 +151,9 @@ const groupByCategory = content.reduce((group: any, product) => {
 }, {});
 
 const About = () => {
+  const handleClick = () => {
+    window.print();
+  };
   return (
     <>
       <Head>
@@ -157,10 +161,17 @@ const About = () => {
         <meta name="description" content="Philip's CV" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="mx-auto mt-20 px-8 text-gray-800 md:container dark:text-gray-200 lg:pl-36 print:mt-8 print:max-w-full">
+      <main className="relative mx-auto mt-20 px-8 text-gray-800 md:container dark:text-gray-200 lg:pl-36 print:mt-8 print:max-w-full">
         <h1 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl xl:text-6xl print:mb-2 print:text-4xl">
           Philip Mattha
         </h1>
+        <button
+          onClick={handleClick}
+          className="absolute top-0 right-0 mr-8 flex h-12 flex-row place-content-center items-center gap-4 rounded-lg p-3 text-sm text-gray-600 hover:bg-gray-100 focus-visible:outline-orange-600 dark:text-gray-400 dark:hover:bg-gray-700 print:hidden"
+        >
+          <span className="hidden md:block">Print version!</span>
+          <Print />
+        </button>
         <p className="text-gray-600 dark:text-gray-400 print:text-xs">
           Rubensstraße 15, 12150
           <br />
@@ -177,12 +188,9 @@ const About = () => {
               >
                 {sections}
               </h2>
-              <ul className="max-w-2xl lg:mt-12 print:mt-12">
+              <ul className="max-w-2xl lg:mt-12 print:mt-12 print:break-inside-avoid">
                 {grouppedContent[sections].map((item: Entry, index: number) => (
-                  <li
-                    key={index}
-                    className="mb-6 print:mb-4 print:break-inside-avoid"
-                  >
+                  <li key={index} className="mb-6 print:mb-4 ">
                     <h3 className="mr-4 inline-block text-lg font-medium text-gray-800 dark:text-gray-200 print:mr-2 print:text-sm">
                       {item.title}
                     </h3>
