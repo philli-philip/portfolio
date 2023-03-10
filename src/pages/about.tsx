@@ -153,7 +153,7 @@ const groupByCategory = content.reduce((group: any, product) => {
 }, {});
 
 const About = () => {
-  const handleClick = () => {
+  const handlePrint = () => {
     window.print();
   };
 
@@ -171,13 +171,13 @@ const About = () => {
         </h1>
         <button
           onClick={() => router.back()}
-          className=" absolute hidden -translate-y-16 -translate-x-16 rounded-lg bg-gray-800 p-3 text-white shadow-lg hover:bg-gray-900 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 md:block"
+          className=" absolute hidden rounded-lg bg-gray-800 p-2 text-white shadow-lg hover:bg-gray-900 focus-visible:outline-orange-600 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 md:block md:-translate-y-[56px] md:-translate-x-12 lg:-translate-x-16 lg:-translate-y-[64px] lg:p-3 xl:-translate-y-[72px]"
         >
           <LeftArrow />
         </button>
         <button
-          onClick={handleClick}
-          className="absolute top-0 right-0 mr-8 flex h-12 flex-row place-content-center items-center gap-4 rounded-lg p-3 text-sm text-gray-600 hover:bg-gray-100 focus-visible:outline-orange-600 dark:text-gray-400 dark:hover:bg-gray-700 print:hidden"
+          onClick={handlePrint}
+          className="absolute top-0 right-0 mr-8 flex h-12 flex-row place-content-center items-center gap-4 rounded-lg p-3 text-sm text-gray-600 hover:bg-gray-100 focus-visible:outline-orange-600 dark:text-gray-400 dark:hover:bg-gray-700 md:mt-2 xl:mt-4 print:hidden"
         >
           <span className="hidden md:block">Print version!</span>
           <Print />
