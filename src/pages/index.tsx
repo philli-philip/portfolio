@@ -128,7 +128,7 @@ const Home: NextPage = () => {
           </div>
         </section>
         <section className="container px-8 md:px-0">
-          <div className="lg:grid-cols-5xl:mx-auto grid grid-cols-2 place-items-center border-t border-l border-gray-200 md:grid-cols-3">
+          <div className="lg:grid-cols-5xl mx-auto grid grid-cols-2 place-items-center border-t border-l border-gray-200 md:grid-cols-4">
             {brands.map((item, index) => (
               <div
                 key={index}
