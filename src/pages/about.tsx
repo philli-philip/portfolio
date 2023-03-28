@@ -163,7 +163,6 @@ const About = () => {
       <Head>
         <title>About Philip</title>
         <meta name="description" content="Philip's CV" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="relative mx-auto mt-20 px-8 text-gray-800 md:container dark:text-gray-200 lg:pl-36 print:mt-8 print:max-w-full print:text-gray-800">
         <h1 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl xl:text-6xl print:mb-2 print:text-4xl">
