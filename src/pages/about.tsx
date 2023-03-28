@@ -3,7 +3,7 @@ import { groupBy } from "lodash";
 import Head from "next/head";
 import Print from "../components/icons/print";
 import LeftArrow from "../components/icons/left-arrow";
-import { useRouter } from "next/router";
+import Link from "next/link";
 
 const content = [
   {
@@ -157,7 +157,6 @@ const About = () => {
     window.print();
   };
 
-  const router = useRouter();
   return (
     <>
       <Head>
@@ -168,12 +167,12 @@ const About = () => {
         <h1 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl xl:text-6xl print:mb-2 print:text-4xl">
           Philip Mattha
         </h1>
-        <button
-          onClick={() => router.back()}
+        <Link
+          href="/"
           className=" absolute hidden rounded-lg bg-gray-800 p-2 text-white shadow-lg hover:bg-gray-900 focus-visible:outline-orange-600 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 md:block md:-translate-y-[56px] md:-translate-x-12 lg:-translate-x-16 lg:-translate-y-[64px] lg:p-3 xl:-translate-y-[72px]"
         >
           <LeftArrow />
-        </button>
+        </Link>
         <button
           onClick={handlePrint}
           className="absolute top-0 right-0 mr-8 flex h-12 flex-row place-content-center items-center gap-4 rounded-lg p-3 text-sm text-gray-600 hover:bg-gray-100 focus-visible:outline-orange-600 dark:text-gray-400 dark:hover:bg-gray-700 md:mt-2 xl:mt-4 print:hidden"
