@@ -5,6 +5,7 @@ import Head from "next/head";
 import Image from "next/image";
 import LeftArrow from "../../components/icons/left-arrow";
 import Router from "next/router";
+import { createClient } from "next-sanity";
 
 const Category = ["product", "industrial", "code"] as const;
 type Category = (typeof Category)[number];
@@ -84,8 +85,24 @@ const items: Item[] = [
   },
 ];
 
-const Projects = () => {
+const client = createClient({
+  projectId: process.env.SANITY_PROJECT_ID,
+  dataset: "production",
+  useCdn: false,
+});
+
+export async function getStaticProps() {
+  const posts = await client.fetch(`*[_type == "post"]`);
+  return {
+    props: {
+      posts,
+    },
+  };
+}
+
+const Projects = ({ posts }) => {
   const [currentFilter, setCurrentFilter] = useState("");
+  console.log(posts);
   return (
     <>
       <Head>
@@ -112,6 +129,7 @@ const Projects = () => {
           <div className="whitespace-nowrap pl-8 pr-16 md:pl-0">
             {filters.map((item, index) => (
               <button
+                key={index}
                 onClick={(e) => {
                   setCurrentFilter(item.filter);
                   console.log(e);
@@ -136,8 +154,9 @@ const Projects = () => {
               return item.category == currentFilter;
             })
             .sort((a, b) => (a.year < b.year ? 1 : -1))
-            .map((item) => (
+            .map((item, index) => (
               <Link
+                key={index}
                 href={`/projects${item.link}`}
                 className="group relative mb-6 block"
               >
@@ -147,6 +166,7 @@ const Projects = () => {
                     style={{ objectFit: "cover" }}
                     src={item.image}
                     alt={item.imageAlt ? item.imageAlt : ""}
+                    priority
                   />
                 </div>
                 <div className="bottom-16 ml-2 mt-2 md:absolute md:bottom-6 md:left-6 md:hidden md:group-hover:block">
