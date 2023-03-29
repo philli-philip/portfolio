@@ -2,13 +2,13 @@
 
 Based on [T3 Stack](https://create.t3.gg/) and bootstrapped with `create-t3-app`.
 
-## Next steps
+## MVP
 
-- [ ] Project Overview page
+- [x] Project Overview page
 - [ ] Solve where to link current job to
-- [ ] Decide if each project is hand-built or based on CMS (hand build is currently preferred)
+- [x] Decide if each project is hand-built or based on CMS (Sanity.io)
 - [ ] Article Overview
-- [ ] Articles should be based on .mdx format/files
+- [x] Articles should be based on .mdx format/files (Sanity.io and Portable Text)
 
 ## Local Dev
 
