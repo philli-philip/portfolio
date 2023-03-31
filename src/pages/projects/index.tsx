@@ -4,13 +4,11 @@ import Footer from "../../components/Footer";
 import Head from "next/head";
 import Image from "next/image";
 import LeftArrow from "../../components/icons/left-arrow";
-import Router from "next/router";
 import { createClient } from "next-sanity";
+import type { GetStaticProps, InferGetStaticPropsType } from "next";
+import { getYear, parseJSON } from "date-fns";
 
-const Category = ["product", "industrial", "code"] as const;
-type Category = (typeof Category)[number];
-
-const filters: { filter: Category | ""; label: string }[] = [
+const filters: { filter: string | ""; label: string }[] = [
   { filter: "", label: "All" },
   { filter: "product", label: "Product Design" },
   { filter: "industrial", label: "Industrial Design" },
@@ -19,71 +17,12 @@ const filters: { filter: Category | ""; label: string }[] = [
 
 type Item = {
   title?: string;
-  image: string;
-  category: Category;
-  year: number;
-  link: string;
+  imageURL: string;
+  category: string;
+  publishedAt: Date;
+  slug: string;
   imageAlt?: string;
 };
-
-const items: Item[] = [
-  {
-    title: "Industrial Project",
-    image: "/img/example.png",
-    category: "industrial",
-    year: 2022,
-    link: "/industrial_project",
-  },
-  {
-    title: "Product Project",
-    image: "/img/example.png",
-    category: "product",
-    year: 2010,
-    link: "/product_project",
-  },
-  {
-    title: "Code Project",
-    image: "/img/example.png",
-    category: "code",
-    year: 2012,
-    link: "/product_project",
-  },
-  {
-    title: "Code Project",
-    image: "/img/example.png",
-    category: "code",
-    year: 2012,
-    link: "/product_project",
-  },
-  {
-    title: "Code Project",
-    image: "/img/example.png",
-    category: "code",
-    year: 2012,
-    link: "/product_project",
-  },
-  {
-    title: "Code Project",
-    image: "/img/example.png",
-    category: "code",
-    year: 2012,
-    link: "/product_project",
-  },
-  {
-    title: "Code Project",
-    image: "/img/example.png",
-    category: "code",
-    year: 2012,
-    link: "/product_project",
-  },
-  {
-    title: "Code Project",
-    image: "/img/example.png",
-    category: "code",
-    year: 2012,
-    link: "/product_project",
-  },
-];
 
 const client = createClient({
   projectId: process.env.SANITY_PROJECT_ID,
@@ -91,18 +30,32 @@ const client = createClient({
   useCdn: false,
 });
 
-export async function getStaticProps() {
-  const posts = await client.fetch(`*[_type == "post"]`);
+export const getStaticProps: GetStaticProps<{ posts: Item[] }> = async () => {
+  const posts = await client.fetch(
+    `
+      *[_type == "post"]
+      {
+        _id,
+        "slug" : slug.current,
+        "imageURL" : mainImage.asset->url,
+        title,
+        publishedAt,
+        "categories" :categories,
+      } 
+      | order(publishedAt desc)
+    `
+  );
   return {
     props: {
       posts,
     },
   };
-}
+};
 
-const Projects = ({ posts }) => {
+const Projects = ({
+  posts,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [currentFilter, setCurrentFilter] = useState("");
-  console.log(posts);
   return (
     <>
       <Head>
@@ -145,28 +98,28 @@ const Projects = ({ posts }) => {
             ))}
           </div>
         </div>
-        <div className="gap-6 md:columns-2 lg:columns-3">
-          {items
+        <div className="flex flex-wrap">
+          {posts
             .filter((item) => {
               if (currentFilter === "") {
-                return items;
+                return posts;
               }
               return item.category == currentFilter;
             })
-            .sort((a, b) => (a.year < b.year ? 1 : -1))
             .map((item, index) => (
               <Link
                 key={index}
-                href={`/projects${item.link}`}
-                className="group relative mb-6 block"
+                href={`/projects/${item.slug}`}
+                className="group relative mb-6 block basis-1/3 pr-6"
               >
-                <div className="relative aspect-video flex-grow">
+                <div className="relative aspect-video flex-grow overflow-hidden border border-transparent hover:border-gray-200">
                   <Image
                     fill
                     style={{ objectFit: "cover" }}
-                    src={item.image}
+                    src={item.imageURL}
                     alt={item.imageAlt ? item.imageAlt : ""}
                     priority
+                    className=" duration-[50ms] group-hover:blur-sm"
                   />
                 </div>
                 <div className="bottom-16 ml-2 mt-2 md:absolute md:bottom-6 md:left-6 md:hidden md:group-hover:block">
@@ -174,7 +127,7 @@ const Projects = ({ posts }) => {
                     {item.title}
                   </h3>
                   <p className="ml-4 inline text-gray-400 mix-blend-exclusion md:ml-0">
-                    {item.year}
+                    {getYear(parseJSON(item.publishedAt))}
                   </p>
                 </div>
               </Link>
