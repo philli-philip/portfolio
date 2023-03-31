@@ -12,6 +12,7 @@ import SpokeLogo from "../components/icons/spoke";
 import N26Logo from "../components/icons/n26";
 import LekkaLogo from "../components/icons/lekka";
 import FortoLogo from "../components/icons/forto";
+import DeutscheBankLogo from "../components/icons/deutscheBank";
 
 const shortCuts = [
   {
@@ -33,24 +34,28 @@ const shortCuts = [
 
 const brands = [
   {
-    alt: "N26",
-    src: <N26Logo width={46} height={31} />,
-  },
-  {
-    alt: "UBS",
-    src: <UbsLogo width={66} height={32} />,
+    alt: "Deutsche Bank",
+    src: <DeutscheBankLogo width={40} height={40} />,
   },
   {
     alt: "REO",
     src: <ReoLogo width={85} height={32} />,
   },
   {
-    alt: "Forto",
-    src: <FortoLogo width={82} height={20} />,
+    alt: "UBS",
+    src: <UbsLogo width={66} height={32} />,
   },
   {
     alt: "Spoke",
     src: <SpokeLogo height={24} width={72} />,
+  },
+  {
+    alt: "N26",
+    src: <N26Logo width={46} height={31} />,
+  },
+  {
+    alt: "Forto",
+    src: <FortoLogo width={82} height={20} />,
   },
   {
     alt: "Lekka",
