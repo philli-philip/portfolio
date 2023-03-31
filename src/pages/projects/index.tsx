@@ -10,15 +10,15 @@ import { getYear, parseJSON } from "date-fns";
 
 const filters: { filter: string | ""; label: string }[] = [
   { filter: "", label: "All" },
-  { filter: "product", label: "Product Design" },
-  { filter: "industrial", label: "Industrial Design" },
-  { filter: "code", label: "Code" },
+  { filter: "Product Design", label: "Product Design" },
+  { filter: "Industrial Design", label: "Industrial Design" },
+  { filter: "Code", label: "Code" },
 ];
 
 type Item = {
   title?: string;
   imageURL: string;
-  category: string;
+  categories: string;
   publishedAt: Date;
   slug: string;
   imageAlt?: string;
@@ -40,7 +40,7 @@ export const getStaticProps: GetStaticProps<{ posts: Item[] }> = async () => {
         "imageURL" : mainImage.asset->url,
         title,
         publishedAt,
-        "categories" :categories,
+        "categories" :categories[] ->title,
       } 
       | order(publishedAt desc)
     `
@@ -104,7 +104,7 @@ const Projects = ({
               if (currentFilter === "") {
                 return posts;
               }
-              return item.category == currentFilter;
+              return item.categories == currentFilter;
             })
             .map((item, index) => (
               <Link
