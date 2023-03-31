@@ -31,7 +31,7 @@ const client = createClient({
 });
 
 export const getStaticProps: GetStaticProps<{ posts: Item[] }> = async () => {
-  const posts = await client.fetch(
+  const posts: Item[] = await client.fetch(
     `
       *[_type == "post"]
       {
