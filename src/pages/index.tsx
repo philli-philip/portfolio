@@ -2,7 +2,6 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import KeyBoardButton from "../components/KeyBoardButton";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import { useHotkeys } from "react-hotkeys-hook";
 import Footer from "../components/Footer";
@@ -66,9 +65,9 @@ const brands = [
 const Home: NextPage = () => {
   const router = useRouter();
 
-  useHotkeys("b", () => router.push("/blog"));
-  useHotkeys("c", () => router.push("/about"));
-  useHotkeys("p", () => router.push("/projects"));
+  useHotkeys("b", () => void router.push("/blog"));
+  useHotkeys("c", () => void router.push("/about"));
+  useHotkeys("p", () => void router.push("/projects"));
 
   return (
     <>

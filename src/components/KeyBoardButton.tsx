@@ -1,5 +1,4 @@
-import React, { ReactNode } from "react";
-import { Children } from "react";
+import React from "react";
 
 type Props = {
   children?: React.ReactNode;
@@ -9,7 +8,9 @@ type Props = {
 const KeyBoardButton = (props: Props) => {
   return (
     <kbd
-      className={`hidden rounded bg-gray-100 px-1 py-[px] font-mono text-xs dark:bg-gray-800 md:inline ${props.className}`}
+      className={`hidden rounded bg-gray-100 px-1 py-[px] font-mono text-xs dark:bg-gray-800 md:inline ${
+        props.className || ""
+      }`}
     >
       {props.children}
     </kbd>
