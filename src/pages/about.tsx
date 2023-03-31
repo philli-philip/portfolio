@@ -1,11 +1,10 @@
 import Footer from "../components/Footer";
-import { groupBy } from "lodash";
 import Head from "next/head";
 import Print from "../components/icons/print";
 import LeftArrow from "../components/icons/left-arrow";
 import Link from "next/link";
 
-const content = [
+const content: Experience[] = [
   {
     type: "Experience",
     title: "Deutsche Bank",
@@ -128,29 +127,23 @@ const content = [
   },
 ];
 
-type AboutContent = {
-  Dictionary: Entry[];
-};
-
-type Entry = {
+type Experience = {
   type: string;
   title: string;
   timeStart: string;
   timeEnd?: string;
-  description: string;
+  description?: string;
 };
 
-const grouppedContent: any = groupBy(content, function (x) {
-  return x.type;
-});
+const groupBy = <T, K extends keyof any>(list: T[], getKey: (item: T) => K) =>
+  list.reduce((previous, currentItem) => {
+    const group = getKey(currentItem);
+    if (!previous[group]) previous[group] = [];
+    previous[group].push(currentItem);
+    return previous;
+  }, {} as Record<K, T[]>);
 
-const groupByCategory = content.reduce((group: any, product) => {
-  const { type } = product;
-  group[type] = group[type] ?? [];
-  group[type].push(product);
-
-  return group;
-}, {});
+const categorizedData = groupBy(content, (content) => content.type);
 
 const About = () => {
   const handlePrint = () => {
@@ -188,8 +181,8 @@ const About = () => {
           +49 1590 6800728
         </p>
         <section className="print:columns-2 print:gap-24">
-          {Object.keys(grouppedContent).map((sections, index) => (
-            <section className="relative">
+          {Object.keys(categorizedData).map((sections, index) => (
+            <section className="relative" key={index}>
               <h2
                 key={index}
                 className="mb-6 mt-8 max-w-2xl text-lg text-gray-500 dark:text-gray-400 lg:absolute lg:right-full lg:mt-0 lg:pr-6 print:absolute print:mt-0 print:mb-1 print:block print:w-[100px] print:translate-y-[50px] print:-translate-x-[70px] print:-rotate-90 print:text-right print:text-sm"
@@ -197,21 +190,23 @@ const About = () => {
                 {sections}
               </h2>
               <ul className="max-w-2xl lg:mt-12 print:mt-12 print:break-inside-avoid">
-                {grouppedContent[sections].map((item: Entry, index: number) => (
-                  <li key={index} className="mb-6 print:mb-4 ">
-                    <h3 className="mr-4 inline-block text-lg font-medium text-gray-800 dark:text-gray-200 print:mr-2 print:text-sm">
-                      {item.title}
-                    </h3>
-                    <span className="text-lg text-gray-600 dark:text-gray-400 print:text-sm">
-                      {item.timeStart}
+                {content
+                  .filter((item) => item.type === sections)
+                  .map((item, index) => (
+                    <li key={index} className="mb-6 print:mb-4 ">
+                      <h3 className="mr-4 inline-block text-lg font-medium text-gray-800 dark:text-gray-200 print:mr-2 print:text-sm">
+                        {item.title}
+                      </h3>
+                      <span className="text-lg text-gray-600 dark:text-gray-400 print:text-sm">
+                        {item.timeStart}
 
-                      {item.timeEnd && <span> – {item.timeEnd}</span>}
-                    </span>
-                    <p className="text-gray-600 dark:text-gray-400 print:text-xs">
-                      {item.description}
-                    </p>
-                  </li>
-                ))}
+                        {item.timeEnd && <span> – {item.timeEnd}</span>}
+                      </span>
+                      <p className="text-gray-600 dark:text-gray-400 print:text-xs">
+                        {item.description}
+                      </p>
+                    </li>
+                  ))}
               </ul>
             </section>
           ))}
