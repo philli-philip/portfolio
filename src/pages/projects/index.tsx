@@ -2,7 +2,6 @@ import Link from "next/link";
 import { useState } from "react";
 import Footer from "../../components/Footer";
 import Head from "next/head";
-import Image from "next/image";
 import LeftArrow from "../../components/icons/left-arrow";
 import { createClient } from "next-sanity";
 import type { GetStaticProps, InferGetStaticPropsType } from "next";
@@ -112,14 +111,11 @@ const Projects = ({
                 href={`/projects/${item.slug}`}
                 className="group relative mb-6 block basis-1/3 pr-6"
               >
-                <div className="relative aspect-video flex-grow overflow-hidden border border-transparent hover:border-gray-200">
-                  <Image
-                    fill
-                    style={{ objectFit: "cover" }}
-                    src={item.imageURL}
-                    alt={item.imageAlt ? item.imageAlt : ""}
-                    priority
-                    className=" duration-[50ms] group-hover:blur-sm"
+                <div className="relative flex aspect-video flex-grow overflow-hidden border border-transparent hover:border-gray-200">
+                  <img
+                    src={item.imageURL + "?w=980&fit=max"}
+                    alt={item.imageAlt && item.imageAlt}
+                    className="flex-grow duration-[50ms] group-hover:blur-sm"
                   />
                 </div>
                 <div className="bottom-16 ml-2 mt-2 md:absolute md:bottom-6 md:left-6 md:hidden md:group-hover:block">
