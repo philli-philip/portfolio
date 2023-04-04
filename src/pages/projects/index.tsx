@@ -110,13 +110,13 @@ const Projects = ({
               <Link
                 key={index}
                 href={`/projects/${item.slug}`}
-                className="group relative mb-6 block basis-1/3 pr-6"
+                className="group relative mb-6 block sm:basis-1/3 sm:pr-6"
               >
                 <div className="relative flex aspect-video flex-grow overflow-hidden border border-transparent hover:border-gray-200">
                   <img
                     src={item.imageURL + "?w=980&fit=max"}
                     alt={item.imageAlt && item.imageAlt}
-                    className="flex-grow duration-[50ms] group-hover:blur-sm"
+                    className="flex-grow duration-[50ms] sm:group-hover:blur-sm"
                   />
                 </div>
                 <div className="bottom-16 ml-2 mt-2 md:absolute md:bottom-6 md:left-6 md:hidden md:group-hover:block">
