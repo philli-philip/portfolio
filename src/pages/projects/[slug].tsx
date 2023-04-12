@@ -1,6 +1,9 @@
-import type { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import sanityClient from "../../utils/sanity-client";
-import type { ParsedUrlQuery } from "querystring";
+import { ParsedUrlQuery } from "querystring";
+import Link from "next/link";
+import RightArrow from "../../components/icons/right-arrow";
+import LeftArrow from "../../components/icons/left-arrow";
 
 type Post = {
   body?: [];
@@ -50,10 +53,44 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 const Post = ({ post }: { post: Post }) => {
   return (
-    <>
+    <article className="container mx-auto">
       <h1>article: {post?.title}</h1>
       <p>route: {post?.slug?.current}</p>
-    </>
+      <div className="flex flex-row ">
+        <Link
+          href={"/"}
+          className="group relative w-1/2 overflow-hidden border-t border-b border-l border-gray-200 px-6 py-6"
+        >
+          <div className="flex flex-row">
+            <span className="mr-0 w-0 opacity-0 duration-75 group-hover:mr-2 group-hover:w-4 group-hover:opacity-100">
+              <LeftArrow width={16} strokeWeight={3} />
+            </span>
+            <h4 className="inline font-semibold text-gray-700">
+              Previous Projects
+            </h4>
+          </div>
+          <p className="text-sm text-gray-500">How to teach junior designer?</p>
+          <span className=" absolute -z-10 aspect-square h-32 animate-random-walk-fast rounded-full bg-gradient-to-br from-green-300 to-green-400 opacity-0 blur-lg duration-500 group-hover:opacity-80"></span>
+        </Link>
+        <Link
+          href={"/"}
+          className="group relative w-1/2 overflow-hidden border border-gray-200 px-6 py-6"
+        >
+          <div className="flex flex-row justify-end">
+            <h4 className="inline text-right font-semibold text-gray-700">
+              Next Projects
+            </h4>
+            <span className="ml-0 w-0 opacity-0 duration-75 group-hover:ml-2 group-hover:w-4 group-hover:opacity-100">
+              <RightArrow width={16} strokeWeight={3} />
+            </span>
+          </div>
+          <p className="text-right text-sm text-gray-500">
+            How to teach junior designer?
+          </p>
+          <span className=" absolute -z-10 aspect-square h-32 animate-random-walk-fast rounded-full bg-gradient-to-br from-orange-300 to-orange-400 opacity-0 blur-lg duration-500 group-hover:opacity-80"></span>
+        </Link>
+      </div>
+    </article>
   );
 };
 
