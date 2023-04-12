@@ -1,6 +1,6 @@
-import { GetStaticPaths, GetStaticProps } from "next";
+import type { GetStaticPaths, GetStaticProps } from "next";
 import sanityClient from "../../utils/sanity-client";
-import { ParsedUrlQuery } from "querystring";
+import type { ParsedUrlQuery } from "querystring";
 
 type Post = {
   body?: [];
@@ -16,11 +16,11 @@ interface Params extends ParsedUrlQuery {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = await sanityClient.fetch(
+  const paths: string[] = await sanityClient.fetch(
     `*[_type == "post" && defined(slug.current)][].slug.current`
   );
   return {
-    paths: paths.map((slug: any) => ({ params: { slug } })),
+    paths: paths.map((slug: string) => ({ params: { slug } })),
     fallback: true,
   };
 };
@@ -28,7 +28,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const { slug = "0e326dce-111a-4637-9c52-b8a92e09501c" } =
     context.params as Params;
-  const post: any = await sanityClient.fetch(
+  const post: Post[] = await sanityClient.fetch(
     `
       *[_type == "post" && slug.current == $slug][0]
       {
