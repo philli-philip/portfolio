@@ -135,6 +135,7 @@ type Experience = {
   description?: string;
 };
 
+// eslint-disable-next-line  @typescript-eslint/no-explicit-any
 const groupBy = <T, K extends keyof any>(list: T[], getKey: (item: T) => K) =>
   list.reduce((previous, currentItem) => {
     const group = getKey(currentItem);
