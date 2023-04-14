@@ -117,7 +117,7 @@ const Projects = ({
             .map((item, index) => (
               <Link
                 key={index}
-                href={`/projects/${item.slug}`}
+                href="#"
                 className="group relative mb-6 block sm:basis-1/3 sm:pr-6"
               >
                 <div className="relative flex aspect-video flex-grow overflow-hidden border border-transparent hover:border-gray-200">
