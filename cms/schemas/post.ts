@@ -32,6 +32,14 @@ export default defineType({
       options: {
         hotspot: true,
       },
+      fields: [
+        {
+          name: 'caption',
+          type: 'string',
+          title: 'Caption',
+          validation: (Rule) => Rule.required(),
+        },
+      ],
     }),
     defineField({
       name: 'categories',

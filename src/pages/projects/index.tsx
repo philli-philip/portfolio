@@ -33,6 +33,7 @@ export const getStaticProps: GetStaticProps<{
         _id,
         "slug" : slug.current,
         "imageURL" : mainImage.asset->url,
+        "imageAlt" : mainImage.caption,
         title,
         publishedAt,
         "categories" :categories[] ->title,
