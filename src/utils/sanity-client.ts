@@ -1,4 +1,6 @@
 import { createClient } from "next-sanity";
+import imageUrlBuilder from "@sanity/image-url";
+import { ImageUrlBuilder } from "sanity";
 
 const sanityClient = createClient({
   projectId: "tbbskh2a",
@@ -7,4 +9,11 @@ const sanityClient = createClient({
   useCdn: false,
 });
 
+const sanityUrlBuilder = imageUrlBuilder(sanityClient);
+
+const imageUrl = (source: string): ImageUrlBuilder => {
+  return sanityUrlBuilder.image(source);
+};
+
 export default sanityClient;
+export { imageUrl, sanityClient };
