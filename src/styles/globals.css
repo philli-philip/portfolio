@@ -4,6 +4,6 @@
 
 @layer base {
     html {
-        @apply bg-white dark:bg-slate-900;
+        @apply bg-white dark:bg-slate-900 dark:from-gray-800 from-transparent to-gray-100 bg-gradient-to-br dark:to-transparent min-h-screen;
     }
 }
