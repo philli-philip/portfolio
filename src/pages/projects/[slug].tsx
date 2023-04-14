@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps } from "next";
+import type { GetStaticPaths, GetStaticProps } from "next";
 import sanityClient from "../../utils/sanity-client";
 import { ParsedUrlQuery } from "querystring";
 import Link from "next/link";
@@ -70,7 +70,7 @@ const Post = ({ post }: { post: Post }) => {
             </h4>
           </div>
           <p className="text-sm text-gray-500">How to teach junior designer?</p>
-          <span className=" absolute -z-10 aspect-square h-32 animate-random-walk-fast rounded-full bg-gradient-to-br from-green-300 to-green-400 opacity-0 blur-lg duration-500 group-hover:opacity-80"></span>
+          <span className=" animate-random-walk-fast absolute -z-10 aspect-square h-32 rounded-full bg-gradient-to-br from-green-300 to-green-400 opacity-0 blur-lg duration-500 group-hover:opacity-80"></span>
         </Link>
         <Link
           href={"/"}
@@ -87,7 +87,7 @@ const Post = ({ post }: { post: Post }) => {
           <p className="text-right text-sm text-gray-500">
             How to teach junior designer?
           </p>
-          <span className=" absolute -z-10 aspect-square h-32 animate-random-walk-fast rounded-full bg-gradient-to-br from-orange-300 to-orange-400 opacity-0 blur-lg duration-500 group-hover:opacity-80"></span>
+          <span className=" animate-random-walk-fast absolute -z-10 aspect-square h-32 rounded-full bg-gradient-to-br from-orange-300 to-orange-400 opacity-0 blur-lg duration-500 group-hover:opacity-80"></span>
         </Link>
       </div>
     </article>
