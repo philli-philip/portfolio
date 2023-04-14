@@ -6,13 +6,7 @@ import LeftArrow from "../../components/icons/left-arrow";
 import { createClient } from "next-sanity";
 import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import { getYear, parseJSON } from "date-fns";
-
-const filters: { filter: string | ""; label: string }[] = [
-  { filter: "", label: "All" },
-  { filter: "Product Design", label: "Product Design" },
-  { filter: "Industrial Design", label: "Industrial Design" },
-  { filter: "Code", label: "Code" },
-];
+import sanityClient from "../../utils/sanity-client";
 
 type Item = {
   title?: string;
@@ -23,14 +17,16 @@ type Item = {
   imageAlt?: string;
 };
 
-const client = createClient({
-  projectId: process.env.SANITY_PROJECT_ID,
-  dataset: "production",
-  useCdn: false,
-});
+type Category = {
+  title: string;
+  _id: string;
+};
 
-export const getStaticProps: GetStaticProps<{ posts: Item[] }> = async () => {
-  const posts: Item[] = await client.fetch(
+export const getStaticProps: GetStaticProps<{
+  posts: Item[];
+  categories: Category[];
+}> = async () => {
+  const posts: Item[] = await sanityClient.fetch(
     `
       *[_type == "post"]
       {
@@ -44,9 +40,20 @@ export const getStaticProps: GetStaticProps<{ posts: Item[] }> = async () => {
       | order(publishedAt desc)
     `
   );
+
+  const all: Category[] = [{ _id: "0", title: "All" }];
+  const categories = all.concat(
+    await sanityClient.fetch(
+      `
+      *[_type == "category"]
+    `
+    )
+  );
+
   return {
     props: {
       posts,
+      categories,
     },
     revalidate: 10,
   };
@@ -54,8 +61,9 @@ export const getStaticProps: GetStaticProps<{ posts: Item[] }> = async () => {
 
 const Projects = ({
   posts,
+  categories,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const [currentFilter, setCurrentFilter] = useState("");
+  const [currentFilter, setCurrentFilter] = useState("All");
   return (
     <>
       <Head>
@@ -78,22 +86,22 @@ const Projects = ({
           <span className="hidden pr-2 text-gray-400"></span>
           <h1 className="inline">Projects</h1>
         </div>
-        <div className=" overflow-auto [@media(max-width:767px)]:scrollbar-hide">
+        <div className="overflow-auto [@media(max-width:767px)]:scrollbar-hide">
           <div className="whitespace-nowrap pl-8 pr-16 md:pl-0">
-            {filters.map((item, index) => (
+            {categories.map((item, index) => (
               <button
                 key={index}
                 onClick={(e) => {
-                  setCurrentFilter(item.filter);
+                  setCurrentFilter(item.title);
                   console.log(e);
                 }}
                 className={`my-2 py-2 pr-4 text-2xl font-bold md:mb-16 md:py-0 md:pr-6 md:text-5xl ${
-                  item.filter === currentFilter
+                  item.title === currentFilter
                     ? "text-gray-900 dark:text-gray-50"
                     : `text-gray-400 dark:text-gray-400`
                 }`}
               >
-                {item.label}
+                {item.title}
               </button>
             ))}
           </div>
@@ -101,7 +109,7 @@ const Projects = ({
         <div className="flex flex-wrap">
           {posts
             .filter((item) => {
-              if (currentFilter === "") {
+              if (currentFilter === "All") {
                 return posts;
               }
               return item.categories == currentFilter;
