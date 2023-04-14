@@ -12,21 +12,21 @@ const Footer = (props: Props) => {
     >
       <Link
         href={"/about"}
-        className=" hover:text-gray-700 focus:text-gray-200 focus:underline focus:outline-none dark:hover:text-gray-200 sm:mr-auto"
+        className=" hover:text-gray-900 focus:text-gray-200 focus:underline focus:outline-none dark:hover:text-gray-200 sm:mr-auto"
       >
         Made in Berlin
       </Link>
       <span>
         See website{" "}
         <Link
-          className="font-semibold hover:text-gray-700 dark:hover:text-gray-200"
+          className="font-semibold hover:text-gray-900 dark:hover:text-gray-200"
           href={"https://github.com/philli-philip/portfolio"}
         >
           on Github
         </Link>{" "}
         or{" "}
         <Link
-          className="font-semibold hover:text-gray-700 dark:hover:text-gray-200"
+          className="font-semibold hover:text-gray-900 dark:hover:text-gray-200"
           href={
             "https://www.figma.com/file/52gMlCyh7Ow6RS7H2xqBIP/Philip-Portfolio?node-id=0%3A1&t=2qExAbU5fJkML9S8-1"
           }
@@ -36,7 +36,7 @@ const Footer = (props: Props) => {
         .
       </span>
       <Link
-        className="hover:text-gray-700 dark:hover:text-gray-200"
+        className="hover:text-gray-900 dark:hover:text-gray-200"
         href={"/impressum"}
       >
         Impressm
