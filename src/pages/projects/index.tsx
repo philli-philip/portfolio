@@ -3,7 +3,6 @@ import { useState } from "react";
 import Footer from "../../components/Footer";
 import Head from "next/head";
 import LeftArrow from "../../components/icons/left-arrow";
-import { createClient } from "next-sanity";
 import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import { getYear, parseJSON } from "date-fns";
 import sanityClient from "../../utils/sanity-client";
@@ -80,7 +79,7 @@ const Projects = ({
           </Link>
           <Link
             href="/"
-            className="mr-1 -ml-1 inline hidden rounded p-1 text-gray-400 hover:bg-gray-100"
+            className="mr-1 -ml-1 hidden rounded p-1 text-gray-400 hover:bg-gray-100"
           >
             Home
           </Link>
