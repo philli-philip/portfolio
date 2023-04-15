@@ -7,7 +7,7 @@ import Footer from "../../components/Footer";
 type Article = {
   title: string;
   slug: string;
-  publishedAt: string;
+  publishedAt: Date;
   imageURL?: string;
 };
 
@@ -76,7 +76,8 @@ const Blog = ({ articles }: InferGetStaticPropsType<typeof getStaticProps>) => {
                     </h2>
                     <p className="hidden text-sm text-gray-500 md:block">
                       Published:{" "}
-                      {format(parseJSON(article.publishedAt), "dd MMM yyyy")}
+                      {article.publishedAt &&
+                        format(parseJSON(article.publishedAt), "dd MMM yyyy")}
                     </p>
                   </div>
                 </Link>
