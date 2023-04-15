@@ -7,7 +7,7 @@
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
-    "sanity": "cd cms && sanity start"
+    "sanity": "cd cms && sanity dev"
   },
   "dependencies": {
     "@sanity/image-url": "^1.0.2",
