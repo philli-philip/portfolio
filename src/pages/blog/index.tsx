@@ -71,7 +71,7 @@ const Blog = ({ articles }: InferGetStaticPropsType<typeof getStaticProps>) => {
                     </figure>
                   )}
                   <div className="ml-6">
-                    <h2 className="block text-xl font-semibold text-gray-700 md:mb-1">
+                    <h2 className="block text-xl font-semibold text-gray-700 dark:text-gray-300 md:mb-1">
                       {article.title}
                     </h2>
                     <p className="hidden text-sm text-gray-500 md:block">
