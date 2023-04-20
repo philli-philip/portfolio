@@ -118,7 +118,7 @@ const Projects = ({
               <Link
                 key={index}
                 href="#"
-                className="group relative mb-8 block aspect-video duration-75 sm:mb-0 sm:basis-1/2 sm:p-6 hover:sm:p-0 lg:basis-1/3"
+                className="group relative mb-8 block aspect-video duration-75 sm:mb-0 sm:basis-1/2 sm:p-6 hover:sm:p-0 hover:sm:shadow-2xl lg:basis-1/3"
               >
                 <img
                   src={item.imageURL + "?w=980&fit=max"}
