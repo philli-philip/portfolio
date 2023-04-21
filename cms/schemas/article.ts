@@ -34,7 +34,7 @@ export default defineType({
     defineField({
       name: 'publishedAt',
       title: 'Published at',
-      type: 'date',
+      type: 'datetime',
     }),
     defineField({
       name: 'body',
