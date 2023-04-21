@@ -140,8 +140,12 @@ const Blog = ({
                             "dd MMM yyyy"
                           )}
                         </p>
-                        {article.categories.map((category) => {
-                          return <span className="mr-2 ">#{category}</span>;
+                        {article.categories.map((category, index) => {
+                          return (
+                            <span className="mr-2 " key={index}>
+                              #{category}
+                            </span>
+                          );
                         })}
                       </span>
                     </div>
