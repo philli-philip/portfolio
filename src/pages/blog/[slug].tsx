@@ -6,7 +6,7 @@ import type { TypedObject } from "sanity";
 import Footer from "../../components/Footer";
 import Head from "next/head";
 import Link from "next/link";
-import { format, parseJSON } from "date-fns";
+import { format } from "date-fns";
 
 type Article = {
   title: string;
@@ -83,7 +83,7 @@ const Article = ({ article }: { article: Article }) => {
                 format(Date.parse(article.publishedAt), "dd MMM yyy")}
           </span>
           <span>
-            {article.categories.map((category, index) => {
+            {article?.categories.map((category, index) => {
               return (
                 <span className="mr-2 " key={index}>
                   #{category}
