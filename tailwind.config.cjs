@@ -16,6 +16,9 @@ module.exports = {
           '66%': { transform: 'translate(14%,-16%)' },
         },
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      }
     },
   },
   plugins: [
