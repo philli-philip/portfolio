@@ -8,7 +8,7 @@ import { useState } from "react";
 type Article = {
   title: string;
   slug: string;
-  publishedAt: Date;
+  publishedAt: string;
   imageURL?: string;
   categories: string[];
 };
