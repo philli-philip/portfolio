@@ -1,18 +1,19 @@
-import { GetStaticPaths, GetStaticProps } from "next";
+import type { GetStaticPaths, GetStaticProps } from "next";
 import sanityClient from "../../utils/sanity-client";
-import { ParsedUrlQuery } from "querystring";
+import type { ParsedUrlQuery } from "querystring";
 import PortableText from "react-portable-text";
 import type { TypedObject } from "sanity";
 import Footer from "../../components/Footer";
 import Head from "next/head";
 import Link from "next/link";
-import { format, parseJSON } from "date-fns";
+import { format } from "date-fns";
 
 type Article = {
   title: string;
   body: TypedObject[];
   _id: string;
   publishedAt: string;
+  categories: string[];
 };
 
 interface Params extends ParsedUrlQuery {
@@ -21,7 +22,7 @@ interface Params extends ParsedUrlQuery {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths: string[] = await sanityClient.fetch(
-    `*[_type == "post" && defined(slug.current)][].slug.current`
+    `*[_type == "article" && defined(slug.current)][].slug.current`
   );
   return {
     paths: paths.map((slug: string) => ({ params: { slug } })),
@@ -41,6 +42,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
           body,
           slug,
           _id,
+          "categories" :categories[] ->title,
         }
         `,
     { slug }
@@ -49,6 +51,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       article,
     },
+    revalidate: 10,
   };
 };
 
@@ -74,9 +77,20 @@ const Article = ({ article }: { article: Article }) => {
           {article?.title}
         </h1>
         <span className="mb-6 block text-lg font-light text-gray-500">
-          {article?.publishedAt &&
-            "Published on: " +
-              format(parseJSON(article.publishedAt), "dd MMM yyy")}
+          <span className="mr-2">
+            {article?.publishedAt &&
+              "Published on: " +
+                format(Date.parse(article.publishedAt), "dd MMM yyy")}
+          </span>
+          <span>
+            {article?.categories?.map((category, index) => {
+              return (
+                <span className="mr-2 " key={index}>
+                  #{category}
+                </span>
+              );
+            })}
+          </span>
         </span>
 
         {article?.body && (

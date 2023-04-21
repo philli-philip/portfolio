@@ -1,6 +1,6 @@
 import { createClient } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
-import { ImageUrlBuilder } from "sanity";
+import type { ImageUrlBuilder } from "sanity";
 
 const sanityClient = createClient({
   projectId: "tbbskh2a",

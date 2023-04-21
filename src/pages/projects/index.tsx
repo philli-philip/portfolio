@@ -3,7 +3,6 @@ import { useState } from "react";
 import Footer from "../../components/Footer";
 import Head from "next/head";
 import LeftArrow from "../../components/icons/left-arrow";
-import { createClient } from "next-sanity";
 import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import { getYear, parseJSON } from "date-fns";
 import sanityClient from "../../utils/sanity-client";
@@ -80,7 +79,7 @@ const Projects = ({
           </Link>
           <Link
             href="/"
-            className="mr-1 -ml-1 inline hidden rounded p-1 text-gray-400 hover:bg-gray-100"
+            className="mr-1 -ml-1 hidden rounded p-1 text-gray-400 hover:bg-gray-100"
           >
             Home
           </Link>
@@ -107,7 +106,7 @@ const Projects = ({
             ))}
           </div>
         </div>
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap md:-mx-6">
           {posts
             .filter((item) => {
               if (currentFilter === "All") {
@@ -119,20 +118,18 @@ const Projects = ({
               <Link
                 key={index}
                 href="#"
-                className="group relative mb-6 block sm:basis-1/3 sm:pr-6"
+                className="group relative mb-8 block aspect-video duration-75 sm:mb-0 sm:basis-1/2 sm:p-6 hover:sm:p-0 hover:sm:shadow-2xl lg:basis-1/3"
               >
-                <div className="relative flex aspect-video flex-grow overflow-hidden border border-transparent hover:border-gray-200">
-                  <img
-                    src={item.imageURL + "?w=980&fit=max"}
-                    alt={item.imageAlt && item.imageAlt}
-                    className="flex-grow duration-[50ms] sm:group-hover:blur-sm"
-                  />
-                </div>
-                <div className="bottom-16 ml-2 mt-2 md:absolute md:bottom-6 md:left-6 md:hidden md:group-hover:block">
-                  <h3 className="inline text-clip text-lg text-white mix-blend-exclusion md:block">
+                <img
+                  src={item.imageURL + "?w=980&fit=max"}
+                  alt={item.imageAlt && item.imageAlt}
+                  className="h-full w-full object-cover"
+                />
+                <div className="bottom-16 ml-2 mt-2 sm:absolute sm:bottom-6 sm:left-6 sm:hidden sm:group-hover:block">
+                  <h3 className="inline text-clip text-lg text-white mix-blend-exclusion sm:block">
                     {item.title}
                   </h3>
-                  <p className="ml-4 inline text-gray-400 mix-blend-exclusion md:ml-0">
+                  <p className="ml-4 inline text-gray-400 mix-blend-exclusion sm:ml-0">
                     {getYear(parseJSON(item.publishedAt))}
                   </p>
                 </div>
