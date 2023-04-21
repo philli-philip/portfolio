@@ -1,6 +1,6 @@
-import { GetStaticPaths, GetStaticProps } from "next";
+import type { GetStaticPaths, GetStaticProps } from "next";
 import sanityClient from "../../utils/sanity-client";
-import { ParsedUrlQuery } from "querystring";
+import type { ParsedUrlQuery } from "querystring";
 import PortableText from "react-portable-text";
 import type { TypedObject } from "sanity";
 import Footer from "../../components/Footer";
