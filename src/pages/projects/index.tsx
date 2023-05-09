@@ -10,7 +10,7 @@ import sanityClient from "../../utils/sanity-client";
 type Item = {
   title?: string;
   imageURL: string;
-  categories: string;
+  categories: string[];
   publishedAt: Date;
   slug: string;
   imageAlt?: string;
@@ -110,9 +110,12 @@ const Projects = ({
           {posts
             .filter((item) => {
               if (currentFilter === "All") {
-                return posts;
+                return true;
+              } else if (item.categories.includes(currentFilter)) {
+                return true;
+              } else {
+                return false;
               }
-              return item.categories == currentFilter;
             })
             .map((item, index) => (
               <Link
