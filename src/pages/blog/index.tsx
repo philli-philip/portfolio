@@ -4,6 +4,7 @@ import Link from "next/link";
 import { format } from "date-fns";
 import Footer from "../../components/Footer";
 import { useState } from "react";
+import Head from "next/head";
 
 type Article = {
   title: string;
@@ -61,6 +62,9 @@ const Blog = ({
   const [currentFilter, setCurrentFilter] = useState("All");
   return (
     <>
+      <Head>
+        <title>Thoughts and writings</title>
+      </Head>
       <main className="container relative mx-auto mt-8 md:mt-16">
         <Link
           href="/"
