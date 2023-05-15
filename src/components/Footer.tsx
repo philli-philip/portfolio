@@ -35,6 +35,15 @@ const Footer = (props: Props) => {
         </Link>
         .
       </span>
+      <Link aria-label="Dribbble" href={"https://dribbble.com/philipmattha"}>
+        Dribbble
+      </Link>
+      <Link
+        aria-label="Linkedin"
+        href={"https://www.linkedin.com/in/philip-mattha-87959672/"}
+      >
+        Linkedin
+      </Link>
       <Link
         className="hover:text-gray-900 dark:hover:text-gray-200"
         href={"/impressum"}
