@@ -96,27 +96,24 @@ const Home: NextPage = () => {
               Philip Mattha
             </Link>
             , currently Product Designer for{" "}
-            <Link
-              href="/current"
-              className="text-blue-600 hover:underline dark:text-blue-400"
-            >
+            <span className="text-blue-600 dark:text-blue-400">
               Deutsche Bank
-            </Link>
-            , learning to{" "}
+            </span>
+            . Find my{" "}
             <Link
-              className="font-mono text-purple-600 hover:underline dark:text-purple-400"
-              href="/code"
+              className="text-purple-600 hover:underline dark:text-purple-400"
+              href="/projects"
             >
-              implement
+              projects
             </Link>{" "}
-            my designs and{" "}
+            and{" "}
             <Link
               href={"/blog"}
               className="font-serif italic text-orange-600 hover:underline dark:text-orange-400"
             >
-              writing
+              writings
             </Link>{" "}
-            about Design & Product.
+            .
           </h1>
           <div className="col-span-12 mt-4 flex flex-row flex-wrap items-start">
             {shortCuts.map((item, index) => (
