@@ -123,11 +123,15 @@ const Projects = ({
             {categories.map((item, index) => (
               <button
                 key={index}
-                onClick={(e) => {
-                  router.push("?project=" + item.slug, undefined, {
-                    shallow: true,
-                  });
-                  setCurrentFilter(item.slug);
+                onClick={() => {
+                  router
+                    .push("?project=" + item.slug, undefined, {
+                      shallow: true,
+                    })
+                    .then(() => {
+                      setCurrentFilter(item.slug);
+                    })
+                    .catch((err) => console.error(err));
                 }}
                 className={`my-2 py-2 pr-4 text-2xl font-bold md:mb-16 md:py-0 md:pr-6 md:text-5xl ${
                   item.slug === currentFilter

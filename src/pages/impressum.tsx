@@ -6,7 +6,6 @@ import Footer from "../components/Footer";
 import Head from "next/head";
 import Link from "next/link";
 import LeftArrow from "../components/icons/left-arrow";
-import Router from "next/router";
 
 type Imprint = {
   title: string;
