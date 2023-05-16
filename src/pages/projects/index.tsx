@@ -83,7 +83,7 @@ const Projects = ({
 
   useEffect(() => {
     const { project } = router.query;
-    setCurrentFilter(project);
+    project && setCurrentFilter(project);
   }, [router.query]);
 
   const filteredPosts = posts.filter((item) => {
