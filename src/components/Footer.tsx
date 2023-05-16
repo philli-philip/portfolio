@@ -12,7 +12,7 @@ const Footer = (props: Props) => {
     >
       <Link
         href={"/about"}
-        className=" hover:text-gray-900 focus:text-gray-200 focus:underline focus:outline-none dark:hover:text-gray-200 sm:mr-auto"
+        className=" hover:text-gray-900 dark:hover:text-gray-200 sm:mr-auto"
       >
         Made in Berlin
       </Link>
@@ -35,6 +35,10 @@ const Footer = (props: Props) => {
         </Link>
         .
       </span>
+      <Link href={"https://dribbble.com/philipmattha"}>Dribbble</Link>
+      <Link href={"https://www.linkedin.com/in/philip-mattha-87959672/"}>
+        Linkedin
+      </Link>
       <Link
         className="hover:text-gray-900 dark:hover:text-gray-200"
         href={"/impressum"}
