@@ -35,6 +35,7 @@ export default defineType({
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'body',
@@ -46,6 +47,7 @@ export default defineType({
       title: 'Categories',
       type: 'array',
       of: [{type: 'reference', to: {type: 'article-category'}}],
+      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {
