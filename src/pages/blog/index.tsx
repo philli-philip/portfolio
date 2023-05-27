@@ -178,7 +178,7 @@ const Blog = ({
           })}
         </ul>
         <Footer className="not-prose" />
-        <div className="absolute -top-8 left-1/4 -z-[1] aspect-square h-[240px] rounded-full bg-gradient-radial from-orange-500 opacity-30 dark:opacity-30 md:h-[1200px]"></div>
+        <div className="to-70% absolute -top-8 left-1/4 -z-[1] aspect-square h-[240px] rounded-full bg-gradient-radial from-orange-500 opacity-30 dark:opacity-30 md:h-[1200px]"></div>
       </main>
     </>
   );
