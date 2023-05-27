@@ -5,18 +5,27 @@ import { format } from "date-fns";
 import Footer from "../../components/Footer";
 import { useState } from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 type Article = {
   title: string;
   slug: string;
   publishedAt: string;
   imageURL?: string;
-  categories: string[];
+  categories: Slug[];
+};
+
+type Slug = {
+  current: string;
+  title: string;
+  _id: string;
 };
 
 type Category = {
   title: string;
   _id: string;
+  slug: string;
 };
 
 export const getStaticProps: GetStaticProps<{
@@ -32,17 +41,21 @@ export const getStaticProps: GetStaticProps<{
         title,
         publishedAt,
         "imageURL" : image.asset->url,
-        "categories" :categories[] ->title,
+        "categories" :categories[] ->slug,
       } 
       | order(publishedAt desc)
     `
   );
 
-  const all: Category[] = [{ _id: "0", title: "All" }];
+  const all: Category[] = [{ _id: "0", title: "All", slug: "all" }];
   const categories = all.concat(
     await sanityClient.fetch(
       `
-      *[_type == "article-category"]
+      *[_type == "article-category"]{
+        title,
+        "slug" : slug.current,
+        _id,
+      }
     `
     )
   );
@@ -59,7 +72,26 @@ const Blog = ({
   articles,
   categories,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const [currentFilter, setCurrentFilter] = useState("All");
+  const router = useRouter();
+  const [currentFilter, setCurrentFilter] = useState(router.query.f || "all");
+
+  useEffect(() => {
+    const { f } = router.query;
+    f && setCurrentFilter(f);
+  }, [router.query.f]);
+
+  const filteredBlog = articles.filter((item) => {
+    if (currentFilter === "all") {
+      return true;
+    } else {
+      return item.categories.some(
+        (category) => category.current === currentFilter
+      );
+    }
+  });
+
+  console.log(filteredBlog);
+
   return (
     <>
       <Head>
@@ -81,11 +113,17 @@ const Blog = ({
               <button
                 key={index}
                 onClick={(e) => {
-                  setCurrentFilter(item.title);
-                  console.log(e);
+                  router
+                    .push("?f=" + item.slug, undefined, {
+                      shallow: true,
+                    })
+                    .then(() => {
+                      setCurrentFilter(item.slug);
+                    })
+                    .catch((err) => console.error(err));
                 }}
                 className={`my-2 py-2 pr-4 text-2xl font-bold md:py-0 md:pr-6 md:text-5xl ${
-                  item.title === currentFilter
+                  item.slug === currentFilter
                     ? "text-gray-900 dark:text-gray-50"
                     : `text-gray-400 dark:text-gray-400`
                 }`}
@@ -95,71 +133,52 @@ const Blog = ({
             ))}
           </div>
         </div>
-        <ul className="mt-1">
-          {articles
-            .filter((article) => {
-              if (currentFilter === "All") {
-                return articles;
-              } else {
-                let found = 0;
-                article.categories.map((category) => {
-                  if (category === currentFilter) {
-                    found = 1;
-                  }
-                });
-                if (found == 1) {
-                  return article;
-                }
-              }
-            })
-            .map((article, index) => {
-              return (
-                <li key={index}>
-                  <Link
-                    href={"blog/" + article.slug}
-                    className="relative flex flex-row items-center rounded bg-gradient-to-br from-transparent to-transparent py-4 px-6 mix-blend-luminosity backdrop-saturate-100 duration-500 hover:from-orange-50 hover:to-orange-100 hover:shadow-xl hover:backdrop-saturate-200 dark:hover:from-orange-900 dark:hover:to-orange-900 md:-ml-8 md:p-8 md:px-0"
-                  >
-                    {article.imageURL && (
-                      <figure className="hidden w-[66px] mix-blend-normal md:visible md:ml-6 md:w-24">
-                        <img
-                          src={imageUrl(article.imageURL)
-                            .width(108)
-                            .height(72)
-                            .dpr(3)
-                            .fit("crop")
-                            .url()}
-                          alt=""
-                        />
-                      </figure>
-                    )}
-                    <div className="ml-0 md:ml-6">
-                      <h2 className="block text-2xl font-semibold text-gray-600 mix-blend-luminosity dark:text-gray-300 md:mb-4 lg:text-4xl">
-                        {article.title}
-                      </h2>
-                      <span className="text-sm text-gray-500">
-                        <p className="mr-2 md:inline">
-                          Published:{" "}
-                          {format(
-                            Date.parse(article.publishedAt),
-                            "dd MMM yyyy"
-                          )}
-                        </p>
-                        {article.categories.map((category, index) => {
-                          return (
-                            <span className="mr-2 " key={index}>
-                              #{category}
-                            </span>
-                          );
-                        })}
-                      </span>
-                    </div>
-                  </Link>
-                </li>
-              );
-            })}
+        <ul className="mt-1 md:columns-3">
+          {filteredBlog.map((article, index) => {
+            return (
+              <li
+                key={index}
+                className="relative flex break-inside-avoid flex-row items-center rounded bg-gradient-to-br from-transparent to-transparent py-4 px-6 mix-blend-luminosity backdrop-saturate-100 duration-500 hover:shadow-xl hover:backdrop-saturate-200 dark:hover:from-orange-900 dark:hover:to-orange-900 md:-ml-6 md:py-8 md:px-0"
+              >
+                <Link href={"blog/" + article.slug} className="">
+                  {article.imageURL && (
+                    <figure className="hidden w-[66px] mix-blend-normal md:visible md:ml-6 md:w-24">
+                      <img
+                        src={imageUrl(article.imageURL)
+                          .width(108)
+                          .height(72)
+                          .dpr(3)
+                          .fit("crop")
+                          .url()}
+                        alt=""
+                      />
+                    </figure>
+                  )}
+                  <div className="ml-0 md:mx-6">
+                    <h2 className="block text-2xl font-semibold text-gray-600 mix-blend-luminosity dark:text-gray-300 md:mb-4 lg:text-2xl">
+                      {article.title}
+                    </h2>
+                    <span className="text-sm text-gray-500">
+                      <p className="mr-2 md:inline">
+                        Published:{" "}
+                        {format(Date.parse(article.publishedAt), "dd MMM yyyy")}
+                      </p>
+                      {article.categories.map((category, index) => {
+                        return (
+                          <span className="mr-2 " key={index}>
+                            #{category.title}
+                          </span>
+                        );
+                      })}
+                    </span>
+                  </div>
+                </Link>
+              </li>
+            );
+          })}
         </ul>
         <Footer className="not-prose" />
-        <div className="absolute -top-8 left-1/4 -z-[1] aspect-square h-[240px] rounded-full bg-gradient-radial from-orange-500 via-transparent opacity-30 dark:opacity-30 md:h-[600px]"></div>
+        <div className="to-70% absolute -top-8 left-1/4 -z-[1] aspect-square h-[240px] rounded-full bg-gradient-radial from-orange-500 opacity-30 dark:opacity-30 md:h-[1200px]"></div>
       </main>
     </>
   );
