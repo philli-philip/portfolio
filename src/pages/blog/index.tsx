@@ -13,7 +13,7 @@ type Article = {
   slug: string;
   publishedAt: string;
   imageURL?: string;
-  categories: Slug[];
+  categories: Category[];
 };
 
 type Slug = {
@@ -25,7 +25,7 @@ type Slug = {
 type Category = {
   title: string;
   _id: string;
-  slug: string;
+  slug: Slug;
 };
 
 export const getStaticProps: GetStaticProps<{
@@ -41,19 +41,25 @@ export const getStaticProps: GetStaticProps<{
         title,
         publishedAt,
         "imageURL" : image.asset->url,
-        "categories" :categories[] ->{slug, title},
+        "categories" :categories[] ->{slug, title, _id},
       } 
       | order(publishedAt desc)
     `
   );
 
-  const all: Category[] = [{ _id: "0", title: "All", slug: "all" }];
+  const all: Category[] = [
+    {
+      _id: "0",
+      title: "All",
+      slug: { current: "all", title: "All", _id: "0" },
+    },
+  ];
   const categories = all.concat(
     await sanityClient.fetch(
       `
       *[_type == "article-category"]{
         title,
-        "slug" : slug.current,
+        slug,
         _id,
       }
     `
@@ -74,6 +80,7 @@ const Blog = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
   const [currentFilter, setCurrentFilter] = useState(router.query.f || "all");
+  console.log("Articles", articles);
 
   useEffect(() => {
     const { f } = router.query;
@@ -81,16 +88,16 @@ const Blog = ({
   }, [router.query.f]);
 
   const filteredBlog = articles.filter((item) => {
+    console.log("Current Filter:", currentFilter, " & Item to Filter:", item);
     if (currentFilter === "all") {
+      console.log("filter for all");
       return true;
     } else {
       return item.categories.some(
-        (category) => category.current === currentFilter
+        (category) => category.slug.current === currentFilter
       );
     }
   });
-
-  console.log(filteredBlog);
 
   return (
     <>
@@ -114,16 +121,16 @@ const Blog = ({
                 key={index}
                 onClick={(e) => {
                   router
-                    .push("?f=" + item.slug, undefined, {
+                    .push("?f=" + item.slug.current, undefined, {
                       shallow: true,
                     })
                     .then(() => {
-                      setCurrentFilter(item.slug);
+                      setCurrentFilter(item.slug.current);
                     })
                     .catch((err) => console.error(err));
                 }}
                 className={`my-2 py-2 pr-4 text-2xl font-bold md:py-0 md:pr-6 md:text-5xl ${
-                  item.slug === currentFilter
+                  item.slug.current === currentFilter
                     ? "text-gray-900 dark:text-gray-50"
                     : `text-gray-400 dark:text-gray-400`
                 }`}
@@ -138,7 +145,7 @@ const Blog = ({
             return (
               <li
                 key={index}
-                className="relative flex break-inside-avoid flex-row  items-center rounded bg-gradient-to-br from-transparent to-transparent mix-blend-luminosity  backdrop-saturate-100 duration-500 hover:shadow-xl hover:backdrop-saturate-200 dark:hover:from-orange-900 dark:hover:to-orange-900 md:-ml-6 "
+                className="relative flex break-inside-avoid flex-row  items-center rounded bg-gradient-to-br from-transparent to-transparent mix-blend-luminosity  backdrop-saturate-100 duration-500 hover:backdrop-saturate-200 dark:hover:from-orange-900 dark:hover:to-orange-900 md:-ml-6 md:hover:shadow-xl "
               >
                 <Link
                   href={"blog/" + article.slug}
