@@ -86,11 +86,11 @@ const Projects = ({
     project && setCurrentFilter(project);
   }, [router.query]);
 
-  const filteredPosts = posts.filter((item) => {
+  const filteredPosts = posts.filter((post) => {
     if (currentFilter === "all") {
       return true;
     } else {
-      return item.categories.some(
+      return post.categories.some(
         (category) => category.current === currentFilter
       );
     }
@@ -102,16 +102,16 @@ const Projects = ({
         <title>Projects - Philip Mattha</title>
       </Head>
       <main className="container mx-auto">
-        <div className="dark:text-gray-3200 relative ml-8 mt-10 text-lg text-gray-700 md:mt-24 md:ml-0">
+        <div className="dark:text-gray-3200 relative ml-8 mt-10 text-lg text-gray-700 md:ml-0 md:mt-24">
           <Link
             href="/"
-            className=" absolute hidden rounded-lg bg-gray-800 p-2 text-white shadow-lg hover:bg-gray-900 focus-visible:outline-orange-600 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 md:block md:translate-y-[40px] md:-translate-x-12 lg:-translate-x-16 lg:translate-y-[36px] lg:p-3 xl:translate-y-[36px]"
+            className=" absolute hidden rounded-lg bg-gray-800 p-2 text-white shadow-lg hover:bg-gray-900 focus-visible:outline-orange-600 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 md:block md:-translate-x-12 md:translate-y-[40px] lg:-translate-x-16 lg:translate-y-[36px] lg:p-3 xl:translate-y-[36px]"
           >
             <LeftArrow />
           </Link>
           <Link
             href="/"
-            className="mr-1 -ml-1 hidden rounded p-1 text-gray-400 hover:bg-gray-100"
+            className="-ml-1 mr-1 hidden rounded p-1 text-gray-400 hover:bg-gray-100"
           >
             Home
           </Link>
