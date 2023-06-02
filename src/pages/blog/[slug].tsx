@@ -7,13 +7,19 @@ import Footer from "../../components/Footer";
 import Head from "next/head";
 import Link from "next/link";
 import { format } from "date-fns";
+import { type } from "os";
 
 type Article = {
   title: string;
   body: TypedObject[];
   _id: string;
   publishedAt: string;
-  categories: string[];
+  categories: Category[];
+};
+
+type Category = {
+  title: string;
+  slug: string;
 };
 
 interface Params extends ParsedUrlQuery {
@@ -47,7 +53,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
           },
           slug,
           _id,
-          "categories" :categories[] ->title,
+          "categories" :categories[] ->{title, 'slug' : slug.current},
         }
         `,
     { slug }
@@ -91,7 +97,12 @@ const Article = ({ article }: { article: Article }) => {
             {article?.categories?.map((category, index) => {
               return (
                 <span className="mr-2 " key={index}>
-                  #{category}
+                  <Link
+                    href={"/blog?f=" + category.slug}
+                    className="hover:text-gray-700 dark:hover:text-gray-200"
+                  >
+                    #{category.title}
+                  </Link>
                 </span>
               );
             })}
