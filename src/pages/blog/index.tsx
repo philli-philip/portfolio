@@ -80,7 +80,6 @@ const Blog = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
   const [currentFilter, setCurrentFilter] = useState(router.query.f || "all");
-  console.log("Articles", articles);
 
   useEffect(() => {
     const { f } = router.query;
@@ -88,9 +87,7 @@ const Blog = ({
   }, [router.query.f]);
 
   const filteredBlog = articles.filter((item) => {
-    console.log("Current Filter:", currentFilter, " & Item to Filter:", item);
     if (currentFilter === "all") {
-      console.log("filter for all");
       return true;
     } else {
       return item.categories.some(
