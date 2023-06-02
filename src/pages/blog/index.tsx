@@ -41,7 +41,7 @@ export const getStaticProps: GetStaticProps<{
         title,
         publishedAt,
         "imageURL" : image.asset->url,
-        "categories" :categories[] ->slug,
+        "categories" :categories[] ->{slug, title},
       } 
       | order(publishedAt desc)
     `
@@ -100,7 +100,7 @@ const Blog = ({
       <main className="container relative mx-auto mt-8 md:mt-16">
         <Link
           href="/"
-          className="mr-2 ml-6 text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-gray-100 md:ml-0"
+          className="ml-6 mr-2 text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-gray-100 md:ml-0"
         >
           Home
         </Link>
@@ -138,9 +138,12 @@ const Blog = ({
             return (
               <li
                 key={index}
-                className="relative flex break-inside-avoid flex-row items-center rounded bg-gradient-to-br from-transparent to-transparent py-4 px-6 mix-blend-luminosity backdrop-saturate-100 duration-500 hover:shadow-xl hover:backdrop-saturate-200 dark:hover:from-orange-900 dark:hover:to-orange-900 md:-ml-6 md:py-8 md:px-0"
+                className="relative flex break-inside-avoid flex-row  items-center rounded bg-gradient-to-br from-transparent to-transparent mix-blend-luminosity  backdrop-saturate-100 duration-500 hover:shadow-xl hover:backdrop-saturate-200 dark:hover:from-orange-900 dark:hover:to-orange-900 md:-ml-6 "
               >
-                <Link href={"blog/" + article.slug} className="">
+                <Link
+                  href={"blog/" + article.slug}
+                  className="w-full px-6 py-4 md:px-0 md:py-8"
+                >
                   {article.imageURL && (
                     <figure className="hidden w-[66px] mix-blend-normal md:visible md:ml-6 md:w-24">
                       <img
@@ -178,7 +181,7 @@ const Blog = ({
           })}
         </ul>
         <Footer className="not-prose" />
-        <div className="to-70% absolute -top-8 left-1/4 -z-[1] aspect-square h-[240px] rounded-full bg-gradient-radial from-orange-500 opacity-30 dark:opacity-30 md:h-[1200px]"></div>
+        <div className="absolute -top-8 left-1/4 -z-[1] aspect-square h-[240px] rounded-full bg-gradient-radial from-orange-500 to-70% opacity-30 dark:opacity-30 md:h-[1200px]"></div>
       </main>
     </>
   );
