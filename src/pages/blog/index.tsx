@@ -138,9 +138,12 @@ const Blog = ({
             return (
               <li
                 key={index}
-                className="relative flex break-inside-avoid flex-row items-center rounded bg-gradient-to-br from-transparent to-transparent px-6 py-4 mix-blend-luminosity backdrop-saturate-100 duration-500 hover:shadow-xl hover:backdrop-saturate-200 dark:hover:from-orange-900 dark:hover:to-orange-900 md:-ml-6 md:px-0 md:py-8"
+                className="relative flex break-inside-avoid flex-row  items-center rounded bg-gradient-to-br from-transparent to-transparent mix-blend-luminosity  backdrop-saturate-100 duration-500 hover:shadow-xl hover:backdrop-saturate-200 dark:hover:from-orange-900 dark:hover:to-orange-900 md:-ml-6 "
               >
-                <Link href={"blog/" + article.slug} className="">
+                <Link
+                  href={"blog/" + article.slug}
+                  className="w-full px-6 py-4 md:px-0 md:py-8"
+                >
                   {article.imageURL && (
                     <figure className="hidden w-[66px] mix-blend-normal md:visible md:ml-6 md:w-24">
                       <img
