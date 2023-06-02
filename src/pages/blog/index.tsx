@@ -115,7 +115,7 @@ const Blog = ({
           Blog
         </h1>
         <div className="overflow-auto [@media(max-width:767px)]:scrollbar-hide">
-          <div className="whitespace-nowrap pl-8 pr-16 md:pl-0">
+          <div className="whitespace-nowrap pl-6 pr-16 sm:pl-8 md:pl-0">
             {categories.map((item, index) => (
               <button
                 key={index}
