@@ -84,7 +84,7 @@ const Article = ({ article }: { article: Article }) => {
         </Link>
       </nav>
       <article className="">
-        <h1 className="mb-6 text-3xl font-semibold md:text-4xl lg:text-5xl">
+        <h1 className="text-3xl font-semibold md:mb-6 md:text-4xl lg:text-5xl">
           {article?.title}
         </h1>
         <span className="mb-6 block text-lg font-light text-gray-500">
