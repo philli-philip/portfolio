@@ -28,25 +28,26 @@ export default function ChallengeInfo(props: Props): React.ReactElement {
   );
 
   const content: React.ReactElement = (
-    <div>
-      <div
-        className={`flex origin-bottom-right flex-col rounded-lg bg-slate-800 p-4 text-sm text-slate-200 shadow-lg duration-75 ${
-          !open ? `scale-0` : `scale-100`
-        }`}
-      >
-        <span className="text-md pb-4 font-semibold">
-          {props.task?.name || "Not provided"}
-        </span>
-        <span>Difficulty: {props.task?.difficulty || "Not provided"}</span>
-        {props.task?.completed && (
-          <span>Completed: {format(props.task.completed, "dd MMM yyy")}</span>
-        )}
-      </div>
+    <div
+      className={`flex origin-bottom-right flex-col rounded-lg bg-slate-800 p-4 text-sm text-slate-200 shadow-lg duration-75 ${
+        !open ? `scale-0` : `scale-100`
+      }`}
+    >
+      <span className="text-md pb-4 font-semibold">
+        {props.task?.name || "Not provided"}
+      </span>
+      <span>Difficulty: {props.task?.difficulty || "Not provided"}</span>
+      {props.task?.completed && (
+        <span>Completed: {format(props.task.completed, "dd MMM yyy")}</span>
+      )}
     </div>
   );
 
   return (
-    <div className="absolute bottom-12 right-12 flex flex-col items-end">
+    <div
+      role="contentinfo"
+      className="absolute bottom-12 right-12 flex flex-col items-end"
+    >
       {content}
       {button}
     </div>
