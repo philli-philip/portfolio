@@ -15,10 +15,10 @@ export default function Page() {
   return (
     <>
       <Head>
-        <title>Front-End Mentor QR-Challenge</title>
+        <title>Code Challenges | QR-Code</title>
         <meta
           name="description"
-          content="Philip Mattha is a Digital Product Designer with a focus technology."
+          content="A perfect first challenge if you're new to HTML and CSS. The card layout doesn't shift, so it's ideal if you haven't learned about building responsive layouts yet."
         />
       </Head>
       <div className="flex h-screen w-screen place-content-center items-center bg-blue-100">
