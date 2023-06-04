@@ -43,7 +43,7 @@ export default function Page() {
           <h1 className="mb-4 mt-8 px-4 text-center text-xl font-bold leading-6">
             Improve your front-end skills by building projects
           </h1>
-          <p className="m b-8 px-4 text-center text-sm leading-5 text-gray-600">
+          <p className="b-8 mb-4 px-4 text-center text-sm leading-5 text-gray-600">
             Scan the QR code to visit Frontend Mentor and take your coding
             skills to the next level.
           </p>
