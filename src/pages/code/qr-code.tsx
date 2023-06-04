@@ -22,7 +22,10 @@ export default function Page() {
         />
       </Head>
       <div className="flex h-screen w-screen place-content-center items-center bg-blue-100">
-        <div className="flex w-[320px] flex-shrink flex-col items-center rounded-2xl bg-white p-4 drop-shadow-2xl ">
+        <div
+          role="main"
+          className="flex w-[320px] flex-shrink flex-col items-center rounded-2xl bg-white p-4 drop-shadow-2xl "
+        >
           <Link
             href="https://frontendmentor.io"
             aria-label="Visit the Frontendmentors site (opens in a new tab)"
@@ -37,10 +40,10 @@ export default function Page() {
               className="rounded-lg duration-75 group-hover:scale-105"
             />
           </Link>
-          <h1 className="mb-4 mt-8 px-6 text-center text-xl font-bold leading-6">
+          <h1 className="mb-4 mt-8 px-4 text-center text-xl font-bold leading-6">
             Improve your front-end skills by building projects
           </h1>
-          <p className="text-md mb-8 px-6 text-center leading-5 text-gray-600">
+          <p className="m b-8 px-4 text-center text-sm leading-5 text-gray-600">
             Scan the QR code to visit Frontend Mentor and take your coding
             skills to the next level.
           </p>
