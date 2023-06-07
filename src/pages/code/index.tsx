@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
-import ChallengeInfo from "../../components/challengeInfo";
 import { qrCode } from "./qr-code";
+import { adviceGenerator } from "./advice-generator";
 
 export type Task = {
   name: string;
@@ -12,6 +12,7 @@ export type Task = {
 
 const tasks: Task[] = [];
 tasks.push(qrCode);
+tasks.push(adviceGenerator);
 
 export default function Page() {
   return (
