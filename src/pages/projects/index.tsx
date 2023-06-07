@@ -76,7 +76,6 @@ const Projects = ({
   categories,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
-  console.log(router.query.project);
   const [currentFilter, setCurrentFilter] = useState(
     router.query.project || "all"
   );
