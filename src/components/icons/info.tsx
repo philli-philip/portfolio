@@ -17,9 +17,9 @@ const Info = (props: Props) => {
     >
       <path
         d="M8 12V8M8 4H8.01"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
