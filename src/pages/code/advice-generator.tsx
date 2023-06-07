@@ -1,6 +1,7 @@
 import type { Task } from ".";
 import ChallengeInfo from "../../components/challengeInfo";
 import { useEffect, useState } from "react";
+import Head from "next/head";
 
 type Advice = {
   slip: {
@@ -69,15 +70,24 @@ export default function AdviceGenerator(): React.JSX.Element {
   );
 
   return (
-    <div
-      role="main"
-      className="flex h-screen w-screen items-center justify-center bg-slate-800"
-    >
-      <div className="min-w-md relative m-4 flex max-w-lg flex-col items-center rounded-2xl bg-slate-700 p-12 shadow-2xl">
-        {loading ? <Skeleton /> : <AdviceBlock />}
+    <>
+      <Head>
+        <title>Code Challenges | Advice Generator</title>
+        <meta
+          name="description"
+          content="The perfect project if you're learning how to interact with 3rd-party APIs. This challenge uses the Advice Slip API to generate random quotes of advice."
+        />
+      </Head>
+      <div
+        role="main"
+        className="flex h-screen w-screen items-center justify-center bg-slate-800"
+      >
+        <div className="min-w-md relative m-4 flex max-w-lg flex-col items-center rounded-2xl bg-slate-700 p-12 shadow-2xl">
+          {loading ? <Skeleton /> : <AdviceBlock />}
+        </div>
+        <ChallengeInfo task={adviceGenerator} />
       </div>
-      <ChallengeInfo task={adviceGenerator} />
-    </div>
+    </>
   );
 }
 
