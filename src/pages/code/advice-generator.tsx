@@ -18,7 +18,7 @@ export default function AdviceGenerator(): React.JSX.Element {
     setLoading(true);
     fetch("https://api.adviceslip.com/advice")
       .then((response) => response.json())
-      .then((data) => setAdvice(data))
+      .then((data: Advice) => setAdvice(data))
       .finally(() => setLoading(false));
   };
 
@@ -95,4 +95,5 @@ export const adviceGenerator: Task = {
   name: "Advice Generator",
   link: "advice-generator",
   difficulty: "Beginner",
+  completed: new Date("07 Jun 2023"),
 };
