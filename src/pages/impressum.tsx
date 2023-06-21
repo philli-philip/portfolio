@@ -68,7 +68,7 @@ const Imprint = ({ imprint }: { imprint: Imprint }) => {
           />
         )}
       </article>
-      <Footer className="not-prose max-w-[696px]" />
+      <Footer/>
     </div>
   );
 };

@@ -1,15 +1,7 @@
 import Link from "next/link";
-type Props = {
-  className?: string;
-};
-
-const Footer = (props: Props) => {
+const Footer = () => {
   return (
-    <footer
-      className={`mx-8 mb-16 mt-8 flex flex-col gap-6 border-t border-gray-200 pt-6 text-sm text-gray-500 sm:container  dark:border-gray-600 dark:text-gray-400 sm:mx-auto sm:flex-row md:mb-16 md:mt-12 ${
-        props.className || ""
-      }`}
-    >
+    <footer className="mx-8 mb-16 mt-8 flex flex-col gap-6 border-t border-gray-200 pt-6 text-sm text-gray-500 sm:container  dark:border-gray-600 dark:text-gray-400 sm:mx-auto sm:flex-row md:mb-16 md:mt-12">
       <Link
         href={"/about"}
         className=" hover:text-gray-900 dark:hover:text-gray-200 sm:mr-auto"
