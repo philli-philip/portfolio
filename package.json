@@ -7,9 +7,11 @@
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
-    "sanity": "cd cms && sanity dev"
+    "sanity": "cd cms && sanity dev",
+    "story": "npx ladle serve"
   },
   "dependencies": {
+    "@ladle/react": "^2.15.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.0.0",
     "@vercel/analytics": "^0.1.11",
