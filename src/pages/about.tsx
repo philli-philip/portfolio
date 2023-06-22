@@ -213,7 +213,7 @@ const About = () => {
           ))}
         </section>
       </main>
-      <Footer className="print:hidden" />
+      <div className="print:hidden"><Footer/></div>
     </>
   );
 };

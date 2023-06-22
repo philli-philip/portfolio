@@ -80,7 +80,7 @@ export default function AdviceGenerator(): React.JSX.Element {
       </Head>
       <div
         role="main"
-        className="flex h-screen w-screen items-center justify-center bg-slate-800"
+        className="flex h-screen w-screen items-center justify-center bg-slate-900"
       >
         <div className="min-w-md relative m-4 flex max-w-lg flex-col items-center rounded-2xl bg-slate-700 p-12 shadow-2xl">
           {loading ? <Skeleton /> : <AdviceBlock />}

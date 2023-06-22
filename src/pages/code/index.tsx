@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { qrCode } from "./qr-code";
 import { adviceGenerator } from "./advice-generator";
+import { ClockApp } from "./clock-app";
 
 export type Task = {
   name: string;
@@ -13,6 +14,7 @@ export type Task = {
 const tasks: Task[] = [];
 tasks.push(qrCode);
 tasks.push(adviceGenerator);
+tasks.push(ClockApp);
 
 export default function Page() {
   return (
