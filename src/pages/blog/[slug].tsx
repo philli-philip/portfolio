@@ -130,7 +130,7 @@ const Article = ({ article }: { article: Article }) => {
           />
         )}
       </article>
-      <Footer className="not-prose max-w-[696px]" />
+      <Footer/>
     </div>
   );
 };
