@@ -127,7 +127,7 @@ function QuoteBlock(): React.JSX.Element {
     <>
       <div>
         <p className="text-lg leading-8 text-slate-200">
-        `&quot;`{quote && quote?.content}`&quot;`
+        &quot;{quote && quote?.content}&quot;
         </p>
         <span className="block pt-4 font-bold text-slate-200">
           {quote && quote?.author}
@@ -184,7 +184,7 @@ export default function ClockAppView(): React.JSX.Element {
     return (
       <div className="h-2/3 px-8 w-full lg:px-16 flex flex-col text-slate-200 md:mx-auto md:justify-end md:gap-16 md:pb-20 lg:flex-row lg:items-end lg:justify-between">
         <div>
-          <span className="hidden md:block">It`&apos;`s currently</span>
+          <span className="hidden md:block">It&apos;s currently</span>
           <span className="block text-7xl font-bold">
             {time && format(time, "H:mm")}
             <span className="ml-4 text-lg font-normal">
