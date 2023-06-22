@@ -28,8 +28,8 @@
     "react-hooks/exhaustive-deps": [
       "error",
       {
-        "additionalHooks": "(useAsync|useAsyncCallback)",
-      },
-    ],
+        "additionalHooks": "(useAsync|useAsyncCallback)"
+      }
+    ]
   }
 }
