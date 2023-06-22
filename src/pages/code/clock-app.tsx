@@ -156,7 +156,7 @@ export default function ClockAppView(): React.JSX.Element {
 
   useEffect(() => {
     fetch(
-      "https://api.ipgeolocation.io/ipgeo?apiKey=b14ee161fd9045c0bd453e69e0fb6ea9"
+      `https://api.ipgeolocation.io/ipgeo?apiKey=${process.env.NEXT_PUBLIC_IPGEOLOCATION_API_KEY}`
     )
       .then((res) => res.json())
       .then((data: GeoInformation) => {
