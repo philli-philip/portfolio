@@ -61,8 +61,8 @@ type Detailprops = {
 };
 
 const Details = (props: Detailprops): React.JSX.Element => (
-  <div className={`bg-white py-8 duration-300`}>
-    <div className="mx-6 grid md:container md:mx-auto md:grid-cols-2 lg:max-w-7xl">
+  <div className="bg-white py-8 duration-300 dark:bg-slate-800 block h-full">
+    <div className="mx-8 md:mx-20 grid md:grid-cols-2">
       <div className="my-4 grid flex-row items-baseline justify-between md:flex-col">
         <span className="text-xs font-semibold uppercase tracking-widest text-slate-600">
           Current Timezone
@@ -124,7 +124,7 @@ function QuoteBlock(): React.JSX.Element {
   );
 
   const QuoteContent = (
-    <div className="container mx-auto flex max-w-sm flex-row lg:max-w-7xl lg:pt-20">
+    <>
       <div>
         <p className="text-lg leading-8 text-slate-200">
           "{quote && quote?.content}"
@@ -141,10 +141,10 @@ function QuoteBlock(): React.JSX.Element {
       >
         <RefreshCCW width={32} height={32} />
       </button>
-    </div>
+    </>
   );
 
-  return <> {loading ? QuoteSkeleton : QuoteContent}</>;
+  return <div className="flex flex-row lg:max-w-7xl pt-10 lg:pt-20"> {loading ? QuoteSkeleton : QuoteContent}</div>;
 }
 
 export default function ClockAppView(): React.JSX.Element {
@@ -182,8 +182,8 @@ export default function ClockAppView(): React.JSX.Element {
 
   const Time = (): React.JSX.Element => {
     return (
-      <div className="container ml-8 flex flex-col text-slate-200 md:mx-auto md:justify-end md:gap-16 md:pb-20 lg:max-w-7xl lg:flex-row lg:items-end  lg:justify-between">
-        <div className="">
+      <div className="h-2/3 px-8 w-full lg:px-16 flex flex-col text-slate-200 md:mx-auto md:justify-end md:gap-16 md:pb-20 lg:flex-row lg:items-end lg:justify-between">
+        <div>
           <span className="hidden md:block">It's currently</span>
           <span className="block text-7xl font-bold">
             {time && format(time, "H:mm")}
@@ -238,17 +238,15 @@ export default function ClockAppView(): React.JSX.Element {
         className="relative flex h-screen w-screen flex-col overflow-hidden bg-cover bg-no-repeat"
       >
         <div
-          className={`transition-height duration-200 ${
-            details ? "h-0" : "h-1/3"
+          className={`transition-height duration-200 px-8 lg:px-16 ${
+            details ? "h-0 opacity-0" : "h-1/3 opacity-100"
           }`}
         >
           <QuoteBlock />
         </div>
-        <div className="flex h-2/3 flex-grow">
           <Time />
-        </div>
         <div
-          className={`transition-height duration-200 ${!details ? "h-0" : ""}`}
+          className={`transition-height duration-200 ${!details ? "h-0" : "h-1/3"}`}
         >
           <Details time_zone={geo?.time_zone.name || "undefined"} />
         </div>
