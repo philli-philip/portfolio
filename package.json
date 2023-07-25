@@ -11,6 +11,7 @@
     "story": "npx ladle serve"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.15",
     "@ladle/react": "^2.15.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.0.0",
@@ -19,7 +20,7 @@
     "date-fns-tz": "^2.0.0",
     "lodash": "^4.17.21",
     "lodash.groupby": "^4.6.0",
-    "next": "13.1.2",
+    "next": "^13.1.2",
     "next-sanity": "^4.1.6",
     "react": "18.2.0",
     "react-async-hook": "^4.0.0",

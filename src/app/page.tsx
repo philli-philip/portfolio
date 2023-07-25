@@ -1,8 +1,10 @@
+'use client'
+
 import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import KeyBoardButton from "../components/KeyBoardButton";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useHotkeys } from "react-hotkeys-hook";
 import Footer from "../components/Footer";
 import ReoLogo from "../components/icons/reo";
