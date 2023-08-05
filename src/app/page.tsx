@@ -15,6 +15,7 @@ import N26Logo from "../components/icons/n26";
 import LekkaLogo from "../components/icons/lekka";
 import FortoLogo from "../components/icons/forto";
 import DeutscheBankLogo from "../components/icons/deutscheBank";
+import NavBar from "../components/navBar";
 
 const shortCuts = [
   {
@@ -87,9 +88,10 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <NavBar backButton/>
       <main className="flex min-h-screen flex-col items-center justify-center">
         <section className="container mt-24 mb-24 grid grid-cols-12 gap-6 px-8 lg:px-0 xl:mx-auto xl:mt-48 xl:mb-48">
-          <h1 className="leading-12 text-grey-600 xl:col-start-0 col-span-12 text-4xl font-semibold dark:text-gray-200 md:col-span-10 md:text-4xl lg:text-5xl xl:col-span-12 xl:mx-0 xl:text-8xl">
+          <h1 className="text-grey-600 xl:col-start-0 col-span-12 text-4xl font-semibold dark:text-gray-200 md:col-span-10 md:text-4xl lg:text-5xl xl:col-span-12 xl:mx-0 xl:text-6xl xl:max-w-4xl xl:leading-[1.1] tracking-tight">
             I am{" "}
             <Link
               href="/about"
