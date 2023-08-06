@@ -1,5 +1,6 @@
 import LeftArrow from "./icons/left-arrow";
-
+import { useState } from "react";
+import Menu from "./icons/menu";
 
 const items = [
     {
@@ -13,7 +14,7 @@ const items = [
       target: "/blog",
     },
     {
-      label: "Past projects",
+      label: "Projects",
       key: "P",
       target: "/projects",
     },
@@ -25,20 +26,32 @@ const items = [
   ];
 
   type Props = {
-    backButton?: boolean
+    backButton?: boolean,
+    current?: string
   }
 
-  const NavBar= (props:Props) => {
-    const back = props.backButton || false
+
+  const NavBar = (props:Props) => {
+    const current = props.current || undefined
+
+    const  [open, setOpen] = useState(false);
+
+    function isCurrent(item:string){
+      console.log(item, current)
+      if(item === current) {
+        return "page"
+      }
+      return false
+    }
 
     return(
-        <nav className="relative">
-            <div className="fixed inset-x-0 top-12 flex flex-1 md:justify-center">
-            <ul className="flex bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm dark:border-0 dark:border-t dark:border-gray-600 rounded-2xl border-gray-100border shadow-md">
-            {back && <li><button className="relative block hover:text-orange-600 text-gray-700 text-sm dark:text-gray-200 px-6 border-red-700 divide-x divide py-2"><LeftArrow width={20} height={20}/></button></li>}
+        <nav className="fixed w-full z-10 print:hidden">
+            <div className="absolute mx-4 inset-x-0 top-12 flex flex-1 justify-end md:justify-center">
+            <button onClick={() => setOpen(!open)} className="md:hidden p-2 bg-white/90 rounded-full shadow-md hover:bg-gray-100"><Menu/></button>
+            <ul className="absolute -right-2 top-12 md:top-0 md:right-0 md:relative mx-4 flex-col md:flex-row flex bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm dark:border-0 dark:border-t dark:border-gray-600 rounded-2xl shadow-md">
             {items.map((item, index) =>
                 <li key={index}>
-                    <a href={item.target} className="relative block hover:text-orange-600 text-gray-700 text-sm dark:text-gray-200 px-6 border-red-700 divide-x divide py-2">{item.label}</a>
+                    <a href={item.target} className={`relative block hover:text-orange-600 text-gray-700 text-sm dark:text-gray-200 px-6 py-2 transition ${open?"block":"hidden md:block"} ${isCurrent(item.target)?"text-orange-600":""}`}>{item.label}</a>
                 </li>)}
             </ul>
             </div>

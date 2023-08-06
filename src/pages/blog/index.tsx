@@ -7,6 +7,7 @@ import { useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import NavBar from "../../components/navBar";
 
 type Article = {
   title: string;
@@ -101,7 +102,8 @@ const Blog = ({
       <Head>
         <title>Thoughts and writings</title>
       </Head>
-      <main className="container relative mx-auto mt-8 md:mt-16">
+      <NavBar current="/blog"/>
+      <main className="container relative mx-auto pt-8 md:pt-16">
         <Link
           href="/"
           className="ml-6 mr-2 text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-gray-100 md:ml-0"
