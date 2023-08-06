@@ -36,5 +36,10 @@
   "exclude": [
     "node_modules",
     ".next"
-  ]
+  ],
+  "paths": {
+    "react": [
+      "./node_modules/@types/react"
+    ]
+  }
 }
