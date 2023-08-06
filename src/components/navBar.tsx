@@ -37,7 +37,6 @@ const items = [
     const  [open, setOpen] = useState(false);
 
     function isCurrent(item:string){
-      console.log(item, current)
       if(item === current) {
         return "page"
       }
