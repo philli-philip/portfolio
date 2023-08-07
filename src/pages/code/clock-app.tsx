@@ -1,5 +1,5 @@
 import type { Task } from ".";
-import { startTransition, useEffect, useState, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 import format from "date-fns/format";
 import { formatInTimeZone } from "date-fns-tz";
 import ChevronDown from "../../components/icons/chevron-down";
@@ -151,7 +151,6 @@ export default function ClockAppView(): React.JSX.Element {
   const [time, setTime] = useState<Date | null>(null);
   const [geo, setGeo] = useState<GeoInformation>();
   const [details, setDetails] = useState(false);
-  const [isPending, startTransition] = useTransition();
   const [night, setNight] = useState(false);
 
   useEffect(() => {
@@ -200,10 +199,9 @@ export default function ClockAppView(): React.JSX.Element {
         <div className="">
           <button
             className="flex flex-row items-center gap-2 rounded-full bg-slate-200 py-2 pl-4 pr-2 text-lg font-bold uppercase tracking-widest text-slate-700 hover:bg-slate-300"
-            onClick={() =>
-              startTransition(() => {
+            onClick={() => {
                 setDetails(!details);
-              })
+              }
             }
           >
             {details ? "Less" : "More"}

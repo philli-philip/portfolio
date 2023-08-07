@@ -7,7 +7,6 @@ import Footer from "../../components/Footer";
 import Head from "next/head";
 import Link from "next/link";
 import { format } from "date-fns";
-import { type } from "os";
 
 type Article = {
   title: string;

@@ -1,8 +1,6 @@
-import Footer from "../components/Footer";
 import Head from "next/head";
+import Footer from "../components/Footer";
 import Print from "../components/icons/print";
-import LeftArrow from "../components/icons/left-arrow";
-import Link from "next/link";
 import NavBar from "../components/navBar";
 
 const content: Experience[] = [

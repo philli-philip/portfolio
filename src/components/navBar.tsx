@@ -1,4 +1,3 @@
-import LeftArrow from "./icons/left-arrow";
 import { useState } from "react";
 import Menu from "./icons/menu";
 
@@ -31,7 +30,7 @@ const items = [
   }
 
 
-  const NavBar = (props:Props) => {
+  const NavBar = (props:Props):JSX.Element => {
     const current = props.current || undefined
 
     const  [open, setOpen] = useState(false);

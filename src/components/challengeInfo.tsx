@@ -7,13 +7,6 @@ type Props = {
   task?: Task;
 };
 
-const exampleTast: Task = {
-  name: "Example",
-  difficulty: "simple",
-  completed: new Date(Date.now()),
-  link: "example",
-};
-
 export default function ChallengeInfo(props: Props): React.ReactElement {
   const [open, toggleOpen] = useState(false);
 

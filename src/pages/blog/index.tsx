@@ -85,7 +85,7 @@ const Blog = ({
   useEffect(() => {
     const { f } = router.query;
     f && setCurrentFilter(f);
-  }, [router.query.f]);
+  }, [router.query]);
 
   const filteredBlog = articles.filter((item) => {
     if (currentFilter === "all") {
@@ -118,7 +118,7 @@ const Blog = ({
             {categories.map((item, index) => (
               <button
                 key={index}
-                onClick={(e) => {
+                onClick={() => {
                   router
                     .push("?f=" + item.slug.current, undefined, {
                       shallow: true,
