@@ -91,7 +91,7 @@ const Home: NextPage = () => {
       <NavBar current="/"/>
       <main className="flex min-h-screen flex-col items-center justify-center">
         <section className="container mt-24 mb-24 grid grid-cols-12 gap-6 px-8 lg:px-0 xl:mx-auto xl:mt-48 xl:mb-48">
-          <h1 className="text-grey-600 xl:col-start-0 col-span-12 text-4xl font-semibold dark:text-gray-200 md:col-span-10 md:text-4xl lg:text-5xl xl:col-span-12 xl:mx-0 xl:text-6xl xl:max-w-4xl xl:leading-[1.1] tracking-tight">
+          <h1 className="text-grey-600 xl:col-start-0 col-span-12 text-4xl font-bold dark:text-gray-200 md:col-span-10 md:text-4xl lg:text-5xl xl:col-span-12 xl:mx-0 xl:text-6xl xl:max-w-4xl xl:leading-[1.1] tracking-tight">
             I am{" "}
             <Link
               href="/about"
@@ -99,11 +99,11 @@ const Home: NextPage = () => {
             >
               Philip Mattha
             </Link>
-            , currently Product Designer for{" "}
+            , currently Product Designer Lead at{" "}
             <span className="text-blue-600 dark:text-blue-400">
               Deutsche Bank
             </span>
-            . Find my{" "}
+            . Explore my{" "}
             <Link
               className="text-purple-600 hover:underline dark:text-purple-400"
               href="/projects"
@@ -116,14 +116,14 @@ const Home: NextPage = () => {
               className="font-serif italic text-orange-600 hover:underline dark:text-orange-400"
             >
               writings
-            </Link>{" "}
+            </Link>
             .
           </h1>
           <div className="col-span-12 mt-4 flex flex-row flex-wrap items-start">
             {shortCuts.map((item, index) => (
               <Link
                 key={index}
-                className="mr-4 mb-4 rounded border border-gray-200 px-4 py-4 shadow-md hover:bg-gray-50 hover:text-gray-800 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200 xl:mb-0 xl:mr-8"
+                className="mr-4 mb-4 rounded border border-gray-200 px-4 py-4 shadow-md hover:bg-gray-50 hover:text-gray-800 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200 dark:border-gray-600 xl:mb-0 xl:mr-8"
                 href={item.target}
               >
                 {item.label}
@@ -133,11 +133,11 @@ const Home: NextPage = () => {
           </div>
         </section>
         <section className="container px-8 md:px-0">
-          <div className="lg:grid-cols-5xl mx-auto grid grid-cols-2 place-items-center border-t border-l border-gray-200 md:grid-cols-4">
+          <div className="lg:grid-cols-5xl mx-auto grid grid-cols-2 place-items-center border-t border-l border-gray-200 md:grid-cols-4 dark:border-gray-700">
             {brands.map((item, index) => (
               <div
                 key={index}
-                className="flex aspect-square w-full flex-grow place-items-center justify-center border-r border-b border-gray-200 backdrop-blur-lg"
+                className="flex aspect-square w-full flex-grow place-items-center justify-center border-r border-b border-gray-200 backdrop-blur-lg dark:border-gray-700"
               >
                 {item.src}
               </div>

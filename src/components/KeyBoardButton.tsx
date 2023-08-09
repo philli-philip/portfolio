@@ -8,7 +8,7 @@ type Props = {
 const KeyBoardButton = (props: Props) => {
   return (
     <kbd
-      className={`hidden rounded bg-gray-100 px-1 py-[px] font-mono text-xs dark:bg-gray-800 md:inline ${
+      className={`hidden rounded bg-gray-100 p-1 py-[px] font-mono text-xs dark:bg-gray-700 md:inline ${
         props.className || ""
       }`}
     >

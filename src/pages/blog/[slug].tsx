@@ -7,12 +7,13 @@ import Footer from "../../components/Footer";
 import Head from "next/head";
 import Link from "next/link";
 import { format } from "date-fns";
+import NavBar from "../../components/navBar";
 
 type Article = {
   title: string;
   body: TypedObject[];
   _id: string;
-  publishedAt: string;
+  updatedAt: string;
   categories: Category[];
 };
 
@@ -42,7 +43,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     `
         *[_type == "article" && slug.current == $slug][0]
         {
-          publishedAt,
+          "updatedAt" : _updatedAt,
           title,
           body[]{
             ...,
@@ -65,32 +66,23 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-const Article = ({ article }: { article: Article }) => {
+export default function Article ({ article }: { article: Article }) {
   return (
-    <div className="mx-6 md:mx-auto md:mt-24 md:max-w-[696px] lg:mt-32 xl:max-w-[936px]">
+  <>
+      <NavBar current="/blog" />
+    <div className="mx-6 md:mx-auto md:mt-24 md:max-w-[696px] lg:mt-40 xl:max-w-[936px] relative">
       <Head>
         <title>{article?.title}</title>
       </Head>
-      <nav className="mb-6">
-        <Link
-          href="/"
-          className="mr-2 text-gray-500 hover:text-gray-800 dark:text-gray-200"
-        >
-          Home
-        </Link>
-        <Link href="/blog/" className="hover:text-gray-900">
-          Blog
-        </Link>
-      </nav>
       <article className="">
-        <h1 className="text-3xl font-semibold md:mb-6 md:text-4xl lg:text-5xl">
+        <h1 className="text-3xl font-semibold md:mb-6 md:text-4xl lg:text-5xl text-gray-700 dark:text-gray-300">
           {article?.title}
         </h1>
         <span className="mb-6 block text-lg font-light text-gray-500">
           <span className="mr-2">
-            {article?.publishedAt &&
-              "Published on: " +
-                format(Date.parse(article.publishedAt), "dd MMM yyy")}
+            {article?.updatedAt &&
+              "Updated on " +
+                format(Date.parse(article.updatedAt), "dd MMM yyy")}
           </span>
           <span>
             {article?.categories?.map((category, index) => {
@@ -131,7 +123,6 @@ const Article = ({ article }: { article: Article }) => {
       </article>
       <Footer/>
     </div>
+    </>
   );
 };
-
-export default Article;
