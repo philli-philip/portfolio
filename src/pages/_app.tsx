@@ -1,22 +1,14 @@
-import { type AppType } from "next/dist/shared/lib/utils";
 import { Analytics } from "@vercel/analytics/react";
+import type { AppProps } from "next/app";
 
-import "../styles/globals.css";
-import Head from "next/head";
+import "../app/globals.css";
 
-const MyApp: AppType = ({ Component, pageProps }) => {
+export default function MyApp({ Component, pageProps }: AppProps){
+  const AnyComponent = Component as any;
   return (
     <>
-      <Component {...pageProps}>
-        <Head>
-          <title>About Philip</title>
-          <meta name="description" content="Philip's CV" />
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-      </Component>
+      <AnyComponent {...pageProps} />
       <Analytics />
     </>
   );
 };
-
-export default MyApp;
