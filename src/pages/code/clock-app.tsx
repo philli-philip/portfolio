@@ -127,7 +127,7 @@ function QuoteBlock(): React.JSX.Element {
     <>
       <div>
         <p className="text-lg leading-8 text-slate-200">
-        &quot;{quote && quote?.content}&quot;
+        `&quot;`{quote && quote?.content}`&quot;`
         </p>
         <span className="block pt-4 font-bold text-slate-200">
           {quote && quote?.author}
@@ -155,7 +155,7 @@ export default function ClockAppView(): React.JSX.Element {
 
   useEffect(() => {
     fetch(
-      `https://api.ipgeolocation.io/ipgeo?apiKey=${process.env.IPGEOLOCATION_AP_KEY}`
+      `https://api.ipgeolocation.io/ipgeo?apiKey=${process.env.NEXT_PUBLIC_IPGEOLOCATION_API_KEY}`
     )
       .then((res) => res.json())
       .then((data: GeoInformation) => {
