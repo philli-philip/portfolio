@@ -15,7 +15,7 @@ type Props = {
         strokeWidth={props.strokeWeight || 1.5}
         stroke="currentColor"
       >
-        <path d="M3 12H21M3 6H21M3 18H21" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M3 12H21M3 6H21M3 18H21" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     );
   };

@@ -69,8 +69,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
 export default function Article ({ article }: { article: Article }) {
   return (
   <>
-      <NavBar current="/blog" />
-    <div className="mx-6 md:mx-auto md:mt-24 md:max-w-[696px] lg:mt-40 xl:max-w-[936px] relative">
+    <NavBar current="/blog" />
+    <main className="mx-6 md:mx-auto md:mt-24 md:max-w-[696px] lg:mt-40 xl:max-w-[936px] relative">
       <Head>
         <title>{article?.title}</title>
       </Head>
@@ -121,8 +121,8 @@ export default function Article ({ article }: { article: Article }) {
           />
         )}
       </article>
-      <Footer/>
-    </div>
+    </main>
+    <Footer/>
     </>
   );
 };
