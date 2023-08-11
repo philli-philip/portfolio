@@ -11,6 +11,7 @@
     "story": "npx ladle serve"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.16",
     "@ladle/react": "^2.15.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.0.0",
