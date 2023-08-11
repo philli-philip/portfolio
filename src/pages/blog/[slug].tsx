@@ -70,7 +70,7 @@ export default function Article ({ article }: { article: Article }) {
   return (
   <>
     <NavBar current="/blog" />
-    <main className="mx-6 md:mx-auto md:mt-24 md:max-w-[696px] lg:mt-40 xl:max-w-[936px] relative">
+    <main className="mx-6 md:mx-auto mt-8 md:mt-24 md:max-w-[696px] lg:mt-40 xl:max-w-[936px] relative">
       <Head>
         <title>{article?.title}</title>
       </Head>
