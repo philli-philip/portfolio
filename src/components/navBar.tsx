@@ -58,3 +58,4 @@ const items = [
   }
 
   export default NavBar
+  export {items as navItems}

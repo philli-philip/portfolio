@@ -254,6 +254,7 @@ export default function ClockAppView(): React.JSX.Element {
 }
 
 export const ClockApp: Task = {
+  id: 3,
   name: "Clock App",
   difficulty: "intermediary",
   link: "clock-app",

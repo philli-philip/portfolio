@@ -5,6 +5,7 @@ import type { Task } from ".";
 import ChallengeInfo from "../../components/challengeInfo";
 
 export const qrCode: Task = {
+  id: 1,
   name: "QR Code",
   link: "qr-code",
   difficulty: "newbie",
