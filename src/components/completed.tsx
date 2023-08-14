@@ -12,7 +12,7 @@ export default function Status(props:Props){
     const open = <span className="flex flex-row items-center"><StatusOpen/>Open</span>
 
     return (
-        <span className="md:flex flex-1 text-gray-600 hidden">
+        <span className="sm:flex flex-1 text-secondary hidden">
             {done ? completed : open}
         </span>
     )
