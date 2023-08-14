@@ -55,7 +55,7 @@ export default function Page() {
       <main className="flex flex-grow flex-col">
       <h1 className="flex h-12 border-b border-gray-200 items-center px-6">Code</h1>
       {tasks.map((item, index) => (
-        <Item task={item}/>
+        <Item task={item} key={item.id}/>
         ))}
       </main>
       </div>
