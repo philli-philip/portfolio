@@ -7,3 +7,17 @@
         @apply bg-white dark:bg-slate-900 dark:from-gray-800 from-transparent to-gray-100 bg-gradient-to-br dark:to-transparent min-h-screen;
     }
 }
+
+@layer utilities {
+    .border-default {
+        @apply border-gray-200 dark:border-gray-700
+    }
+
+    .text-primary {
+        @apply text-gray-800 dark:text-gray-200
+    }
+
+    .text-secondary {
+        @apply text-gray-700 dark:text-gray-300
+    }
+}
