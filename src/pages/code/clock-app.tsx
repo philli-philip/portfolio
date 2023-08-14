@@ -258,4 +258,5 @@ export const ClockApp: Task = {
   name: "Clock App",
   difficulty: "intermediary",
   link: "clock-app",
+  completed: new Date ("28 July 2023")
 };

@@ -5,6 +5,8 @@ import { adviceGenerator } from "./advice-generator";
 import { ClockApp } from "./clock-app";
 import Item from "../../components/item";
 import { navItems } from "../../components/navBar";
+import { useState } from "react";
+import Menu from "../../components/icons/menu";
 
 export type Task = {
   id: number,
@@ -28,6 +30,8 @@ tasks.push(ClockApp);
 tasks.push(code)
 
 export default function Page() {
+  const [open, setOpen] = useState(false)
+
   return (
     <>
       <Head>
@@ -37,8 +41,8 @@ export default function Page() {
           content="Some Code challenges I am working on next to the portfolio itself"
         />
       </Head>
-      <div className="flex flex-row w-screen min-h-screen">
-      <nav className="w-48 border-r border-gray-200 h-screen px-6 py-3">
+      <div className="flex flex-row w-screen min-h-screen" onClick={()=>setOpen(false)}>
+      <nav className={`absolute w-9/12 bg-white border-r border-gray-200 h-screen px-6 py-3 duration-100 transition-all shadow-lg ${!open ? `opacity-0 -left-full`: `opacity-100 left-0`} md:relative md:w-48 md:block md:shadow-none md:opacity-100 md:left-0`}>
         <span className="font-semibold pb-4 block">Philip Mattha</span>
         <ul>
           {navItems.map((item)=> {
@@ -53,7 +57,10 @@ export default function Page() {
         </ul>
       </nav>
       <main className="flex flex-grow flex-col">
-      <h1 className="flex h-12 border-b border-gray-200 items-center px-6">Code</h1>
+        <div className="flex flex-row h-12 border-b border-gray-200 items-center px-3 md:px-6 gap-4">
+          <button onClick={(event) => {event.stopPropagation();setOpen(true)}} className="md:hidden rounded-lg border p-2 shadow-sm border-gray-200"><Menu height={16} width={16}/></button>
+          <h1 className="flex">Code</h1>
+        </div>
       {tasks.map((item, index) => (
         <Item task={item} key={item.id}/>
         ))}
