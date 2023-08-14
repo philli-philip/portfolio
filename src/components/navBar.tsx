@@ -49,7 +49,7 @@ const items = [
             <ul className="absolute -right-2 top-14 md:top-0 md:right-0 md:relative mx-4 flex-col md:flex-row flex bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm dark:border-0 dark:border-t dark:border-gray-600 rounded-2xl shadow-md">
             {items.map((item, index) =>
                 <li key={index}>
-                    <a href={item.target} className={`relative block hover:text-orange-600 text-gray-700 text-sm dark:text-gray-200 px-6 py-2 transition ${open?"block":"hidden md:block"} ${isCurrent(item.target)?"text-orange-600":""}`}>{item.label}</a>
+                    <a href={item.target} className={`relative block hover:text-orange-600 text-gray-700 text-sm dark:text-gray-200 px-6 py-4 md:py-2 transition ${open?"block":"hidden md:block"} ${isCurrent(item.target)?"text-orange-600":""}`}>{item.label}</a>
                 </li>)}
             </ul>
             </div>
