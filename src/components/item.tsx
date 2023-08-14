@@ -1,4 +1,4 @@
-import type { Task } from "."
+import type { Task } from "../pages/code"
 import format from "date-fns-tz/format";
 import Status from "./completed";
 

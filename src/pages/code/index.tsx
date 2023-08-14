@@ -3,7 +3,7 @@ import Link from "next/link";
 import { qrCode } from "./qr-code";
 import { adviceGenerator } from "./advice-generator";
 import { ClockApp } from "./clock-app";
-import Item from "./item";
+import Item from "../../components/item";
 import { navItems } from "../../components/navBar";
 
 export type Task = {
