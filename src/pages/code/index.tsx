@@ -50,9 +50,14 @@ function sortTasks(list: Task[], order: string) {
 }
 
 const List = (props: { tasks: Task[]; ordering: string }) => {
-  return sortTasks(props.tasks, props.ordering).map((item) => (
-    <Item task={item} key={item.id} />
-  ));
+  return (
+    <main>
+      {sortTasks(props.tasks, props.ordering).map((item) => (
+        <Item task={item} key={item.id} />
+      ))}
+      ;
+    </main>
+  );
 };
 
 export default function Page() {
