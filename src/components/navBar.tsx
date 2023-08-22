@@ -2,60 +2,77 @@ import { useState } from "react";
 import Menu from "./icons/menu";
 
 const items = [
-    {
-      label: "Intro",
-      key: "I",
-      target: "/"  
-    },
-    {
-      label: "Writing",
-      key: "B",
-      target: "/blog",
-    },
-    {
-      label: "Projects",
-      key: "P",
-      target: "/projects",
-    },
-    {
-      label: "About",
-      key: "C",
-      target: "/about",
-    },
-  ];
+  {
+    label: "Intro",
+    key: "I",
+    target: "/",
+  },
+  {
+    label: "Writing",
+    key: "B",
+    target: "/blog",
+  },
+  {
+    label: "Code",
+    key: "C",
+    target: "/code",
+  },
+  {
+    label: "Projects",
+    key: "P",
+    target: "/projects",
+  },
+  {
+    label: "About",
+    key: "A",
+    target: "/about",
+  },
+];
 
-  type Props = {
-    backButton?: boolean,
-    current?: string
-  }
+type Props = {
+  backButton?: boolean;
+  current?: string;
+};
 
+const NavBar = (props: Props): JSX.Element => {
+  const current = props.current || undefined;
 
-  const NavBar = (props:Props):JSX.Element => {
-    const current = props.current || undefined
+  const [open, setOpen] = useState(false);
 
-    const  [open, setOpen] = useState(false);
-
-    function isCurrent(item:string){
-      if(item === current) {
-        return "page"
-      }
-      return false;
+  function isCurrent(item: string) {
+    if (item === current) {
+      return "page";
     }
-
-    return(
-        <nav className="fixed w-full z-10 print:hidden top-0">
-            <div className="absolute mx-4 inset-x-0 top-8 flex flex-1 justify-end md:justify-center">
-            <button onClick={() => setOpen(!open)} className="md:hidden p-3 bg-white/90 dark:bg-gray-800/90 dark:border-gray-600 rounded-full shadow-md border-t dark:hover:bg-gray-600 hover:bg-gray-100 dark:text-gray-300"><Menu/></button>
-            <ul className="absolute -right-2 top-14 md:top-0 md:right-0 md:relative mx-4 flex-col md:flex-row flex bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm dark:border-0 dark:border-t dark:border-gray-600 rounded-2xl shadow-md">
-            {items.map((item, index) =>
-                <li key={index}>
-                    <a href={item.target} className={`relative block hover:text-orange-600 text-gray-700 text-sm dark:text-gray-200 px-6 py-2 transition ${open?"block":"hidden md:block"} ${isCurrent(item.target)?"text-orange-600":""}`}>{item.label}</a>
-                </li>)}
-            </ul>
-            </div>
-        </nav>
-    )
+    return false;
   }
 
-  export default NavBar
-  export {items as navItems}
+  return (
+    <nav className="fixed top-0 z-10 w-full print:hidden">
+      <div className="absolute inset-x-0 top-8 mx-4 flex flex-1 justify-end md:justify-center">
+        <button
+          onClick={() => setOpen(!open)}
+          className="rounded-full border-t bg-white/90 p-3 shadow-md hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-800/90 dark:text-gray-300 dark:hover:bg-gray-600 md:hidden"
+        >
+          <Menu />
+        </button>
+        <ul className="absolute -right-2 top-14 mx-4 flex flex-col rounded-2xl bg-white/90 shadow-md backdrop-blur-sm dark:border-0 dark:border-t dark:border-gray-600 dark:bg-gray-800/90 md:relative md:right-0 md:top-0 md:flex-row">
+          {items.map((item, index) => (
+            <li key={index}>
+              <a
+                href={item.target}
+                className={`relative block px-6 py-2 text-sm text-gray-700 transition hover:text-orange-600 dark:text-gray-200 ${
+                  open ? "block" : "hidden md:block"
+                } ${isCurrent(item.target) ? "text-orange-600" : ""}`}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
+  );
+};
+
+export default NavBar;
+export { items as navItems };
