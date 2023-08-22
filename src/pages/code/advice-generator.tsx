@@ -92,6 +92,7 @@ export default function AdviceGenerator(): React.JSX.Element {
 }
 
 export const adviceGenerator: Task = {
+  id: 2,
   name: "Advice Generator",
   link: "advice-generator",
   difficulty: "Beginner",

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { type NextPage } from "next";
 import Head from "next/head";
@@ -16,6 +16,7 @@ import LekkaLogo from "../components/icons/lekka";
 import FortoLogo from "../components/icons/forto";
 import DeutscheBankLogo from "../components/icons/deutscheBank";
 import NavBar from "../components/navBar";
+import { navItems } from "../components/navBar";
 
 const shortCuts = [
   {
@@ -30,8 +31,13 @@ const shortCuts = [
   },
   {
     label: "About",
-    key: "C",
+    key: "A",
     target: "/about",
+  },
+  {
+    label: "Code",
+    key: "C",
+    target: "/code",
   },
 ];
 
@@ -74,8 +80,9 @@ const Home: NextPage = () => {
   const router = useRouter();
 
   useHotkeys("b", () => void router.push("/blog"));
-  useHotkeys("c", () => void router.push("/about"));
+  useHotkeys("a", () => void router.push("/about"));
   useHotkeys("p", () => void router.push("/projects"));
+  useHotkeys("c", () => void router.push("/code"));
 
   return (
     <>
@@ -88,10 +95,10 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <NavBar current="/"/>
+      <NavBar current="/" />
       <main className="flex min-h-screen flex-col items-center justify-center">
-        <section className="container mt-24 mb-24 grid grid-cols-12 gap-6 px-8 lg:px-0 xl:mx-auto xl:mt-48 xl:mb-48">
-          <h1 className="text-grey-600 xl:col-start-0 col-span-12 text-4xl font-bold dark:text-gray-200 md:col-span-10 md:text-4xl lg:text-5xl xl:col-span-12 xl:mx-0 xl:text-6xl xl:max-w-4xl xl:leading-[1.1] tracking-tight">
+        <section className="container mb-24 mt-24 grid grid-cols-12 gap-6 px-8 lg:px-0 xl:mx-auto xl:mb-48 xl:mt-48">
+          <h1 className="text-grey-600 xl:col-start-0 col-span-12 text-4xl font-bold tracking-tight dark:text-gray-200 md:col-span-10 md:text-4xl lg:text-5xl xl:col-span-12 xl:mx-0 xl:max-w-4xl xl:text-6xl xl:leading-[1.1]">
             I am{" "}
             <Link
               href="/about"
@@ -123,7 +130,7 @@ const Home: NextPage = () => {
             {shortCuts.map((item, index) => (
               <Link
                 key={index}
-                className="mr-4 mb-4 rounded border border-gray-200 px-4 py-4 shadow-md hover:bg-gray-50 hover:text-gray-800 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200 dark:border-gray-600 xl:mb-0 xl:mr-8"
+                className="mb-4 mr-4 rounded border border-gray-200 px-4 py-4 shadow-md hover:bg-gray-50 hover:text-gray-800 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200 xl:mb-0 xl:mr-8"
                 href={item.target}
               >
                 {item.label}
@@ -133,11 +140,11 @@ const Home: NextPage = () => {
           </div>
         </section>
         <section className="container px-8 md:px-0">
-          <div className="lg:grid-cols-5xl mx-auto grid grid-cols-2 place-items-center border-t border-l border-gray-200 md:grid-cols-4 dark:border-gray-700">
+          <div className="lg:grid-cols-5xl mx-auto grid grid-cols-2 place-items-center border-l border-t border-gray-200 dark:border-gray-700 md:grid-cols-4">
             {brands.map((item, index) => (
               <div
                 key={index}
-                className="flex aspect-square w-full flex-grow place-items-center justify-center border-r border-b border-gray-200 backdrop-blur-lg dark:border-gray-700"
+                className="flex aspect-square w-full flex-grow place-items-center justify-center border-b border-r border-gray-200 backdrop-blur-lg dark:border-gray-700"
               >
                 {item.src}
               </div>
