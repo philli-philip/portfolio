@@ -55,7 +55,6 @@ const List = (props: { tasks: Task[]; ordering: string }) => {
       {sortTasks(props.tasks, props.ordering).map((item) => (
         <Item task={item} key={item.id} />
       ))}
-      ;
     </main>
   );
 };
