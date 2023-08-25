@@ -7,6 +7,7 @@ import { navItems } from "../../components/navBar";
 import { useState } from "react";
 import Menu from "../../components/icons/menu";
 import Settings from "../../components/icons/settings";
+import { Popover } from "@headlessui/react";
 
 export type Task = {
   id: number;
@@ -117,12 +118,12 @@ export default function Page() {
             <h1 className="flex flex-1 text-gray-800 dark:text-gray-200">
               Code
             </h1>
-            <div className="relative inline-block text-left">
-              <div
-                className={`${
-                  settings ? `block` : `hidden`
-                } absolute right-0 top-8 z-10 origin-top-right rounded-lg bg-white py-2 shadow-lg dark:bg-gray-800`}
-              >
+            <Popover className="relative inline-block text-left">
+              <Popover.Button className="flex flex-1 items-center gap-2 rounded-lg border border-gray-200 px-2 py-1 text-sm text-gray-700 shadow-sm hover:bg-gray-100 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-700">
+                <Settings height={16} width={16} />
+                Settings
+              </Popover.Button>
+              <Popover.Panel className="absolute right-0 top-8 z-10 origin-top-right rounded-lg bg-white py-2 shadow-lg dark:bg-gray-800">
                 <div className="flex flex-row items-center px-4">
                   <span className="text-secondary mr-8 text-sm">Ordering</span>
                   <select
@@ -136,18 +137,8 @@ export default function Page() {
                     <option value="date">Date</option>
                   </select>
                 </div>
-              </div>
-              <button
-                onClick={(event) => {
-                  event.stopPropagation();
-                  setSettings(!settings);
-                }}
-                className="flex flex-1 items-center gap-2 rounded-lg border border-gray-200 px-2 py-1 text-sm text-gray-700 shadow-sm hover:bg-gray-100 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
-              >
-                <Settings height={16} width={16} />
-                Settings
-              </button>
-            </div>
+              </Popover.Panel>
+            </Popover>
           </div>
           <List tasks={tasksList} ordering={ordering} />
         </main>
