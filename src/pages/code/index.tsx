@@ -7,7 +7,7 @@ import { navItems } from "../../components/navBar";
 import { useState } from "react";
 import Menu from "../../components/icons/menu";
 import Settings from "../../components/icons/settings";
-import { Popover } from "@headlessui/react";
+import { Popover, Transition } from "@headlessui/react";
 
 export type Task = {
   id: number;
@@ -61,8 +61,6 @@ const List = (props: { tasks: Task[]; ordering: string }) => {
 };
 
 export default function Page() {
-  const [open, setOpen] = useState(false);
-  const [settings, setSettings] = useState(false);
   const [ordering, setOrdering] = useState("id");
 
   return (
@@ -74,18 +72,8 @@ export default function Page() {
           content="Some Code challenges I am working on next to the portfolio itself"
         />
       </Head>
-      <div
-        className="flex min-h-screen w-screen flex-row dark:bg-gray-900"
-        onClick={() => {
-          open && setOpen(false);
-          settings && setSettings(false);
-        }}
-      >
-        <nav
-          className={`absolute h-screen w-9/12 border-r border-gray-200 bg-white px-6 py-3 shadow-lg transition-all duration-100 dark:border-gray-700 dark:bg-gray-900 ${
-            !open ? `-left-full opacity-0` : `left-0 opacity-100`
-          } md:relative md:left-0 md:block md:w-48 md:opacity-100 md:shadow-none`}
-        >
+      <div className="relative flex min-h-screen w-screen flex-row dark:bg-gray-900">
+        <nav className="hidden md:relative md:left-0 md:block md:w-48 md:opacity-100">
           <span className="block pb-4 font-semibold text-gray-800 dark:text-gray-50">
             Philip Mattha
           </span>
@@ -106,15 +94,39 @@ export default function Page() {
         </nav>
         <main className="flex flex-grow flex-col">
           <div className="flex h-12 flex-row items-center gap-4 border-b border-gray-200 px-3 dark:border-gray-700 md:px-6">
-            <button
-              onClick={(event) => {
-                event.stopPropagation();
-                setOpen(!open);
-              }}
-              className="rounded-lg border border-gray-200 p-2 text-gray-700 shadow-sm dark:border-gray-700 dark:text-gray-200 md:hidden"
-            >
-              <Menu height={16} width={16} />
-            </button>
+            <Popover>
+              <Popover.Button className="transi rounded-lg border border-gray-200 p-2 text-gray-700 shadow-sm dark:border-gray-700 dark:text-gray-200 md:hidden">
+                <Menu height={16} width={16} />
+              </Popover.Button>
+              <Transition
+                enter="transition-transform duration-100 ease-out"
+                enterFrom="-left-24"
+                enterTo="left-0"
+                leave="transition-transform duration-75 ease-out"
+                leaveFrom="left-0"
+                leaveTo="-left-24"
+              >
+                <Popover.Panel className="fixed left-0 top-0 z-10 h-screen w-9/12 border-r border-gray-200 bg-white px-6 py-3 shadow-lg dark:border-gray-700 dark:bg-gray-900">
+                  <span className="block pb-4 font-semibold text-gray-800 dark:text-gray-50">
+                    Philip Mattha
+                  </span>
+                  <ul>
+                    {navItems.map((item) => {
+                      return (
+                        <li key={item.key}>
+                          <a
+                            href={item.target}
+                            className="block py-2 text-sm text-gray-700 dark:text-gray-300"
+                          >
+                            {item.label}
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </Popover.Panel>
+              </Transition>
+            </Popover>
             <h1 className="flex flex-1 text-gray-800 dark:text-gray-200">
               Code
             </h1>
