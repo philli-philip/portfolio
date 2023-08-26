@@ -73,7 +73,7 @@ export default function Page() {
         />
       </Head>
       <div className="relative flex min-h-screen w-screen flex-row dark:bg-gray-900">
-        <nav className="hidden md:relative md:left-0 md:block md:w-48 md:opacity-100">
+        <nav className="hidden border-r border-gray-200 p-4 dark:border-gray-700 md:relative md:left-0 md:block md:w-48 md:opacity-100">
           <span className="block pb-4 font-semibold text-gray-800 dark:text-gray-50">
             Philip Mattha
           </span>
