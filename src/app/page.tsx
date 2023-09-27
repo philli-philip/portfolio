@@ -17,6 +17,7 @@ import FortoLogo from "../components/icons/forto";
 import DeutscheBankLogo from "../components/icons/deutscheBank";
 import NavBar from "../components/navBar";
 import { navItems } from "../components/navBar";
+import RightArrow from "../components/icons/right-arrow";
 
 const shortCuts = [
   {
@@ -97,7 +98,7 @@ const Home: NextPage = () => {
       </Head>
       <NavBar current="/" />
       <main className="flex min-h-screen flex-col items-center justify-center">
-        <section className="container mb-24 mt-24 grid grid-cols-12 gap-6 px-8 lg:px-0 xl:mx-auto xl:mb-48 xl:mt-48">
+        <section className="container mb-24 mt-24 grid max-w-6xl grid-cols-12 gap-6 px-8 lg:px-0 xl:mx-auto xl:mb-48 xl:mt-48">
           <h1 className="text-grey-600 xl:col-start-0 col-span-12 text-4xl font-bold tracking-tight dark:text-gray-200 md:col-span-10 md:text-4xl lg:text-5xl xl:col-span-12 xl:mx-0 xl:max-w-4xl xl:text-6xl xl:leading-[1.1]">
             I am{" "}
             <Link
@@ -139,7 +140,30 @@ const Home: NextPage = () => {
             ))}
           </div>
         </section>
-        <section className="container px-8 md:px-0">
+        <section className="px container pb-12 md:px-0 md:pb-48">
+          <div className="relative mx-4 flex max-w-6xl flex-col justify-start overflow-hidden rounded-3xl bg-gray-100 px-8 py-8 md:mx-auto md:px-12 md:py-8">
+            <h3 className="block text-sm font-medium uppercase text-black/60">
+              New project
+            </h3>
+            <span className="mt-3 block text-4xl font-bold tracking-tight text-black/80 md:text-5xl">
+              PowerBank
+            </span>
+            <p className="mt-2 text-xl text-black/60">
+              The reference experience for corporate banking
+            </p>
+            <Link
+              className="z-10 -ml-2 mt-6 flex flex-row items-center gap-x-2 self-start rounded-full bg-black/5 px-4 py-2 backdrop-saturate-200 duration-75 hover:bg-black/10 hover:backdrop-saturate-200 md:absolute md:bottom-8 md:right-12"
+              href="https://powerbank.vercel.app?rel=portfolio-mattha"
+            >
+              Check out
+              <RightArrow />
+            </Link>
+            <div className="absolute -top-[320px] left-1/4 h-[500px] w-[500px] animate-random-walk-fast rounded-full bg-gradient-radial from-orange-500/30 to-60%" />
+            <div className="absolute -bottom-32 -left-16 h-[300px] w-[300px] animate-random-walk-fast rounded-full bg-gradient-radial from-blue-400/30 to-60%" />
+            <div className="absolute -bottom-[350px] -right-[200px] h-[600px] w-[600px] animate-random-walk-fast rounded-full bg-gradient-radial from-green-400/30 to-60%" />
+          </div>
+        </section>
+        <section className="container max-w-6xl px-8 md:px-0">
           <div className="lg:grid-cols-5xl mx-auto grid grid-cols-2 place-items-center border-l border-t border-gray-200 dark:border-gray-700 md:grid-cols-4">
             {brands.map((item, index) => (
               <div
@@ -152,7 +176,7 @@ const Home: NextPage = () => {
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer/>
     </>
   );
 };
