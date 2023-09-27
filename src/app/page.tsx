@@ -141,18 +141,18 @@ const Home: NextPage = () => {
           </div>
         </section>
         <section className="px container pb-12 md:px-0 md:pb-48">
-          <div className="relative mx-4 flex max-w-6xl flex-col justify-start overflow-hidden rounded-3xl bg-gray-100 px-8 py-8 md:mx-auto md:px-12 md:py-8">
-            <h3 className="block text-sm font-medium uppercase text-black/60">
+          <div className="relative mx-4 flex max-w-6xl flex-col justify-start overflow-hidden rounded-3xl bg-gray-100 px-8 py-8 dark:bg-black/5 md:mx-auto md:px-12 md:py-8">
+            <h3 className="block text-sm font-medium uppercase text-black/60  dark:text-white/60">
               New project
             </h3>
-            <span className="mt-3 block text-4xl font-bold tracking-tight text-black/80 md:text-5xl">
+            <span className="mt-3 block text-4xl font-bold tracking-tight text-black/80 dark:text-white/80 md:text-5xl">
               PowerBank
             </span>
-            <p className="mt-2 text-xl text-black/60">
+            <p className="mt-2 text-xl text-black/60 dark:text-white/60">
               The reference experience for corporate banking
             </p>
             <Link
-              className="z-10 -ml-2 mt-6 flex flex-row items-center gap-x-2 self-start rounded-full bg-black/5 px-4 py-2 backdrop-saturate-200 duration-75 hover:bg-black/10 hover:backdrop-saturate-200 md:absolute md:bottom-8 md:right-12"
+              className="z-10 -ml-2 mt-6 flex flex-row items-center gap-x-2 self-start rounded-full bg-black/5 px-4 py-2 text-black/80 backdrop-saturate-200 duration-75 hover:bg-black/10 hover:backdrop-saturate-200 dark:text-white/80 md:absolute md:bottom-8 md:right-12"
               href="https://powerbank.vercel.app?rel=portfolio-mattha"
             >
               Check out
@@ -176,7 +176,7 @@ const Home: NextPage = () => {
           </div>
         </section>
       </main>
-      <Footer/>
+      <Footer />
     </>
   );
 };
