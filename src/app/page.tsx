@@ -1,11 +1,6 @@
-"use client";
-
-import { type NextPage } from "next";
+import { Metadata, type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import KeyBoardButton from "../components/KeyBoardButton";
-import { useRouter } from "next/navigation";
-import { useHotkeys } from "react-hotkeys-hook";
 import Footer from "../components/Footer";
 import ReoLogo from "../components/icons/reo";
 import Creatext from "../components/icons/creatext";
@@ -16,31 +11,8 @@ import LekkaLogo from "../components/icons/lekka";
 import FortoLogo from "../components/icons/forto";
 import DeutscheBankLogo from "../components/icons/deutscheBank";
 import NavBar from "../components/navBar";
-import { navItems } from "../components/navBar";
 import RightArrow from "../components/icons/right-arrow";
-
-const shortCuts = [
-  {
-    label: "Blog",
-    key: "B",
-    target: "/blog",
-  },
-  {
-    label: "Past projects",
-    key: "P",
-    target: "/projects",
-  },
-  {
-    label: "About",
-    key: "A",
-    target: "/about",
-  },
-  {
-    label: "Code",
-    key: "C",
-    target: "/code",
-  },
-];
+import ShortCuts from "../components/shortCuts";
 
 const brands = [
   {
@@ -77,23 +49,16 @@ const brands = [
   },
 ];
 
+export const metadata: Metadata = {
+  title: "Portfolio of Philip Mattha",
+  description:
+    "Philip Mattha is a Digital Product Designer with a focus technology.",
+};
+
 const Home: NextPage = () => {
-  const router = useRouter();
-
-  useHotkeys("b", () => void router.push("/blog"));
-  useHotkeys("a", () => void router.push("/about"));
-  useHotkeys("p", () => void router.push("/projects"));
-  useHotkeys("c", () => void router.push("/code"));
-
   return (
     <>
-      {" "}
       <Head>
-        <title>Portfolio of Philip Mattha</title>
-        <meta
-          name="description"
-          content="Philip Mattha is a Digital Product Designer with a focus technology."
-        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NavBar current="/" />
@@ -127,18 +92,7 @@ const Home: NextPage = () => {
             </Link>
             .
           </h1>
-          <div className="col-span-12 mt-4 flex flex-row flex-wrap items-start">
-            {shortCuts.map((item, index) => (
-              <Link
-                key={index}
-                className="mb-4 mr-4 rounded border border-gray-200 px-4 py-4 shadow-md hover:bg-gray-50 hover:text-gray-800 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200 xl:mb-0 xl:mr-8"
-                href={item.target}
-              >
-                {item.label}
-                <KeyBoardButton className="ml-6">{item.key}</KeyBoardButton>
-              </Link>
-            ))}
-          </div>
+          <ShortCuts />
         </section>
         <section className="px container pb-12 md:px-0 md:pb-48">
           <div className="relative mx-4 flex max-w-6xl flex-col justify-start overflow-hidden rounded-3xl bg-gray-100 px-8 py-8 dark:bg-black/5 md:mx-auto md:px-12 md:py-8">
