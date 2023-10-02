@@ -21,7 +21,15 @@ const code: Task = {
   id: 4,
   name: "Code Page",
   difficulty: "intermediary",
-  link: "#",
+  link: "/code",
+  completed: new Date("14 September 2023"),
+};
+
+const powerbank: Task = {
+  id: 5,
+  name: "PowerBank",
+  difficulty: "master",
+  link: "https://powerbank.vercel.app",
 };
 
 const tasksList: Task[] = [];
@@ -29,6 +37,7 @@ tasksList.push(qrCode);
 tasksList.push(adviceGenerator);
 tasksList.push(ClockApp);
 tasksList.push(code);
+tasksList.push(powerbank);
 
 function sortTasks(list: Task[], order: string) {
   if (order === "name") {
@@ -94,8 +103,8 @@ export default function Page() {
         </nav>
         <main className="flex flex-grow flex-col">
           <div className="flex h-12 flex-row items-center gap-4 border-b border-gray-200 px-3 dark:border-gray-700 md:px-6">
-            <Popover>
-              <Popover.Button className="transi rounded-lg border border-gray-200 p-2 text-gray-700 shadow-sm dark:border-gray-700 dark:text-gray-200 md:hidden">
+            <Popover className="md:hidden">
+              <Popover.Button className="rounded-lg border border-gray-200 p-2 text-gray-700 shadow-sm dark:border-gray-700 dark:text-gray-200 ">
                 <Menu height={16} width={16} />
               </Popover.Button>
               <Transition

@@ -7,7 +7,7 @@ import ChallengeInfo from "../../components/challengeInfo";
 export const qrCode: Task = {
   id: 1,
   name: "QR Code",
-  link: "qr-code",
+  link: "code/qr-code",
   difficulty: "newbie",
   completed: new Date("04 Jun 2023"),
 };

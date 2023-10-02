@@ -61,8 +61,8 @@ type Detailprops = {
 };
 
 const Details = (props: Detailprops): React.JSX.Element => (
-  <div className="bg-white py-8 duration-300 dark:bg-slate-800 block h-full">
-    <div className="mx-8 md:mx-20 grid md:grid-cols-2">
+  <div className="block h-full bg-white py-8 duration-300 dark:bg-slate-800">
+    <div className="mx-8 grid md:mx-20 md:grid-cols-2">
       <div className="my-4 grid flex-row items-baseline justify-between md:flex-col">
         <span className="text-xs font-semibold uppercase tracking-widest text-slate-600">
           Current Timezone
@@ -127,7 +127,7 @@ function QuoteBlock(): React.JSX.Element {
     <>
       <div>
         <p className="text-lg leading-8 text-slate-200">
-        `&quot;`{quote && quote?.content}`&quot;`
+          `&quot;`{quote && quote?.content}`&quot;`
         </p>
         <span className="block pt-4 font-bold text-slate-200">
           {quote && quote?.author}
@@ -144,7 +144,12 @@ function QuoteBlock(): React.JSX.Element {
     </>
   );
 
-  return <div className="flex flex-row lg:max-w-7xl pt-10 lg:pt-20"> {loading ? QuoteSkeleton : QuoteContent}</div>;
+  return (
+    <div className="flex flex-row pt-10 lg:max-w-7xl lg:pt-20">
+      {" "}
+      {loading ? QuoteSkeleton : QuoteContent}
+    </div>
+  );
 }
 
 export default function ClockAppView(): React.JSX.Element {
@@ -181,7 +186,7 @@ export default function ClockAppView(): React.JSX.Element {
 
   const Time = (): React.JSX.Element => {
     return (
-      <div className="h-2/3 px-8 w-full lg:px-16 flex flex-col text-slate-200 md:mx-auto md:justify-end md:gap-16 md:pb-20 lg:flex-row lg:items-end lg:justify-between">
+      <div className="flex h-2/3 w-full flex-col px-8 text-slate-200 md:mx-auto md:justify-end md:gap-16 md:pb-20 lg:flex-row lg:items-end lg:justify-between lg:px-16">
         <div>
           <span className="hidden md:block">It&apos;s currently</span>
           <span className="block text-7xl font-bold">
@@ -200,9 +205,8 @@ export default function ClockAppView(): React.JSX.Element {
           <button
             className="flex flex-row items-center gap-2 rounded-full bg-slate-200 py-2 pl-4 pr-2 text-lg font-bold uppercase tracking-widest text-slate-700 hover:bg-slate-300"
             onClick={() => {
-                setDetails(!details);
-              }
-            }
+              setDetails(!details);
+            }}
           >
             {details ? "Less" : "More"}
             <div
@@ -236,15 +240,17 @@ export default function ClockAppView(): React.JSX.Element {
         className="relative flex h-screen w-screen flex-col overflow-hidden bg-cover bg-no-repeat"
       >
         <div
-          className={`transition-height duration-200 px-8 lg:px-16 ${
+          className={`px-8 transition-height duration-200 lg:px-16 ${
             details ? "h-0 opacity-0" : "h-1/3 opacity-100"
           }`}
         >
           <QuoteBlock />
         </div>
-          <Time />
+        <Time />
         <div
-          className={`transition-height duration-200 ${!details ? "h-0" : "h-1/3"}`}
+          className={`transition-height duration-200 ${
+            !details ? "h-0" : "h-1/3"
+          }`}
         >
           <Details time_zone={geo?.time_zone.name || "undefined"} />
         </div>
@@ -257,6 +263,6 @@ export const ClockApp: Task = {
   id: 3,
   name: "Clock App",
   difficulty: "intermediary",
-  link: "clock-app",
-  completed: new Date ("28 July 2023")
+  link: "/code/clock-app",
+  completed: new Date("28 July 2023"),
 };
