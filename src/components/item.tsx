@@ -97,6 +97,7 @@ export default function Item(props: Props) {
                       <a
                         href={link}
                         target="_blank"
+                        rel="noreferrer"
                         className="text-gray-800 underline underline-offset-2 dark:text-gray-200"
                       >
                         Visit project
