@@ -72,7 +72,7 @@ const Home: NextPage = () => {
             >
               Philip Mattha
             </Link>
-            , currently Product Designer Lead at{" "}
+            , currently Product Design Lead at{" "}
             <span className="text-blue-600 dark:text-blue-400">
               Deutsche Bank
             </span>
@@ -81,7 +81,14 @@ const Home: NextPage = () => {
               className="text-purple-600 hover:underline dark:text-purple-400"
               href="/projects"
             >
-              projects
+              past projects
+            </Link>
+            ,{" "}
+            <Link
+              href="/code"
+              className="font-mono font-semibold tracking-wide text-lime-600 hover:underline dark:text-lime-400"
+            >
+              code
             </Link>{" "}
             and{" "}
             <Link
