@@ -1,7 +1,14 @@
 import Link from "next/link";
-const Footer = ():JSX.Element => {
+import { cn } from "../utils/cn";
+
+const Footer = ({ className }: { className?: string }): JSX.Element => {
   return (
-    <footer className="mx-8 mb-16 mt-8 flex flex-col gap-6 border-t border-gray-200 pt-6 text-sm text-gray-500 sm:container  dark:border-gray-600 dark:text-gray-400 sm:mx-auto sm:flex-row md:mb-16 md:mt-12">
+    <footer
+      className={cn(
+        "mx-8 mb-16 mt-8 flex flex-col gap-6 border-t border-gray-200 pt-6 text-sm text-gray-500 dark:border-gray-600 dark:text-gray-400 sm:mx-auto sm:flex-row md:mb-16 md:mt-12",
+        className
+      )}
+    >
       <Link
         href={"/about"}
         className=" hover:text-gray-900 dark:hover:text-gray-200 sm:mr-auto"
