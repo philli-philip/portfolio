@@ -86,7 +86,7 @@ const Home: NextPage = () => {
             ,{" "}
             <Link
               href="/code"
-              className="font-mono font-semibold tracking-wide text-lime-600 hover:underline dark:text-lime-400"
+              className="font-mono font-semibold text-lime-600 hover:underline dark:text-lime-400"
             >
               code
             </Link>{" "}
