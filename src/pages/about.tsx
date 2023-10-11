@@ -156,21 +156,20 @@ const About = () => {
         <title>About Philip</title>
         <meta name="description" content="Philip's CV" />
       </Head>
-      <NavBar current={"/about"}/>
-      <main className="relative mx-auto pt-32 px-8 text-gray-800 md:container dark:text-gray-200 lg:pl-36 print:mt-8 print:max-w-full print:text-gray-800">
+      <NavBar current={"/about"} />
+      <main className="relative mx-auto px-8 pt-32 text-gray-800 md:container dark:text-gray-200 lg:pl-36 print:mt-8 print:max-w-full print:text-gray-800">
         <span className="flex flex-1 justify-between">
-
-        <h1 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl xl:text-6xl print:mb-2 print:text-4xl">
-          Philip Mattha
-        </h1>
-        <button
-          onClick={handlePrint}
-          className="flex h-12 flex-row place-content-center items-center gap-4 rounded-lg p-3 text-sm text-gray-600 hover:bg-gray-100 focus-visible:outline-orange-600 dark:text-gray-400 dark:hover:bg-gray-700 md:mt-2 xl:mt-4 print:hidden"
+          <h1 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl xl:text-6xl print:mb-2 print:text-4xl">
+            Philip Mattha
+          </h1>
+          <button
+            onClick={handlePrint}
+            className="flex h-12 flex-row place-content-center items-center gap-4 rounded-lg p-3 text-sm text-gray-600 hover:bg-gray-100 focus-visible:outline-orange-600 dark:text-gray-400 dark:hover:bg-gray-700 md:mt-2 xl:mt-4 print:hidden"
           >
-          <span className="hidden md:block">Print version!</span>
-          <Print />
-        </button>
-          </span>
+            <span className="hidden md:block">Print version!</span>
+            <Print />
+          </button>
+        </span>
         <p className="text-gray-600 dark:text-gray-400 print:text-xs">
           Rubensstraße 15, 12150
           <br />
@@ -183,7 +182,7 @@ const About = () => {
             <section className="relative" key={index}>
               <h2
                 key={index}
-                className="mb-6 mt-8 max-w-2xl text-lg text-gray-500 dark:text-gray-400 lg:absolute lg:right-full lg:mt-0 lg:pr-6 print:absolute print:mt-0 print:mb-1 print:block print:w-[100px] print:translate-y-[50px] print:-translate-x-[70px] print:-rotate-90 print:text-right print:text-sm"
+                className="mb-6 mt-8 max-w-2xl text-lg text-gray-500 dark:text-gray-400 lg:absolute lg:right-full lg:mt-0 lg:pr-6 print:absolute print:mb-1 print:mt-0 print:block print:w-[100px] print:-translate-x-[70px] print:translate-y-[50px] print:-rotate-90 print:text-right print:text-sm"
               >
                 {sections}
               </h2>
@@ -210,7 +209,7 @@ const About = () => {
           ))}
         </section>
       </main>
-      <div className="print:hidden"><Footer/></div>
+      <Footer className="container print:hidden" />
     </>
   );
 };

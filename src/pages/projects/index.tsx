@@ -100,9 +100,9 @@ const Projects = ({
       <Head>
         <title>Projects - Philip Mattha</title>
       </Head>
-      <NavBar current="/projects"/>
-      <main className="container mx-auto xl:px-8">
-        <div className="overflow-auto scrollbar-hide pt-8 md:pt-32">
+      <NavBar current="/projects" />
+      <main className="container mx-auto">
+        <div className="overflow-auto pt-8 scrollbar-hide md:pt-32">
           <div className="whitespace-nowrap pl-4 pr-16 md:pl-0">
             {categories.map((item, index) => (
               <button
@@ -151,8 +151,8 @@ const Projects = ({
             </Link>
           ))}
         </div>
-      <Footer />
       </main>
+      <Footer className="container" />
     </>
   );
 };

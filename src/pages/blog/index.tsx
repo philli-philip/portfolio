@@ -4,7 +4,6 @@ import Link from "next/link";
 import { format } from "date-fns";
 import Footer from "../../components/Footer";
 import { useState } from "react";
-import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import NavBar from "../../components/navBar";
@@ -101,47 +100,48 @@ const Blog = ({
 
   return (
     <>
-      <Head>
-        <title>Thoughts and writings</title>
-      </Head>
-      <NavBar current="/blog"/>
-      <main className="container max-w-4xl relative lg:mx-auto pt-24 md:pt-16 lg:pt-32">
-      <h1 className="text-gray-800 text-3xl font-bold tracking-tight pb-4 mx-6 lg:mx-0 dark:text-gray-200">Writing</h1>
-      <h2 className="text-gray-700 font-normal mb-8 lg:mb-12 mx-6 lg:mx-0 dark:text-gray-300">This is not a typical blog. I revise and refine my thoughts from time to time. So the time an article was updated last is more important than its publishing date.</h2>
-          <div className="whitespace-nowrap sm:pl-8 md:pl-0 mx-6 lg:mx-0">
-            {categories.map((item, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  router
-                    .push("?f=" + item.slug.current, undefined, {
-                      shallow: true,
-                    })
-                    .then(() => {
-                      setCurrentFilter(item.slug.current);
-                    })
-                    .catch((err) => console.error(err));
-                }}
-                className={`mr-4 text-lg font-semibold md:py-0 md:mr-6 ${
-                  item.slug.current === currentFilter
-                    ? "text-gray-900 dark:text-gray-50 border-b-2 border-b-orange-500"
-                    : `text-gray-400 dark:text-gray-400 border-b-2 border-b-transparent`
-                }`}
-              >
-                {item.title}
-              </button>
-            ))}
-          </div>
+      <NavBar current="/blog" />
+      <main className="container relative max-w-4xl pt-24 md:pt-16 lg:mx-auto lg:pt-32">
+        <h1 className="mx-6 pb-4 text-3xl font-bold tracking-tight text-gray-800 dark:text-gray-200 lg:mx-0">
+          Writing
+        </h1>
+        <h2 className="mx-6 mb-8 font-normal text-gray-700 dark:text-gray-300 lg:mx-0 lg:mb-12">
+          This is not a typical blog. I revise and refine my thoughts from time
+          to time. So the time an article was updated last is more important
+          than its publishing date.
+        </h2>
+        <div className="mx-6 whitespace-nowrap sm:pl-8 md:pl-0 lg:mx-0">
+          {categories.map((item, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                router
+                  .push("?f=" + item.slug.current, undefined, {
+                    shallow: true,
+                  })
+                  .then(() => {
+                    setCurrentFilter(item.slug.current);
+                  })
+                  .catch((err) => console.error(err));
+              }}
+              className={`mr-4 text-lg font-semibold md:mr-6 md:py-0 ${
+                item.slug.current === currentFilter
+                  ? "border-b-2 border-b-orange-500 text-gray-900 dark:text-gray-50"
+                  : `border-b-2 border-b-transparent text-gray-400 dark:text-gray-400`
+              }`}
+            >
+              {item.title}
+            </button>
+          ))}
+        </div>
         <ul className="mx-6 lg:mx-0">
           {filteredBlog.map((article, index) => {
             return (
               <li
                 key={index}
-                className="items-center rounded duration-500 md:-mx-6 hover:bg-gray-400/20"
+                className="items-center rounded duration-500 hover:bg-gray-400/20 md:-mx-6"
               >
-                <Link
-                  href={"blog/" + article.slug}
-                >
+                <Link href={"blog/" + article.slug}>
                   {article.imageURL && (
                     <figure className="hidden w-[66px] mix-blend-normal md:visible md:ml-6 md:w-24">
                       <img
@@ -155,37 +155,37 @@ const Blog = ({
                       />
                     </figure>
                   )}
-                  <div className="ml-0 md:mx-6 flex md:flex-row flex-col gap-2 pr-2 py-4 md:px-0 md:py-6">
-                      <p className="mr-2 md:inline text-gray-500 text-sm leading-8">
-                        {format(Date.parse(article.updatedAt), "dd MMM yyyy")}
-                      </p>
-                    <span>
-                      <h2 className="block text-xl md:text-lg font-semibold text-gray-700 mix-blend-luminosity dark:text-gray-200 md:mb-2 lg:text-2xl">
-                      {article.title}
-                    </h2>
-                    <p className="text-sm text-gray-500 text-ellipsis">
-                      {article.excerpt}
+                  <div className="ml-0 flex flex-col gap-2 py-4 pr-2 md:mx-6 md:flex-row md:px-0 md:py-6">
+                    <p className="mr-2 text-sm leading-8 text-gray-500 md:inline">
+                      {format(Date.parse(article.updatedAt), "dd MMM yyyy")}
                     </p>
-                    <span className="text-sm text-gray-500">
-                      {article.categories.map((category, index) => {
-                        return (
-                          <span className="mr-2 " key={index}>
-                            #{category.title}
-                          </span>
-                        );
-                      })}
-                    </span>
+                    <span>
+                      <h2 className="block text-xl font-semibold text-gray-700 mix-blend-luminosity dark:text-gray-200 md:mb-2 md:text-lg lg:text-2xl">
+                        {article.title}
+                      </h2>
+                      <p className="text-ellipsis text-sm text-gray-500">
+                        {article.excerpt}
+                      </p>
+                      <span className="text-sm text-gray-500">
+                        {article.categories.map((category, index) => {
+                          return (
+                            <span className="mr-2 " key={index}>
+                              #{category.title}
+                            </span>
+                          );
+                        })}
                       </span>
+                    </span>
                   </div>
                 </Link>
               </li>
-            )
+            );
           })}
         </ul>
-        <Footer/>
       </main>
+      <Footer className="max-w-4xl" />
     </>
-  )
-}
+  );
+};
 
 export default Blog;
