@@ -1,5 +1,4 @@
 import { Metadata, type NextPage } from "next";
-import Head from "next/head";
 import Link from "next/link";
 import Footer from "../components/Footer";
 import ReoLogo from "../components/icons/reo";
@@ -58,9 +57,6 @@ export const metadata: Metadata = {
 const Home: NextPage = () => {
   return (
     <>
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <NavBar current="/" />
       <main className="flex min-h-screen flex-col items-center justify-center">
         <section className="container mb-24 mt-24 grid max-w-6xl grid-cols-12 gap-6 px-8 lg:px-0 xl:mx-auto xl:mb-48 xl:mt-48">
