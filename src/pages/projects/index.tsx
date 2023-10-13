@@ -152,7 +152,7 @@ const Projects = ({
           ))}
         </div>
       </main>
-      <Footer className="container" />
+      <Footer />
     </>
   );
 };
