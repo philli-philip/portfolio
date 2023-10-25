@@ -1,4 +1,4 @@
-import { Metadata, type NextPage } from "next";
+import type { Metadata, NextPage } from "next";
 import Link from "next/link";
 import Footer from "../components/Footer";
 import ReoLogo from "../components/icons/reo";
@@ -12,6 +12,7 @@ import DeutscheBankLogo from "../components/icons/deutscheBank";
 import NavBar from "../components/navBar";
 import ShortCuts from "../components/shortCuts";
 import NewProject from "../components/newProject";
+import Contact from "../components/Contact";
 
 const brands = [
   {
@@ -110,6 +111,7 @@ const Home: NextPage = () => {
             ))}
           </div>
         </section>
+        <Contact />
       </main>
       <Footer className="max-w-6xl" />
     </>
