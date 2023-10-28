@@ -47,9 +47,12 @@ export default function Contact() {
       } else if (message.length > 12 && message.length < 72) {
         response("That is a bit short to start a conversation.");
         setDisabled(true);
+      } else if (message.length > 72) {
+        response("");
+        setDisabled(false);
       } else {
         setFeedback("");
-        setDisabled(false);
+        setDisabled(true);
       }
     }, 1000);
 
@@ -123,7 +126,7 @@ export default function Contact() {
             <button
               className={cn(
                 "absolute bottom-4 right-4 w-32 rounded border-t bg-gray-950 py-2 text-lg text-white opacity-0 transition-all duration-100 disabled:bg-black/10 dark:border-white/20 dark:bg-gray-800 dark:text-white dark:shadow-sm dark:shadow-black/20 dark:hover:bg-white/5 disabled:dark:border-transparent disabled:dark:text-white/20",
-                !disabled ? "" : "opacity-100 md:ml-8"
+                !disabled ? "opacity-100 md:ml-8" : ""
               )}
               onClick={() => handleSubmit()}
               disabled={disabled}
