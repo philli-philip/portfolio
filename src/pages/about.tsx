@@ -10,7 +10,7 @@ const content: Experience[] = [
     timeStart: "2022",
     timeEnd: "",
     description:
-      "VP Corporate Cash — Responsible for the experience and visual design for client and internal facing products.",
+      "VP Design Corporate Cash — Responsible for the experience and visual design for client and internal facing products.",
   },
   {
     type: "Experience",
