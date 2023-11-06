@@ -9,7 +9,8 @@ const content: Experience[] = [
     title: "Deutsche Bank",
     timeStart: "2022",
     timeEnd: "",
-    description: "VP Design –",
+    description:
+      "VP Corporate Cash — Responsible for the experience and visual design for client and internal facing products.",
   },
   {
     type: "Experience",
@@ -171,7 +172,7 @@ const About = () => {
           </button>
         </span>
         <p className="text-gray-600 dark:text-gray-400 print:text-xs">
-          Rubensstraße 15, 12150
+          Rubensstraße 15, 12159 Berlin
           <br />
           philip@mattha.net
           <br />
