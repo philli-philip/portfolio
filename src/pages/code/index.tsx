@@ -8,6 +8,7 @@ import { useState } from "react";
 import Menu from "../../components/icons/menu";
 import Settings from "../../components/icons/settings";
 import { Popover, Transition } from "@headlessui/react";
+import { todo } from "../../app/code/to-do/page";
 
 export type Task = {
   id: number;
@@ -38,6 +39,7 @@ tasksList.push(adviceGenerator);
 tasksList.push(ClockApp);
 tasksList.push(code);
 tasksList.push(powerbank);
+tasksList.push(todo);
 
 function sortTasks(list: Task[], order: string) {
   if (order === "name") {
