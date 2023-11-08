@@ -13,7 +13,7 @@ export type Task = {
   id: number;
   name: string;
   link: string;
-  difficulty: "intermediary" | "master";
+  difficulty: "newbie" | "beginner" | "intermediary" | "master";
   completed?: Date;
 };
 

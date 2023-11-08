@@ -14,6 +14,6 @@ export const challengeInfo: Story<Task> = ({}) => <ChallengeInfo />;
 challengeInfo.args = {
   name: "Challenge Name",
   link: "https://www.google.de",
-  difficulty: "Difficulty",
+  difficulty: "intermediary",
   completed: new Date(Date.now()),
 };
