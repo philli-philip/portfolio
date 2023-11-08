@@ -8,20 +8,19 @@ export default function InsertToDo() {
 
   return (
     <div>
-      <form>
+      <form className="flex flex-row">
         <input
           placeholder="New Todo..."
           onChange={(e) => setNewTodo(e.target.value)}
           value={newTodo}
         ></input>
-        <p></p>
         <button
           onClick={(e) => (
             e.preventDefault(), createTodo(newTodo), setNewTodo("")
           )}
           type="submit"
         >
-          Submit
+          Create
         </button>
       </form>
     </div>

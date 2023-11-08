@@ -8,13 +8,12 @@ import { useState } from "react";
 import Menu from "../../components/icons/menu";
 import Settings from "../../components/icons/settings";
 import { Popover, Transition } from "@headlessui/react";
-import { todo } from "../../app/code/to-do/page";
 
 export type Task = {
   id: number;
   name: string;
   link: string;
-  difficulty: string;
+  difficulty: "intermediary" | "master";
   completed?: Date;
 };
 
@@ -31,6 +30,13 @@ const powerbank: Task = {
   name: "PowerBank",
   difficulty: "master",
   link: "https://powerbank.vercel.app",
+};
+
+const todo: Task = {
+  id: 6,
+  name: "To-Do",
+  difficulty: "intermediary",
+  link: "/code/to-do",
 };
 
 const tasksList: Task[] = [];
