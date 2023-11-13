@@ -11,7 +11,6 @@ import FortoLogo from "../components/icons/forto";
 import DeutscheBankLogo from "../components/icons/deutscheBank";
 import NavBar from "../components/navBar";
 import ShortCuts from "../components/shortCuts";
-import NewProject from "../components/newProject";
 import Contact from "../components/Contact";
 
 const brands = [
@@ -98,7 +97,6 @@ const Home: NextPage = () => {
           </h1>
           <ShortCuts />
         </section>
-        <NewProject />
         <section className="container max-w-6xl px-8 md:px-0">
           <div className="lg:grid-cols-5xl mx-auto grid grid-cols-2 place-items-center border-l border-t border-gray-200 dark:border-gray-700 md:grid-cols-4">
             {brands.map((item, index) => (
