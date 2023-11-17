@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import type { Task } from "../pages/code/iindex";
+import type { Task } from "../utils/types";
 import format from "date-fns/format";
 import Info from "./icons/info";
 
