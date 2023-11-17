@@ -3,6 +3,13 @@ import Footer from "../../components/Footer";
 import Filter from "./settings";
 import List from "./list";
 import FilterBar from "./filterBar";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Philip Mattha | Code snippets",
+  description:
+    "Past and current coding projects to refine my understanding of how the web works.",
+};
 
 export default function Page() {
   return (

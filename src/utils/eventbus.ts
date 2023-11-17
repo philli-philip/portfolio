@@ -54,10 +54,7 @@ export function PubSub<E>(): PubSubType<E> {
 
   return {
     publish: (event, msg) => {
-      if (handlers[event]) {
-        //@ts-ignore
-        handlers[event].forEach((h) => h(msg));
-      }
+      handlers[event]!.forEach((h) => h(msg));
     },
 
     subscribe: (event, callback) => {

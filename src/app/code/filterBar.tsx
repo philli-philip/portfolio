@@ -60,10 +60,10 @@ export default function FilterBar() {
               <Menu.Button className={menuItemStyle}>Difficulty</Menu.Button>
               <Menu.Items className={cn(dropdown, dropdownSub)}>
                 {levels.map((item) => (
-                  <Menu.Item>
+                  <Menu.Item key={item}>
                     <button
                       className={menuItemStyle}
-                      onClick={(e) =>
+                      onClick={() =>
                         FilterByStatusStream.publish("FilterByStatus", {
                           filter: item,
                         })
