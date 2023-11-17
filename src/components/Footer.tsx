@@ -5,7 +5,7 @@ const Footer = ({ className }: { className?: string }): JSX.Element => {
   return (
     <footer
       className={cn(
-        "mx-8 mb-16 mt-8 flex flex-col gap-6 border-t border-gray-200 pt-6 text-sm text-gray-500 dark:border-gray-600 dark:text-gray-400 sm:mx-auto sm:flex-row md:mb-16 md:mt-12",
+        "md:mp-16 mx-8 mt-8 flex flex-col gap-6 border-t border-gray-200 pb-16 pt-6 text-sm text-gray-500 dark:border-gray-600 dark:text-gray-400 sm:mx-auto sm:flex-row md:mt-12",
         className
       )}
     >

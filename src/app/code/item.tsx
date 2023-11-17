@@ -1,11 +1,12 @@
 "use client";
 
-import type { Task } from "../pages/code/iindex";
 import format from "date-fns-tz/format";
-import Status from "../app/code/completed";
+import Status from "./completed";
 import { useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import CloseIcon from "./icons/close";
+import CloseIcon from "../../components/icons/close";
+import type { Task } from "../../utils/types";
+import { FilterByStatusStream } from "../../utils/eventbus";
 
 type Props = {
   task: Task;
@@ -16,7 +17,6 @@ export default function Item(props: Props) {
   const [open, setOpen] = useState(false);
 
   function closeDetails() {
-    console.log("details");
     setOpen(false);
   }
 
@@ -26,18 +26,32 @@ export default function Item(props: Props) {
 
   return (
     <>
-      <button
+      <div
         onClick={() => openDetails()}
         key={id}
-        className="flex h-12 w-full flex-row items-center justify-between gap-2 border-b border-gray-200 px-4 text-sm hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 md:gap-4"
+        className="flex h-12 w-full cursor-pointer flex-row items-center justify-between gap-2 border-b border-gray-200 bg-white px-4 text-sm last:border-transparent hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:hover:bg-gray-600 md:gap-4"
       >
         <span className="text-secondary w-8">{`P-` + id}</span>
         <span className="text-primary font-semibold">{name}</span>
         <Status completed={completed} />
-        <span className="text-secondary flex w-24 flex-1 justify-end text-right">
+        <span className="text-secondary w-24 flex-1 justify-end text-right">
+          <button
+            className="hover:bg-wh rounded-full border border-transparent px-2 py-1 hover:border-gray-300 dark:hover:border-white/20 dark:hover:bg-white/10"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              FilterByStatusStream.publish("FilterByStatus", {
+                filter: difficulty,
+              });
+            }}
+          >
+            {difficulty}
+          </button>
+        </span>
+        <span className="text-secondary flex-0 flex w-24 justify-end text-right">
           {completed ? format(completed, "dd MMM YYY") : "--"}
         </span>
-      </button>
+      </div>
       <Transition appear show={open} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeDetails}>
           <div className="fixed inset-0 overflow-y-auto">
