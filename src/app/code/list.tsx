@@ -67,7 +67,7 @@ export default function List() {
   }, []);
 
   return (
-    <ul className="overflow-hidden rounded-lg border border-gray-200 dark:border-white/20">
+    <ul className="mx-4 overflow-hidden rounded-lg border border-gray-200 dark:border-white/20 md:mx-8">
       {tasksList
         .filter((task) => !difficulty || task.difficulty == difficulty)
         .sort(sortArrayByAttribute(order, false))

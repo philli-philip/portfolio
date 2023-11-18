@@ -29,12 +29,14 @@ export default function Item(props: Props) {
       <div
         onClick={() => openDetails()}
         key={id}
-        className="flex h-12 w-full cursor-pointer flex-row items-center justify-between gap-2 border-b border-gray-200 bg-white px-4 text-sm last:border-transparent hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:hover:bg-gray-600 md:gap-4"
+        className="flex h-12 w-full cursor-pointer flex-row items-center justify-between gap-2 border-b border-gray-200 bg-white px-4 text-sm @container last:border-transparent hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:hover:bg-gray-600 md:gap-4"
       >
         <span className="text-secondary w-8">{`P-` + id}</span>
-        <span className="text-primary font-semibold">{name}</span>
+        <span className="text-primary flex-1 font-semibold sm:flex-none ">
+          {name}
+        </span>
         <Status completed={completed} />
-        <span className="text-secondary w-24 flex-1 justify-end text-right">
+        <span className="text-secondary hidden w-24 flex-1 justify-end text-right @md:flex">
           <button
             className="hover:bg-wh rounded-full border border-transparent px-2 py-1 hover:border-gray-300 dark:hover:border-white/20 dark:hover:bg-white/10"
             onClick={(e) => {
@@ -48,7 +50,7 @@ export default function Item(props: Props) {
             {difficulty}
           </button>
         </span>
-        <span className="text-secondary flex-0 flex w-24 justify-end text-right">
+        <span className="text-secondary flex-0 hidden w-24 justify-end text-right @md:flex">
           {completed ? format(completed, "dd MMM YYY") : "--"}
         </span>
       </div>
