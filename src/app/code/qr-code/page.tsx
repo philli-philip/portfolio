@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
-import type { Task } from ".";
-import ChallengeInfo from "../../components/challengeInfo";
+import type { Task } from "../../../utils/types";
+import ChallengeInfo from "../../../components/challengeInfo";
 
 export const qrCode: Task = {
   id: 1,

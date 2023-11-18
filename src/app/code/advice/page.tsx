@@ -1,5 +1,7 @@
-import type { Task } from ".";
-import ChallengeInfo from "../../components/challengeInfo";
+"use client";
+
+import type { Task } from "../../../utils/types";
+import ChallengeInfo from "../../../components/challengeInfo";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 

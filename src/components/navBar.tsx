@@ -57,14 +57,18 @@ const NavBar = (props: Props): JSX.Element => {
         >
           <Menu />
         </button>
-        <ul className="absolute -right-2 top-14 mx-4 flex flex-col rounded-2xl bg-white/90 shadow-md backdrop-blur-sm dark:border-0 dark:border-t dark:border-gray-600 dark:bg-gray-800/90 md:relative md:right-0 md:top-0 md:flex-row">
+        <ul className="absolute -right-2 top-14 mx-4 flex flex-col overflow-hidden rounded-2xl bg-white/90 shadow-md backdrop-blur-sm dark:border-0 dark:border-t dark:border-gray-600 dark:bg-gray-800/90 md:relative md:right-0 md:top-0 md:flex-row">
           {items.map((item, index) => (
             <li key={index}>
               <a
                 href={item.target}
-                className={`relative block px-6 py-2 text-sm text-gray-700 transition hover:text-orange-600 dark:text-gray-200 ${
+                className={`relative block bg-gradient-radial-at-b via-transparent via-80% px-6 py-2 text-sm transition hover:from-orange-400/10 hover:text-orange-600 ${
                   open ? "block" : "hidden md:block"
-                } ${isCurrent(item.target) ? "text-orange-600" : ""}`}
+                } ${
+                  isCurrent(item.target)
+                    ? "from-orange-400/20 text-orange-600 dark:text-orange-400"
+                    : "text-gray-700 dark:text-gray-200"
+                }`}
               >
                 {item.label}
               </a>

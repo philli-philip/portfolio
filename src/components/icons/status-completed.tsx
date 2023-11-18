@@ -2,6 +2,7 @@ type Props = {
   height?: number;
   width?: number;
   strokeWeight?: number;
+  className: string;
 };
 
 const StatusCompleted = (props: Props) => {
@@ -14,8 +15,9 @@ const StatusCompleted = (props: Props) => {
       width={props.width || 24}
       strokeWidth={props.strokeWeight || 1}
       stroke="transparent"
+      className={props.className || ""}
     >
-      <circle cx="8" cy="8" r="4" fill="#12B76A"/>
+      <circle cx="8" cy="8" r="4" fill="#12B76A" />
     </svg>
   );
 };

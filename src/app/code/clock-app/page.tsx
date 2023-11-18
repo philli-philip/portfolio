@@ -1,9 +1,11 @@
-import type { Task } from ".";
-import { useEffect, useState, useTransition } from "react";
+"use client";
+
+import type { Task } from "../../../utils/types";
+import { useEffect, useState } from "react";
 import format from "date-fns/format";
 import { formatInTimeZone } from "date-fns-tz";
-import ChevronDown from "../../components/icons/chevron-down";
-import RefreshCCW from "../../components/icons/refresh-ccw";
+import ChevronDown from "../../../components/icons/chevron-down";
+import RefreshCCW from "../../../components/icons/refresh-ccw";
 import Head from "next/head";
 
 type GeoInformation = {

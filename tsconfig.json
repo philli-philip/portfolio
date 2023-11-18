@@ -32,7 +32,7 @@
     "**/*.cjs",
     "**/*.mjs",
     ".next/types/**/*.ts"
-  ],
+, "src/utils/eventbus.ts"  ],
   "exclude": [
     "node_modules",
     ".next"

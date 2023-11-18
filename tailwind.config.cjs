@@ -17,7 +17,8 @@ module.exports = {
         },
       },
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-radial': 'radial-gradient(at center center, var(--tw-gradient-stops))',
+        'gradient-radial-at-b': 'radial-gradient(at bottom , var(--tw-gradient-stops))',
       },
       transitionProperty: {
         'height': 'height'
@@ -27,5 +28,6 @@ module.exports = {
   plugins: [
     require('tailwind-scrollbar-hide'),
     require('@tailwindcss/typography'),
+    require('@tailwindcss/container-queries'),
   ],
 };

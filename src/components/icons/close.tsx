@@ -2,6 +2,7 @@ type Props = {
   height?: number;
   width?: number;
   strokeWeight?: number;
+  className?: string;
 };
 
 export default function CloseIcon(props: Props) {
@@ -14,6 +15,8 @@ export default function CloseIcon(props: Props) {
       width={props.width || 24}
       strokeWidth={props.strokeWeight || 1.5}
       stroke="currentColor"
+      className={props.className || ""}
+      strokeLinecap="round"
     >
       <path d="M18 6L6 18M6 6L18 18" />
     </svg>
