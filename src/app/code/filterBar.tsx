@@ -8,12 +8,12 @@ import { cn } from "../../utils/cn";
 const levels = ["newbie", "intermediary", "master", "Beginner"];
 
 const dropdown =
-  "absolute left-0 top-8 z-10 origin-top-left rounded-lg bg-white py-2 shadow-lg dark:bg-gray-700 dark:shadow-xl dark:shadow-black";
+  "absolute left-0 top-8 z-10 rounded-lg bg-white py-1 shadow-lg dark:bg-gray-700 dark:shadow-xl dark:shadow-black";
 
 const dropdownSub = "left-full -top-2 flex flex-col";
 
 const menuItemStyle =
-  "flex flex-row justify-between flex-1 gap-x-2 py-1 text-gray-800 dark:text-gray-200 px-4 hover:bg-black/5";
+  "flex flex-row justify-between text-sm flex-1 gap-x-2 py-1 text-gray-800 dark:text-gray-200 px-4 hover:bg-black/5";
 
 export default function FilterBar() {
   const [difficulty, setDifficulty] = useState("");

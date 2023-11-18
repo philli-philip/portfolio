@@ -1,7 +1,7 @@
 import Footer from "../Footer";
 import type { Story } from "@ladle/react";
 import ChallengeInfo from "../challengeInfo";
-import type { Task } from "../../pages/code/iindex";
+import type { Task } from "../../utils/types";
 
 export const footer: Story = () => (
   <>
