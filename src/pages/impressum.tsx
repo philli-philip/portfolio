@@ -43,7 +43,7 @@ const Imprint = ({ imprint }: { imprint: Imprint }) => {
         >
           <LeftArrow />
         </Link>
-        <h1 className="mb-6 text-2xl font-semibold md:text-3xl lg:text-4xl">
+        <h1 className="mb-6 text-2xl font-semibold text-gray-800 dark:text-gray-200 md:text-3xl lg:text-4xl">
           {imprint?.title}
         </h1>
 
@@ -68,7 +68,7 @@ const Imprint = ({ imprint }: { imprint: Imprint }) => {
           />
         )}
       </article>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
