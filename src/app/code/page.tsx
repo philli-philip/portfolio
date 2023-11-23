@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <body className=" bg-gray-100 dark:bg-gray-900">
+    <>
       <NavBar current="/code" />
       <main className="min-h-screen">
         <section className="mx-auto max-w-4xl pt-20 md:pt-32 lg:pt-48">
@@ -32,6 +32,6 @@ export default function Page() {
         </section>
       </main>
       <Footer className="max-w-4xl" />
-    </body>
+    </>
   );
 }
