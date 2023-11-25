@@ -158,7 +158,7 @@ const About = () => {
         <meta name="description" content="Philip's CV" />
       </Head>
       <NavBar current={"/about"} />
-      <main className="relative mx-auto px-8 pt-32 text-gray-800 md:container dark:text-gray-200 lg:pl-36 print:mt-8 print:max-w-full print:text-gray-800">
+      <main className="relative mx-auto max-w-6xl px-8 pt-32 text-gray-800 dark:text-gray-200 lg:pl-36 lg:pt-48 print:mt-8 print:max-w-full print:text-gray-800">
         <span className="flex flex-1 justify-between">
           <h1 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl xl:text-6xl print:mb-2 print:text-4xl">
             Philip Mattha
@@ -210,7 +210,7 @@ const About = () => {
           ))}
         </section>
       </main>
-      <Footer className="container print:hidden" />
+      <Footer className="max-w-6xl print:hidden" />
     </>
   );
 };
