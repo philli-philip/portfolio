@@ -29,8 +29,6 @@ jobs:
         with:
           node-version: "14"
       - run: echo ${{needs.test_setup.outputs.preview_url}}
-      - run: npm ci
-      - run: npx playwright install --with-deps
       - name: Run tests
         run: npm run test:e2e
         env:
