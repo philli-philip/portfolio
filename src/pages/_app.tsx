@@ -3,7 +3,7 @@ import type { AppProps } from "next/app";
 
 import "../app/globals.css";
 
-export default function MyApp({ Component, pageProps }: AppProps){
+export default function MyApp({ Component, pageProps }: AppProps) {
   const AnyComponent = Component as any;
   return (
     <>
@@ -11,4 +11,4 @@ export default function MyApp({ Component, pageProps }: AppProps){
       <Analytics />
     </>
   );
-};
+}

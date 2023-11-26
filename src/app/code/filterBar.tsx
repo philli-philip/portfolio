@@ -34,6 +34,7 @@ export default function FilterBar() {
             {difficulty}
           </span>
           <button
+            aria-label="Remove difficulty filter"
             className="h-6 w-6 rounded-full p-1 hover:bg-white/10"
             onClick={() => {
               setDifficulty("");
