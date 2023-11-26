@@ -9,7 +9,8 @@
     "start": "next start",
     "sanity": "cd cms && sanity dev",
     "story": "npx ladle serve",
-    "test": "npx playwright test --ui"
+    "test": "npx playwright test",
+    "test-ui": "npx playwright test --ui"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.16",
