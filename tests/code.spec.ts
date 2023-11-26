@@ -8,7 +8,8 @@ test("Has Challenges", async ({ page }) => {
   await page.getByLabel("Close").click();
 });
 
-test("Filter by item", async ({ page }) => {
+test("Filter by item", async ({ page, isMobile }) => {
+  test.skip(isMobile, "Feature not available on Mobile");
   await page.goto("/code");
 
   await page.getByText("intermediary").first().click();
