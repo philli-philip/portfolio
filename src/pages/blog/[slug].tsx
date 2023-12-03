@@ -112,7 +112,7 @@ export default function Article({ article }: { article: Article }) {
 
           {article?.body && (
             <PortableText
-              className="prose prose-lg dark:prose-invert lg:prose-xl xl:prose-xl prose-headings:font-semibold prose-headings:text-gray-800 prose-p:font-light prose-p:text-gray-600 prose-a:font-normal prose-a:text-current hover:prose-a:text-gray-900 prose-ul:pl-0 prose-li:ml-6 prose-li:pl-4 prose-li:font-light dark:prose-headings:text-gray-200 dark:prose-p:text-gray-300 dark:hover:prose-a:text-gray-100"
+              className="prose prose-lg dark:prose-invert lg:prose-xl xl:prose-xl prose-headings:font-semibold prose-headings:text-gray-800 prose-p:font-light prose-p:text-gray-600 prose-a:font-light prose-a:text-current hover:prose-a:text-gray-900 prose-ul:pl-0 prose-li:ml-6 prose-li:pl-4 prose-li:font-light dark:prose-headings:text-gray-200 dark:prose-p:text-gray-300 dark:hover:prose-a:text-gray-100"
               content={article?.body}
               serializers={{
                 li: ({ children }: { children: JSX.Element }) => (
