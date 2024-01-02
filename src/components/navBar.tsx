@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Menu from "./icons/menu";
+import Link from "next/link";
 
 const items = [
   {
@@ -53,14 +54,14 @@ const NavBar = (props: Props): JSX.Element => {
       <div className="absolute inset-x-0 top-8 mx-4 flex flex-1 justify-end md:justify-center">
         <button
           onClick={() => setOpen(!open)}
-          className="rounded-full border-t bg-white/90 p-3 shadow-md hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-800/90 dark:text-gray-300 dark:hover:bg-gray-600 md:hidden"
+          className="rounded-full border-t bg-white/90 p-3 shadow-md hover:bg-gray-100 md:hidden dark:border-gray-600 dark:bg-gray-800/90 dark:text-gray-300 dark:hover:bg-gray-600"
         >
           <Menu />
         </button>
-        <ul className="absolute -right-2 top-14 mx-4 flex flex-col overflow-hidden rounded-2xl bg-white/90 shadow-md backdrop-blur-sm dark:border-0 dark:border-t dark:border-gray-600 dark:bg-gray-800/90 md:relative md:right-0 md:top-0 md:flex-row">
+        <ul className="absolute -right-2 top-14 mx-4 flex flex-col overflow-hidden rounded-2xl bg-white/90 shadow-md backdrop-blur-sm md:relative md:right-0 md:top-0 md:flex-row dark:border-0 dark:border-t dark:border-gray-600 dark:bg-gray-800/90">
           {items.map((item, index) => (
             <li key={index}>
-              <a
+              <Link
                 href={item.target}
                 className={`relative block bg-gradient-radial-at-b via-transparent via-80% px-6 py-2 text-sm transition hover:from-orange-400/10 hover:text-orange-600 ${
                   open ? "block" : "hidden md:block"
@@ -71,7 +72,7 @@ const NavBar = (props: Props): JSX.Element => {
                 }`}
               >
                 {item.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
