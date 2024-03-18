@@ -30,6 +30,14 @@ const powerbank: Task = {
   link: "https://powerbank.vercel.app",
 };
 
+const dreiJS: Task = {
+  id: 8,
+  name: "Experiments with three.js",
+  difficulty: "intermediary",
+  link: "/code/drei",
+  completed: new Date("17 March 2024"),
+};
+
 const tasksList: Task[] = [
   qrCode,
   adviceGenerator,
@@ -37,6 +45,7 @@ const tasksList: Task[] = [
   ClockApp,
   code,
   powerbank,
+  dreiJS,
 ];
 
 function sortArrayByAttribute(attribute: string, ascending: boolean) {
