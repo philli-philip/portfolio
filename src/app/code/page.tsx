@@ -3,7 +3,7 @@ import Footer from "../../components/Footer";
 import Filter from "./settings";
 import List from "./list";
 import FilterBar from "./filterBar";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Philip Mattha | Code snippets",

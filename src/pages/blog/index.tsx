@@ -101,8 +101,8 @@ const Blog = ({
   return (
     <>
       <NavBar current="/blog" />
-      <main className="container relative max-w-4xl pt-24 md:pt-16 lg:mx-auto lg:pt-32">
-        <h1 className="mx-6 pb-4 text-3xl font-bold tracking-tight text-gray-800 dark:text-gray-200 lg:mx-0">
+      <main className="container relative max-w-4xl pt-24 md:pt-16 lg:mx-auto lg:pt-48">
+        <h1 className="mx-6 pb-4 text-3xl font-bold tracking-tight text-gray-800 lg:mx-0 dark:text-gray-200">
           Writing
         </h1>
         <h2 className="mx-6 mb-8 font-normal text-gray-700 dark:text-gray-300 lg:mx-0 lg:mb-12">
