@@ -1,58 +1,58 @@
-import {defineField, defineType} from 'sanity'
+import { defineType } from "sanity";
 
 export default defineType({
-  name: 'article',
-  title: 'Article',
-  type: 'document',
+  name: "article",
+  title: "Article",
+  type: "document",
   fields: [
-    defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-    }),
-    defineField({
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
+    {
+      name: "title",
+      title: "Title",
+      type: "string",
+    },
+    {
+      name: "slug",
+      title: "Slug",
+      type: "slug",
       options: {
-        source: 'name',
+        source: "name",
         maxLength: 96,
       },
       validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'image',
-      title: 'Image',
-      type: 'image',
-    }),
-    defineField({
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: {type: 'author'},
-    }),
-    defineField({
-      name: 'publishedAt',
-      title: 'Published at',
-      type: 'datetime',
+    },
+    {
+      name: "image",
+      title: "Image",
+      type: "image",
+    },
+    {
+      name: "author",
+      title: "Author",
+      type: "reference",
+      to: { type: "author" },
+    },
+    {
+      name: "publishedAt",
+      title: "Published at",
+      type: "datetime",
       validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'body',
-      title: 'Body',
-      type: 'blockContent',
-    }),
-    defineField({
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'article-category'}}],
+    },
+    {
+      name: "body",
+      title: "Body",
+      type: "blockContent",
+    },
+    {
+      name: "categories",
+      title: "Categories",
+      type: "reference",
+      to: { type: "article-category" },
       validation: (Rule) => Rule.required(),
-    }),
+    },
   ],
   preview: {
     select: {
-      title: 'title',
+      title: "title",
     },
   },
-})
+});
