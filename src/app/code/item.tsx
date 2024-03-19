@@ -7,6 +7,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import CloseIcon from "../../components/icons/close";
 import type { Task } from "../../utils/types";
 import { FilterByStatusStream } from "../../utils/eventbus";
+import Link from "next/link";
 
 type Props = {
   task: Task;
@@ -29,7 +30,7 @@ export default function Item(props: Props) {
       <div
         onClick={() => openDetails()}
         key={id}
-        className="flex h-12 w-full cursor-pointer flex-row items-center justify-between gap-2 border-b border-gray-200 bg-white px-4 text-sm @container last:border-transparent hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:hover:bg-gray-600 md:gap-4"
+        className="flex h-12 w-full cursor-pointer flex-row items-center justify-between gap-2 border-b border-gray-200 bg-white px-4 text-sm @container last:border-transparent hover:bg-gray-100 md:gap-4 dark:border-gray-600 dark:bg-gray-800 dark:hover:bg-gray-600"
       >
         <span className="text-secondary w-8">{`P-` + id}</span>
         <span className="text-primary flex-1 font-semibold sm:flex-none ">
@@ -110,14 +111,14 @@ export default function Item(props: Props) {
                   <ul className="border-t border-gray-200 px-8 py-8 dark:border-gray-600">
                     <li className="text-sm text-gray-500 dark:text-gray-400">
                       <span className="mr-8 inline-block w-24">Link</span>
-                      <a
+                      <Link
                         href={link}
                         target="_blank"
                         rel="noreferrer"
                         className="text-gray-800 underline underline-offset-2 dark:text-gray-200"
                       >
                         Visit project
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </Dialog.Panel>
