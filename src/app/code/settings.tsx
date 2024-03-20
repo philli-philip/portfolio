@@ -1,11 +1,11 @@
 "use client";
 import { Popover } from "@headlessui/react";
 import Settings from "../../components/icons/settings";
-import { useState } from "react";
-import { OrderStream } from "../../utils/eventbus";
+import { useFilterContext } from "./page";
+
 
 export default function Filter() {
-  const [order, setOrder] = useState("id");
+  const { filter, dispatch } = useFilterContext();
 
   return (
     <Popover className="relative inline-block text-left">
@@ -19,11 +19,13 @@ export default function Filter() {
           <select
             className="border-default text-primary inline-block rounded-lg border bg-white py-1 pl-2 pr-2 text-sm hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700"
             name="ordering"
-            defaultValue={order}
-            onChange={(e) => {
-              setOrder(e.target.value);
-              OrderStream.publish("SetOrder", { orderBy: e.target.value });
-            }}
+            defaultValue={filter.sort}
+            onChange={(e) =>
+              dispatch({
+                type: "changeSort",
+                value: e.target.value,
+              })
+            }
           >
             <option value="id">ID</option>
             <option value="name">Name</option>

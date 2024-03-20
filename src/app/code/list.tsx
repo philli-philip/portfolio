@@ -4,9 +4,9 @@ import Item from "./item";
 import { qrCode } from "../code/qr-code/page";
 import { adviceGenerator } from "../code/advice/page";
 import { ClockApp } from "../code/clock-app/page";
-import { FilterByStatusStream, OrderStream } from "../../utils/eventbus";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import type { Task } from "../../utils/types";
+import { useFilterContext } from "./page";
 
 const code: Task = {
   id: 4,
@@ -61,28 +61,42 @@ function sortArrayByAttribute(attribute: string, ascending: boolean) {
 }
 
 export default function List() {
-  const [order, setOrder] = useState("id");
-  const [difficulty, setDifficulty] = useState("");
-
-  useEffect(() => {
-    OrderStream.subscribe("SetOrder", (message) => {
-      setOrder(message.orderBy);
-    });
-
-    FilterByStatusStream.subscribe("FilterByStatus", (message) => {
-      console.log(message.filter);
-      setDifficulty(message.filter);
-    });
-  }, []);
+  const { filter } = useFilterContext();
 
   return (
-    <ul className="mx-4 overflow-hidden rounded-lg border border-gray-200 shadow-xl dark:border-white/20 md:mx-8">
+    <ul className="mx-4 overflow-hidden rounded-lg border border-gray-200 shadow-xl md:mx-8 dark:border-white/20">
       {tasksList
-        .filter((task) => !difficulty || task.difficulty == difficulty)
-        .sort(sortArrayByAttribute(order, false))
+        .filter(
+          (task) =>
+            (filter.difficulty === "all" && filter.status === "all") ||
+            (task.difficulty == filter.difficulty && filter.status === "all") ||
+            (filter.difficulty === "all" &&
+              isCompleted(task.completed) == stateToBoolean(filter.status)) ||
+            (task.difficulty == filter.difficulty &&
+              isCompleted(task.completed) == stateToBoolean(filter.status))
+        )
+        .sort(sortArrayByAttribute(filter.sort, false))
         .map((item) => (
           <Item task={item} key={item.id} />
         ))}
     </ul>
   );
+}
+
+function isCompleted(date: Date | undefined) {
+  if (!date) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+function stateToBoolean(label: string) {
+  if (label === "completed") {
+    return true;
+  } else if ((label = "open")) {
+    return false;
+  } else {
+    throw new Error("label is not completed or open.");
+  }
 }

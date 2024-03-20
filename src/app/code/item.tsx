@@ -6,8 +6,8 @@ import { useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import CloseIcon from "../../components/icons/close";
 import type { Task } from "../../utils/types";
-import { FilterByStatusStream } from "../../utils/eventbus";
 import Link from "next/link";
+import { useFilterContext } from "./page";
 
 type Props = {
   task: Task;
@@ -16,6 +16,7 @@ type Props = {
 export default function Item(props: Props) {
   const { name, difficulty, completed, id, link } = props.task;
   const [open, setOpen] = useState(false);
+  const { dispatch } = useFilterContext();
 
   function closeDetails() {
     setOpen(false);
@@ -39,13 +40,11 @@ export default function Item(props: Props) {
         <Status completed={completed} />
         <span className="text-secondary hidden w-24 flex-1 justify-end text-right @md:flex">
           <button
-            className="hover:bg-wh rounded-full border border-transparent px-2 py-1 hover:border-gray-300 dark:hover:border-white/20 dark:hover:bg-white/10"
+            className="rounded-full border border-transparent px-2 py-1 hover:border-gray-300 dark:hover:border-white/20 dark:hover:bg-white/10"
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
-              FilterByStatusStream.publish("FilterByStatus", {
-                filter: difficulty,
-              });
+              dispatch({ type: "filterDifficulty", value: difficulty });
             }}
           >
             {difficulty}
