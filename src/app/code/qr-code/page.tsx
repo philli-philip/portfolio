@@ -9,7 +9,8 @@ export const qrCode: Task = {
   name: "QR Code",
   link: "code/qr-code",
   difficulty: "newbie",
-  completed: new Date("04 Jun 2023"),
+  completedAt: new Date("04 Jun 2023"),
+  status: "completed",
 };
 
 export default function Page() {

@@ -98,5 +98,6 @@ export const adviceGenerator: Task = {
   name: "Advice Generator",
   link: "/code/advice-generator",
   difficulty: "Beginner",
-  completed: new Date("07 Jun 2023"),
+  completedAt: new Date("07 Jun 2023"),
+  status: "completed",
 };

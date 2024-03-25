@@ -4,7 +4,6 @@ import Item from "./item";
 import { qrCode } from "../code/qr-code/page";
 import { adviceGenerator } from "../code/advice/page";
 import { ClockApp } from "../code/clock-app/page";
-import { useState } from "react";
 import type { Task } from "../../utils/types";
 import { useFilterContext } from "./page";
 
@@ -13,14 +12,16 @@ const code: Task = {
   name: "Code Page",
   difficulty: "intermediary",
   link: "/code",
-  completed: new Date("14 September 2023"),
+  completedAt: new Date("14 September 2023"),
+  status: "completed",
 };
 const advancedFiltering: Task = {
   id: 7,
   name: "Advanced Filtering",
   difficulty: "intermediary",
   link: "/code",
-  completed: new Date("20 November 2023"),
+  completedAt: new Date("20 November 2023"),
+  status: "completed",
 };
 
 const powerbank: Task = {
@@ -28,6 +29,7 @@ const powerbank: Task = {
   name: "PowerBank",
   difficulty: "master",
   link: "https://powerbank.vercel.app",
+  status: "canceled",
 };
 
 const dreiJS: Task = {
@@ -35,7 +37,8 @@ const dreiJS: Task = {
   name: "Experiments with three.js",
   difficulty: "intermediary",
   link: "/code/drei",
-  completed: new Date("17 March 2024"),
+  completedAt: new Date("17 March 2024"),
+  status: "completed",
 };
 
 const tasksList: Task[] = [
@@ -71,9 +74,9 @@ export default function List() {
             (filter.difficulty === "all" && filter.status === "all") ||
             (task.difficulty == filter.difficulty && filter.status === "all") ||
             (filter.difficulty === "all" &&
-              isCompleted(task.completed) == stateToBoolean(filter.status)) ||
+              isCompleted(task.status) == stateToBoolean(filter.status)) ||
             (task.difficulty == filter.difficulty &&
-              isCompleted(task.completed) == stateToBoolean(filter.status))
+              isCompleted(task.status) == stateToBoolean(filter.status))
         )
         .sort(sortArrayByAttribute(filter.sort, false))
         .map((item) => (
@@ -83,8 +86,8 @@ export default function List() {
   );
 }
 
-function isCompleted(date: Date | undefined) {
-  if (!date) {
+function isCompleted(date: string) {
+  if (date !== "completed") {
     return false;
   } else {
     return true;

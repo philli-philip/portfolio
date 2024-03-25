@@ -5,7 +5,7 @@ import { cn } from "../../utils/cn";
 import { useFilterContext } from "./page";
 
 const levels = ["newbie", "intermediary", "master", "Beginner"];
-const status = ["open", "completed"];
+const status = ["open", "completed", "canceled"];
 
 const dropdown =
   "absolute left-0 top-8 z-10 rounded-lg bg-white py-1 shadow-lg dark:bg-gray-700 dark:shadow-xl dark:shadow-black";

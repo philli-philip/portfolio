@@ -94,7 +94,7 @@ export default function Page() {
           </FilterContext.Provider>
         </section>
       </main>
-      <Footer className="max-w-4xl" />
+      <Footer className="max-w-4xl px-4" />
     </>
   );
 }
