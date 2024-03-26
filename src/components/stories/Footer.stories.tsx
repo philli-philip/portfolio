@@ -15,5 +15,5 @@ challengeInfo.args = {
   name: "Challenge Name",
   link: "https://www.google.de",
   difficulty: "Difficulty",
-  completed: new Date(Date.now()),
+  completedAt: new Date(Date.now()),
 };

@@ -32,8 +32,8 @@ export default function ChallengeInfo(props: Props): React.ReactElement {
         {props.task?.name || "Not provided"}
       </span>
       <span>Difficulty: {props.task?.difficulty || "Not provided"}</span>
-      {props.task?.completed && (
-        <span>Completed: {format(props.task.completed, "dd MMM yyy")}</span>
+      {props.task?.completedAt && (
+        <span>Completed: {format(props.task.completedAt, "dd MMM yyy")}</span>
       )}
     </div>
   );
