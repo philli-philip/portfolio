@@ -13,6 +13,8 @@ export default function List() {
   const [showList, toggleList] = useState(false);
   const [showHead, toggleHead] = useState(false);
   const [showControl, toggleControl] = useState(false);
+  const [showChip, toggleChip] = useState(true);
+  const [showDepartment, toggleDepartment] = useState(true);
 
   return (
     <div className="relative">
@@ -33,7 +35,12 @@ export default function List() {
               "inline flex flex-shrink",
               grid && "bg-gray-100"
             )}
-            onClick={() => setGrid(!grid)}
+            onClick={() => {
+              setGrid(!grid);
+              toggleChip(true);
+              toggleDepartment(true);
+              toggleControl(false);
+            }}
           >
             Grid
           </button>
@@ -76,75 +83,109 @@ export default function List() {
               <span className="flex-1">Actions</span>
             </div>
           )}
-          <ul className="flex flex-1 flex-col bg-white">
-            {data.map((data) => (
-              <li
-                className="flex flex-row items-center gap-x-4 border-b border-gray-200 p-4 hover:bg-gray-100"
-                key={data.id}
-              >
-                <span
+          <>
+            {showControl && (
+              <div className="flex flex-row justify-end gap-x-4 px-4">
+                <button
                   className={clsx(
-                    grid
-                      ? "flex-[1] items-center"
-                      : "flex-col items-start justify-start gap-x-4 gap-y-0",
-                    "flex "
+                    buttonStyle,
+                    "inline flex flex-shrink",
+                    showChip && "bg-gray-200"
                   )}
+                  onClick={() => toggleChip(!showChip)}
                 >
-                  {data.name}
-                  {!grid && (
-                    <span className="text-xs font-normal text-gray-900/60">
-                      {data.department}
+                  Status
+                </button>
+                <button
+                  className={clsx(
+                    buttonStyle,
+                    "inline flex flex-shrink",
+                    showDepartment && "bg-gray-200"
+                  )}
+                  onClick={() => toggleDepartment(!showDepartment)}
+                >
+                  Department
+                </button>
+              </div>
+            )}
+            <ul className="flex flex-1 flex-col bg-white">
+              {data.map((data) => (
+                <li
+                  className="flex flex-row items-center gap-x-4 border-b border-gray-200 p-4 hover:bg-gray-100"
+                  key={data.id}
+                >
+                  <span
+                    className={clsx(
+                      grid
+                        ? "flex-[1] items-center"
+                        : "flex-col items-start justify-start gap-x-4 gap-y-0",
+                      "flex "
+                    )}
+                  >
+                    {data.name}
+                    {!grid && showDepartment && (
+                      <span className="text-xs font-normal text-gray-900/60">
+                        {data.department}
+                      </span>
+                    )}
+                  </span>
+                  {grid && (
+                    <span className="flex flex-1">{data.department}</span>
+                  )}
+                  {showChip && (
+                    <span
+                      className={clsx(grid && "flex-1", "flex justify-start")}
+                    >
+                      <Chip color={mapStateToColor(data.status)}>
+                        {data.status}
+                      </Chip>
                     </span>
                   )}
-                </span>
-                {grid && <span className="flex flex-1">{data.department}</span>}
-                <span className={clsx(grid && "flex-1", "flex justify-start")}>
-                  <Chip color={mapStateToColor(data.status)}>
-                    {data.status}
-                  </Chip>
-                </span>
 
-                <span className={clsx(grid ? "hidden" : "flex flex-1")}></span>
-                <span className={clsx(grid && "flex-1", "flex items-center")}>
-                  {new Intl.DateTimeFormat("de-de", {
-                    dateStyle: "short",
-                    timeStyle: "short",
-                  }).format(data.createdAt)}
-                </span>
-                <span
-                  className={clsx(
-                    grid && "flex-1",
-                    "hidden items-center lg:flex"
-                  )}
-                >
-                  {data.updatedAt ? (
-                    new Intl.DateTimeFormat("de-de", {
+                  <span
+                    className={clsx(grid ? "hidden" : "flex flex-1")}
+                  ></span>
+                  <span className={clsx(grid && "flex-1", "flex items-center")}>
+                    {new Intl.DateTimeFormat("de-de", {
                       dateStyle: "short",
                       timeStyle: "short",
-                    }).format(data.updatedAt)
-                  ) : (
-                    <span className="text-gray-900/60">Not updated yet</span>
-                  )}
-                </span>
-                <span
-                  className={clsx(
-                    grid && "flex-1",
-                    "flex items-center justify-start gap-x-4"
-                  )}
-                >
-                  <a href="#" className={clsx(linkStyle, "hidden md:flex")}>
-                    Assign case
-                  </a>
-                  <a href="#" className={clsx(linkStyle, "hidden md:flex")}>
-                    Snooze
-                  </a>
-                </span>
-                <button className="block md:hidden">
-                  <MoreIcon />
-                </button>
-              </li>
-            ))}
-          </ul>
+                    }).format(data.createdAt)}
+                  </span>
+                  <span
+                    className={clsx(
+                      grid && "flex-1",
+                      "hidden items-center lg:flex"
+                    )}
+                  >
+                    {data.updatedAt ? (
+                      new Intl.DateTimeFormat("de-de", {
+                        dateStyle: "short",
+                        timeStyle: "short",
+                      }).format(data.updatedAt)
+                    ) : (
+                      <span className="text-gray-900/60">Not updated yet</span>
+                    )}
+                  </span>
+                  <span
+                    className={clsx(
+                      grid && "flex-1",
+                      "flex items-center justify-start gap-x-4"
+                    )}
+                  >
+                    <a href="#" className={clsx(linkStyle, "hidden md:flex")}>
+                      Assign case
+                    </a>
+                    <a href="#" className={clsx(linkStyle, "hidden md:flex")}>
+                      Snooze
+                    </a>
+                  </span>
+                  <button className="block md:hidden">
+                    <MoreIcon />
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </>
         </>
       )}
     </div>
