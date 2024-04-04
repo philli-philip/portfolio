@@ -11,8 +11,11 @@
     "story": "npx ladle serve"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
     "@headlessui/react": "^1.7.16",
     "@ladle/react": "^2.15.0",
+    "@mui/x-data-grid": "^7.1.0",
     "@react-hooks-library/core": "^0.5.1",
     "@react-three/drei": "^9.102.5",
     "@react-three/fiber": "^8.15.19",

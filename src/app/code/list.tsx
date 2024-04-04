@@ -40,6 +40,13 @@ const dreiJS: Task = {
   completedAt: new Date("17 March 2024"),
   status: "completed",
 };
+const table: Task = {
+  id: 9,
+  name: "Grids vs. Lists",
+  difficulty: "intermediary",
+  link: "/code/table",
+  status: "open",
+};
 
 const tasksList: Task[] = [
   qrCode,
@@ -49,6 +56,7 @@ const tasksList: Task[] = [
   code,
   powerbank,
   dreiJS,
+  table,
 ];
 
 function sortArrayByAttribute(attribute: string, ascending: boolean) {
