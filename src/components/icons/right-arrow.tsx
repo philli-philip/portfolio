@@ -1,5 +1,3 @@
-import StatusOpen from "./status-open";
-
 type Props = {
   height?: number;
   width?: number;

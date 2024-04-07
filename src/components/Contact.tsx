@@ -6,16 +6,19 @@ import { debounce } from "lodash";
 import Image from "next/image";
 
 export default function Contact() {
-  const i = useCallback(function i(...s: string[]): boolean {
-    return s.some((s) => message.includes(s));
-  }, []);
-
   const [message, setMessage] = useState("");
   const [feedback, setFeedback] = useState("");
   const [thinking, setThinking] = useState(true);
   const [state, setState] = useState<"sent" | "writing">("writing");
   const [disabled, setDisabled] = useState(true);
   const messageBox = useRef<HTMLTextAreaElement>(null);
+
+  const i = useCallback(
+    function i(...s: string[]): boolean {
+      return s.some((s) => message.includes(s));
+    },
+    [message]
+  );
 
   function handleSubmit() {
     if (disabled) {
@@ -77,7 +80,7 @@ export default function Contact() {
         className={cn("flex w-full flex-row", state === "sent" ? "hidden" : "")}
       >
         <div className="flex w-full flex-col gap-y-2">
-          <div className="min-h-6 flex flex-row items-start justify-end gap-x-2">
+          <div className="flex min-h-6 flex-row items-start justify-end gap-x-2">
             <span
               className={cn(
                 thinking ? "opacity-0" : "opacity-100",

@@ -1,6 +1,6 @@
 import React from "react";
 import { cn } from "../utils/cn";
-import { ClassNameValue } from "tailwind-merge";
+import type { ClassNameValue } from "tailwind-merge";
 
 type Props = {
   children?: React.ReactNode;
@@ -11,7 +11,7 @@ const KeyBoardButton = (props: Props) => {
   return (
     <kbd
       className={cn(
-        "hidden rounded bg-gray-100 p-1 py-[px] font-mono text-xs dark:bg-gray-700 md:inline",
+        "hidden rounded bg-gray-100 p-1 py-[px] font-mono text-xs md:inline dark:bg-gray-700",
         props.className
       )}
     >
