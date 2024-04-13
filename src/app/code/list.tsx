@@ -6,6 +6,7 @@ import { adviceGenerator } from "../code/advice/page";
 import { ClockApp } from "../code/clock-app/page";
 import type { Task } from "../../utils/types";
 import { useFilterContext } from "./page";
+import { pensionSim } from "./pensionSim/page";
 
 const code: Task = {
   id: 4,
@@ -57,6 +58,7 @@ const tasksList: Task[] = [
   powerbank,
   dreiJS,
   table,
+  pensionSim,
 ];
 
 function sortArrayByAttribute(attribute: string, ascending: boolean) {
