@@ -2,8 +2,9 @@ import Head from "next/head";
 import Footer from "../components/Footer";
 import Print from "../components/icons/print";
 import NavBar from "../components/navBar";
+import { generalData } from "../app/api/v1/about-me/route";
 
-const content: Experience[] = [
+export const content: Experience[] = [
   {
     type: "Experience",
     title: "Deutsche Bank",
@@ -158,32 +159,32 @@ const About = () => {
         <meta name="description" content="Philip's CV" />
       </Head>
       <NavBar current={"/about"} />
-      <main className="relative mx-auto max-w-6xl px-8 pt-32 text-gray-800 dark:text-gray-200 lg:pl-36 lg:pt-48 print:mt-8 print:max-w-full print:text-gray-800">
+      <main className="relative mx-auto max-w-6xl px-8 pt-32 text-gray-800 lg:pl-36 lg:pt-48 dark:text-gray-200 print:mt-8 print:max-w-full print:text-gray-800">
         <span className="flex flex-1 justify-between">
           <h1 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl xl:text-6xl print:mb-2 print:text-4xl">
-            Philip Mattha
+            {generalData.name}
           </h1>
           <button
             onClick={handlePrint}
-            className="flex h-12 flex-row place-content-center items-center gap-4 rounded-lg p-3 text-sm text-gray-600 hover:bg-gray-100 focus-visible:outline-orange-600 dark:text-gray-400 dark:hover:bg-gray-700 md:mt-2 xl:mt-4 print:hidden"
+            className="flex h-12 flex-row place-content-center items-center gap-4 rounded-lg p-3 text-sm text-gray-600 hover:bg-gray-100 focus-visible:outline-orange-600 md:mt-2 xl:mt-4 dark:text-gray-400 dark:hover:bg-gray-700 print:hidden"
           >
             <span className="hidden md:block">Print version!</span>
             <Print />
           </button>
         </span>
         <p className="text-gray-600 dark:text-gray-400 print:text-xs">
-          Rubensstraße 15, 12159 Berlin
+          {generalData.address}
           <br />
-          philip@mattha.net
+          {generalData.email}
           <br />
-          +49 1590 6800728
+          {generalData.phone}
         </p>
         <section className="print:columns-2 print:gap-24">
           {Object.keys(categorizedData).map((sections, index) => (
             <section className="relative" key={index}>
               <h2
                 key={index}
-                className="mb-6 mt-8 max-w-2xl text-lg text-gray-500 dark:text-gray-400 lg:absolute lg:right-full lg:mt-0 lg:pr-6 print:absolute print:mb-1 print:mt-0 print:block print:w-[100px] print:-translate-x-[70px] print:translate-y-[50px] print:-rotate-90 print:text-right print:text-sm"
+                className="mb-6 mt-8 max-w-2xl text-lg text-gray-500 lg:absolute lg:right-full lg:mt-0 lg:pr-6 dark:text-gray-400 print:absolute print:mb-1 print:mt-0 print:block print:w-[100px] print:-translate-x-[70px] print:translate-y-[50px] print:-rotate-90 print:text-right print:text-sm"
               >
                 {sections}
               </h2>
