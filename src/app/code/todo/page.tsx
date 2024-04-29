@@ -61,7 +61,7 @@ export default function Page() {
   return (
     <div className="h-screen w-screen bg-zinc-100 ">
       <main className="mx-auto max-w-lg px-4">
-        <h1 className="pb-4 pl-4 pt-16 text-2xl font-semibold tracking-tight md:pl-0">
+        <h1 className="pb-4 pt-16 text-2xl font-semibold tracking-tight md:pl-0">
           Todo
         </h1>
         <div className="rounded-lg bg-white shadow-md">
