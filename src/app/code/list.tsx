@@ -48,6 +48,14 @@ const table: Task = {
   status: "open",
 };
 
+const todo: Task = {
+  id: 10,
+  name: "Todo list",
+  status: "open",
+  link: "/code/todo",
+  difficulty: "intermediary",
+};
+
 const tasksList: Task[] = [
   qrCode,
   adviceGenerator,
@@ -57,6 +65,7 @@ const tasksList: Task[] = [
   powerbank,
   dreiJS,
   table,
+  todo,
 ];
 
 function sortArrayByAttribute(attribute: string, ascending: boolean) {
