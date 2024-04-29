@@ -68,7 +68,7 @@ export default function Page() {
           <div className="flex flex-row gap-x-4 border-b border-b-gray-200 py-3 pl-2 pr-4 ">
             <input
               ref={inputField}
-              placeholder="Add your task..."
+              placeholder="Add a task..."
               className="flex-1 rounded pl-2 text-sm focus:outline-none focus:placeholder:text-gray-500"
               onChange={(e) => setNewTodoTitle(e.target.value)}
               onKeyDown={(e) => {
