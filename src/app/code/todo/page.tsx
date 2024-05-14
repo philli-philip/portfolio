@@ -68,6 +68,7 @@ export default function Page() {
           <div className="flex flex-row gap-x-4 border-b border-b-gray-200 py-3 pl-2 pr-4 ">
             <input
               ref={inputField}
+              id="newTodoInput"
               placeholder="Add a task..."
               className="flex-1 rounded pl-2 text-sm focus:outline-none focus:placeholder:text-gray-500"
               onChange={(e) => setNewTodoTitle(e.target.value)}
@@ -77,6 +78,7 @@ export default function Page() {
             ></input>
             <button
               onClick={() => handleNewTodo()}
+              id="createTodoButton"
               className="rounded-md bg-lime-50 px-2 py-1 text-xs accent-lime-600 hover:bg-lime-200 focus:bg-lime-200"
             >
               Create

@@ -9,6 +9,7 @@
     "start": "next start",
     "sanity": "cd cms && sanity dev",
     "story": "npx ladle serve",
+    "test": "npx playwright test --ui",
     "supabase-types": "supabase gen types typescript --project-id mnjubhlbleiohtljlwsc > src/utils/supabase/database_gen.types.ts"
   },
   "dependencies": {
@@ -44,6 +45,7 @@
     "zod": "^3.20.2"
   },
   "devDependencies": {
+    "@playwright/test": "^1.43.1",
     "@sanity/eslint-config-studio": "^2.0.1",
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/typography": "^0.5.9",
