@@ -12,18 +12,17 @@ export default function Item({
   checked: boolean;
 }) {
   return (
-    <div className="flex flex-1 flex-row justify-between rounded-md p-4 hover:bg-black/5">
-      <p>
-        {description ? description : "no desciption provided"} : {checked}
-      </p>
+    <label className="-mx-4 flex flex-1 cursor-pointer flex-row justify-start gap-4 rounded-md p-4 align-top align-top duration-75 hover:bg-black/5">
       <input
+        className="h-4 w-4 pl-4 pt-4"
         type="checkbox"
+        id={id}
         onChange={() => {
-          console.log("update", id);
           update(id, "checked", !checked);
         }}
         checked={checked}
       />
-    </div>
+      <span>{description}</span>
+    </label>
   );
 }
