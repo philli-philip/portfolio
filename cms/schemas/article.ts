@@ -45,8 +45,8 @@ export default defineType({
     {
       name: "categories",
       title: "Categories",
-      type: "reference",
-      to: { type: "article-category" },
+      type: "array",
+      of: [{ type: "reference", to: { type: "article-category" } }],
       validation: (Rule) => Rule.required(),
     },
   ],
