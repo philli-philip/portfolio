@@ -8,6 +8,7 @@ import { useCallback } from "react";
 import Section from "./section";
 
 import { areas } from "./page";
+import Link from "next/link";
 
 export default function List() {
   const [skills, setSkill] = useLocalStorage("skills", blankSkills);
@@ -147,7 +148,11 @@ export default function List() {
         <aside className="relative md:w-1/3">
           <div className="sticky top-8 rounded-xl bg-blue-50 p-4 text-blue-950 dark:bg-blue-950 dark:text-blue-400">
             <div className="flex flex-row justify-between">
-              <h3>Overall</h3>
+              <h3>
+                <Link href={"#"} className="hover:underline">
+                  Overall
+                </Link>
+              </h3>
               <p>
                 {ana.overall.score} / {ana.overall.maxScore}
               </p>
@@ -156,7 +161,12 @@ export default function List() {
             <div>
               {areas.map((item) => (
                 <div key={item} className="flew-row flex">
-                  <p className="capitalize">{item}: </p>
+                  <Link
+                    className="capitalize hover:underline"
+                    href={"#" + item}
+                  >
+                    {item}:{" "}
+                  </Link>
                   <p>
                     {ana[item].score} / {ana[item].maxScore}
                   </p>

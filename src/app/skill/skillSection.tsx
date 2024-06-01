@@ -17,7 +17,7 @@ export default function SkillSection({
   analysis: Area;
 }) {
   return (
-    <div className="pb-8">
+    <div className="pb-8" id={skill}>
       <h3 className="text-xl capitalize">{skill}</h3>
       <p className="hidden">
         {analysis.score}/{analysis.maxScore} — {analysis.level}
