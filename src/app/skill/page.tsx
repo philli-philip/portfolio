@@ -1,5 +1,3 @@
-"use client";
-
 import List from "./list";
 
 export type Skill = {
