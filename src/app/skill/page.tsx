@@ -11,7 +11,7 @@ export type Skill = {
   description: string;
   area: string;
   level: string;
-  category: string;
+  category: tArea;
   checked?: boolean;
 };
 
@@ -23,10 +23,7 @@ export type Area = {
   maxScore: number;
 };
 
-export type areas = "product" | "research";
-
 export type Analysis = {
-  overall: Area;
   product: Area;
   research: Area;
   vision: Area;
@@ -42,7 +39,7 @@ export type Analysis = {
 };
 
 export const area: {
-  [key in areas]: { description: string; maxSkill: number };
+  [key in tArea]?: { description: string; maxSkill: number };
 } = {
   product: {
     description:
@@ -56,8 +53,21 @@ export const area: {
   },
 };
 
-export const areas: (keyof Analysis)[] = [
-  "overall",
+export type tArea =
+  | "product"
+  | "research"
+  | "vision"
+  | "visual"
+  | "interaction"
+  | "systems"
+  | "communication"
+  | "process"
+  | "mindset"
+  | "effectiveness"
+  | "leadership"
+  | "citizenship";
+
+export const areas: tArea[] = [
   "product",
   "research",
   "vision",
@@ -69,6 +79,7 @@ export const areas: (keyof Analysis)[] = [
   "mindset",
   "effectiveness",
   "leadership",
+  "citizenship",
 ];
 
 export default function Page() {
@@ -184,7 +195,7 @@ export default function Page() {
   };
 
   return (
-    <main>
+    <main className="dark:text-white/90">
       <Header />
       <Section className="flex flex-row gap-8">
         <div>
@@ -207,7 +218,7 @@ export default function Page() {
           </div>
         </div>
         <aside className="relative md:w-1/3">
-          <div className="sticky top-8 rounded-xl bg-blue-50 p-4">
+          <div className="sticky top-8 rounded-xl bg-blue-50 p-4 text-blue-950 dark:bg-blue-950 dark:text-blue-400">
             <div className="flex flex-row justify-between">
               <h3>Overall</h3>
               <p>

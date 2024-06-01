@@ -1,4 +1,6 @@
-export const blankSkills = [
+import type { Skills } from "./page";
+
+export const blankSkills: Skills = [
   {
     checked: false,
     id: "1",
@@ -1270,10 +1272,9 @@ export const blankSkills = [
     checked: false,
     id: "144",
     description:
-      "Your work and presence attracts top talent to the organization",
-    level:
-      " some people join Figma because they’re excited to learn from you. ",
-    category: "L5",
-    area: "Citizenship;Impact",
+      "Your work and presence attracts top talent to the organization some people join Figma because they’re excited to learn from you.",
+    level: "L5",
+    category: "citizenship",
+    area: "Impact",
   },
 ];

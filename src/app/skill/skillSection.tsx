@@ -1,6 +1,6 @@
 "use client";
 
-import type { Area, Skills, areas } from "./page";
+import type { Area, Skills, tArea } from "./page";
 import Item from "./item";
 
 import { area } from "./page";
@@ -12,7 +12,7 @@ export default function SkillSection({
   analysis,
 }: {
   skills: Skills;
-  skill: areas;
+  skill: tArea;
   handleUpdate: (id: string, attribute: string, value: boolean) => void;
   analysis: Area;
 }) {
@@ -22,9 +22,7 @@ export default function SkillSection({
       <p className="hidden">
         {analysis.score}/{analysis.maxScore} — {analysis.level}
       </p>
-      <p className="text-sm text-black/60">
-        {area[skill] && area[skill].description}
-      </p>
+      <p className="text-sm opacity-60">{area[skill]?.description}</p>
       <div>
         {skills
           .filter((item) => item.category === skill)
