@@ -1,7 +1,7 @@
 "use client";
 
 import { blankSkills } from "./content";
-import { useLocalStorage } from "@uidotdev/usehooks";
+import { useLocalStorage } from "@react-hooks-library/core";
 import Header from "./header";
 import SkillSection from "./skillSection";
 import { useCallback } from "react";
