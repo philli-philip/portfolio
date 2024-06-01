@@ -12,7 +12,7 @@ export default function Item({
   checked: boolean;
 }) {
   return (
-    <label className="-mx-4 flex flex-1 cursor-pointer flex-row justify-start gap-4 rounded-md p-4 align-top align-top duration-75 hover:bg-black/5">
+    <label className="-mx-4 flex flex-1 cursor-pointer flex-row justify-start gap-4 rounded-md p-4 align-top duration-75 hover:bg-black/5 dark:hover:bg-white/5">
       <input
         className="h-4 w-4 pl-4 pt-4"
         type="checkbox"
