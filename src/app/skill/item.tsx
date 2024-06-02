@@ -1,28 +1,45 @@
 "use client";
 
+import { cn } from "../../utils/cn";
+import type { Skill } from "./page";
+
 export default function Item({
-  description,
-  id,
   update,
   checked,
+  item,
 }: {
-  description?: string;
-  id: string;
   update: (id: string, attribute: string, value: boolean) => void;
   checked: boolean;
+  item: Skill;
 }) {
   return (
-    <label className="-mx-4 flex flex-1 cursor-pointer flex-row justify-start gap-4 rounded-md p-4 align-top duration-75 hover:bg-black/5 dark:hover:bg-white/5">
-      <input
-        className="h-4 w-4 pl-4 pt-4"
-        type="checkbox"
-        id={id}
-        onChange={() => {
-          update(id, "checked", !checked);
-        }}
-        checked={checked}
-      />
-      <span>{description}</span>
-    </label>
+    <div
+      className={cn(
+        "flex flex-1 cursor-pointer flex-col justify-start gap-4 border-b border-r border-gray-200 p-4 align-top duration-75"
+      )}
+    >
+      <ul className="flex grow flex-row gap-4 text-sm font-light capitalize text-gray-400">
+        <li>{item.level}</li>
+        <li>{item.area}</li>
+        <li>{item.category}</li>
+      </ul>
+      <span className="grow text-xl font-light">{item.description}</span>
+      <div>
+        <button
+          className={cn(
+            "flex shrink rounded-lg border border-transparent px-4 py-3",
+            checked
+              ? "border border-green-800 text-green-800"
+              : "bg-green-800 text-white"
+          )}
+          id={item.id}
+          onMouseDown={(e) => {
+            if (e.button === 0) update(item.id, "checked", !checked);
+          }}
+        >
+          {!checked ? "I do this" : "Remove"}
+        </button>
+      </div>
+    </div>
   );
 }

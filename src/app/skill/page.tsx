@@ -1,10 +1,12 @@
+import { Suspense } from "react";
+import Header from "./header";
 import List from "./list";
 
 export type Skill = {
   id: string;
   description: string;
   area: string;
-  level: string;
+  level: tLevels;
   category: tArea;
   checked?: boolean;
 };
@@ -18,6 +20,7 @@ export type Area = {
 };
 
 export type Analysis = {
+  overall: Area;
   product: Area;
   research: Area;
   vision: Area;
@@ -75,7 +78,17 @@ export const areas: tArea[] = [
   "leadership",
   "citizenship",
 ];
+export type tLevels = "L1" | "L2" | "L3" | "L4" | "L5";
+
+export const levels: tLevels[] = ["L1", "L2", "L3", "L4", "L5"];
 
 export default function Page() {
-  return <List />;
+  return (
+    <main className="dark:text-white/90">
+      <Header />
+      <Suspense>
+        <List />
+      </Suspense>
+    </main>
+  );
 }

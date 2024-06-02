@@ -2,13 +2,12 @@
 
 import { blankSkills } from "./content";
 import { useLocalStorage } from "@react-hooks-library/core";
-import Header from "./header";
 import SkillSection from "./skillSection";
 import { useCallback } from "react";
 import Section from "./section";
 
-import { areas } from "./page";
-import Link from "next/link";
+import { levels } from "./page";
+import Summary from "./summary";
 
 export default function List() {
   const [skills, setSkill] = useLocalStorage("skills", blankSkills);
@@ -123,60 +122,25 @@ export default function List() {
   };
 
   return (
-    <main className="dark:text-white/90">
-      <Header />
-      <Section className="flex flex-row gap-8">
+    <>
+      <Section id="list">
         <div>
-          {areas.map((item) => (
+          <h2 className="text-3xl font-light">Evaluation</h2>
+          <p className="pb-4 text-sm font-light text-gray-500">
+            Skills, behaviours that guide you to grow as a designer.
+          </p>
+          {levels.map((item, index) => (
             <SkillSection
               key={item}
-              skill={item}
-              analysis={ana[item]}
               skills={skills}
               handleUpdate={handleUpdate}
+              level={item}
+              defaultOpen={index === 0 ? true : false}
             />
           ))}
-          <div className="py-12">
-            <button
-              className="text-blue-600 hover:underline"
-              onMouseDown={() => setSkill(blankSkills)}
-            >
-              Reset skills
-            </button>
-          </div>
         </div>
-        <aside className="relative md:w-1/3">
-          <div className="sticky top-8 rounded-xl bg-blue-50 p-4 text-blue-950 dark:bg-blue-950 dark:text-blue-400">
-            <div className="flex flex-row justify-between">
-              <h3>
-                <Link href={"#"} className="hover:underline">
-                  Overall
-                </Link>
-              </h3>
-              <p>
-                {ana.overall.score} / {ana.overall.maxScore}
-              </p>
-              {ana.overall.level}
-            </div>
-            <div>
-              {areas.map((item) => (
-                <div key={item} className="flew-row flex">
-                  <Link
-                    className="capitalize hover:underline"
-                    href={"#" + item}
-                  >
-                    {item}:{" "}
-                  </Link>
-                  <p>
-                    {ana[item].score} / {ana[item].maxScore}
-                  </p>
-                  <p className="flex-1 text-right">{ana[item].level}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </aside>
       </Section>
-    </main>
+      <Summary analysis={ana} />
+    </>
   );
 }
