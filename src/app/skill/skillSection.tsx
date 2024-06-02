@@ -20,7 +20,7 @@ export default function SkillSection({
   return (
     <div>
       <div
-        className="border-l border-r border-t border-gray-200 p-4 hover:bg-black/5"
+        className="border-l border-r border-t dark:border-gray-600 border-gray-200 p-4 hover:bg-black/5"
         onMouseDown={(e) => {
           if (e.button === 0) setOpen(!open);
         }}
@@ -30,7 +30,7 @@ export default function SkillSection({
       <div
         className={cn(
           open ? "h-auto" : "h-0",
-          "grid overflow-hidden border-l border-t border-gray-200 duration-150 lg:grid-cols-4"
+          "grid overflow-hidden border-l border-t dark:border-gray-600 border-gray-200 duration-150 lg:grid-cols-4"
         )}
       >
         {skills

@@ -15,7 +15,8 @@ export default function Item({
   return (
     <div
       className={cn(
-        "flex flex-1 cursor-pointer flex-col justify-start gap-4 border-b border-r border-gray-200 p-4 align-top duration-75"
+        checked && "bg-green-50 dark:bg-green-950",
+        "flex flex-1 cursor-pointer flex-col justify-start gap-4 border-b border-r border-gray-200 p-4 align-top duration-75 dark:border-gray-600"
       )}
     >
       <ul className="flex grow flex-row gap-4 text-sm font-light capitalize text-gray-400">
@@ -29,7 +30,7 @@ export default function Item({
           className={cn(
             "flex shrink rounded-lg border border-transparent px-4 py-3",
             checked
-              ? "border border-green-800 text-green-800"
+              ? "border border-green-800 border-white/40 text-green-800 dark:text-white/80"
               : "bg-green-800 text-white"
           )}
           id={item.id}

@@ -26,11 +26,11 @@ export default function Summary({ analysis }: { analysis: Analysis }) {
   return (
     <Section id="summary">
       <h2 className="mt-12 text-2xl font-light">Result</h2>
-      <p className="pb-4 text-sm font-light text-gray-600">
+      <p className="pb-4 text-sm font-light text-gray-600 dark:text-gray-400">
         Consider this is a computer program, so is more of a guideline than a
         final judgement.
       </p>
-      <div className="flex flex-col-reverse gap-8 border border-gray-200 p-4 md:flex-row">
+      <div className="flex flex-col-reverse gap-8 border border-gray-200 p-4 md:flex-row dark:border-gray-600">
         <div className="grow">
           {areas.map((item) => (
             <div key={item} className="flew-row flex">

@@ -126,7 +126,7 @@ export default function List() {
       <Section id="list">
         <div>
           <h2 className="text-3xl font-light">Evaluation</h2>
-          <p className="pb-4 text-sm font-light text-gray-500">
+          <p className="pb-4 text-sm font-light text-gray-500 dark:text-gray-400">
             Skills, behaviours that guide you to grow as a designer.
           </p>
           {levels.map((item, index) => (
