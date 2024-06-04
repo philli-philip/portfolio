@@ -34,18 +34,20 @@ export default function SkillSection({
     <div className={cn(open && "mb-8", "relative")}>
       <div
         className={cn(
-          open ? "border-b" : "",
-          "group sticky top-0 border-l border-r border-t border-gray-200 bg-white p-4 hover:bg-gray-100 dark:border-gray-600"
+          open && "border-b",
+          "group sticky top-0 border-l border-r border-t border-gray-200 bg-white p-4 hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-900"
         )}
         onMouseDown={(e) => {
           if (e.button === 0) setOpen(!open);
         }}
       >
-        <h3 className="text-sm capitalize">{content?.title}</h3>
+        <h3 className="text-sm capitalize text-gray-800 dark:text-gray-200">
+          {content?.title}
+        </h3>
         <p className="text-sm text-gray-500">{content?.description}</p>
         <div
           style={{ width: progress + "%" }}
-          className=" absolute left-0 top-0 -z-10 h-full bg-gray-100 duration-75 group-hover:bg-gray-200"
+          className=" absolute left-0 top-0 -z-10 h-full bg-gray-100 duration-75 group-hover:bg-gray-200 dark:bg-gray-800"
         ></div>
       </div>
       <div

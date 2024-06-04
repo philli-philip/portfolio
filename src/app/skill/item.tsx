@@ -16,7 +16,7 @@ export default function Item({
   return (
     <div
       className={cn(
-        checked ? "bg-gray-100" : "bg-white",
+        checked ? "bg-gray-100 dark:bg-gray-800" : "bg-white dark:bg-gray-900",
         "flex flex-1 flex-col justify-between gap-4 border-b border-r border-gray-200 p-4 align-top duration-75 dark:border-gray-600"
       )}
     >
@@ -29,7 +29,7 @@ export default function Item({
       <span
         className={cn(
           " self-center align-middle text-xl font-light leading-normal",
-          checked && "text-gray-800/20 line-through"
+          checked && "text-gray-800/20 line-through dark:text-gray-200/20"
         )}
       >
         {item.description}
@@ -40,7 +40,7 @@ export default function Item({
             "flex shrink rounded-lg border border-green-800 px-4 py-2 font-normal duration-150",
             !checked
               ? "bg-green-800 text-white"
-              : "-ml-2 border border-transparent px-2 text-green-800 hover:bg-green-800/10 dark:border-white/40 dark:text-white/80"
+              : "-ml-2 border border-transparent px-2 text-green-800 dark:text-white/80"
           )}
           id={item.id}
           onMouseDown={(e) => {
