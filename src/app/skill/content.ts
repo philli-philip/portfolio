@@ -1,4 +1,48 @@
-import type { Skills } from "./page";
+import type { Skills, tLevels } from "./page";
+
+type tArea = {
+  title: tLevels;
+  description: string;
+  skills: number;
+};
+
+export const lvlContent: tArea[] = [
+  {
+    title: "L1",
+    description: "L1 is all about getting started in the field of design.",
+    skills: 27,
+  },
+  {
+    title: "L2",
+    description:
+      "L2 is all about getting getting settled, know roughly what you want. where you want it.",
+    skills: 28,
+  },
+  {
+    title: "L3",
+    description:
+      "L3 is all about getting getting settled, know roughly what you want. where you want it.",
+    skills: 32,
+  },
+  {
+    title: "L4",
+    description:
+      "L4 is all about getting getting settled, know roughly what you want. where you want it.",
+    skills: 29,
+  },
+  {
+    title: "L5",
+    description:
+      "L5 is all about getting getting settled, know roughly what you want. where you want it.",
+    skills: 28,
+  },
+  {
+    title: "L6",
+    description:
+      "L6 is all about getting getting settled, know roughly what you want. where you want it.",
+    skills: 0,
+  },
+];
 
 export const blankSkills: Skills = [
   {
@@ -377,7 +421,7 @@ export const blankSkills: Skills = [
   {
     checked: false,
     id: "43",
-    description: "Your written communication is clearand concise.",
+    description: "Your written communication is clear and concise.",
     level: "L2",
     category: "communication",
     area: "collaboration",

@@ -129,18 +129,28 @@ export default function List() {
           <p className="pb-4 text-sm font-light text-gray-500 dark:text-gray-400">
             Skills, behaviours that guide you to grow as a designer.
           </p>
-          {levels.map((item, index) => (
-            <SkillSection
-              key={item}
-              skills={skills}
-              handleUpdate={handleUpdate}
-              level={item}
-              defaultOpen={index === 0 ? true : false}
-            />
-          ))}
+          <div className="border-b">
+            {levels.map((item, index) => (
+              <SkillSection
+                key={item}
+                skills={skills.filter((skill) => skill.level === item)}
+                handleUpdate={handleUpdate}
+                level={item}
+                defaultOpen={index === 0 ? true : false}
+              />
+            ))}
+          </div>
         </div>
       </Section>
       <Summary analysis={ana} />
+      <Section className="my-8">
+        <button
+          className="text-gray-700 decoration-gray-400 underline-offset-4 hover:underline"
+          onClick={() => setSkill(blankSkills)}
+        >
+          Reset skills
+        </button>
+      </Section>
     </>
   );
 }

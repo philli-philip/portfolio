@@ -78,7 +78,7 @@ export const areas: tArea[] = [
   "leadership",
   "citizenship",
 ];
-export type tLevels = "L1" | "L2" | "L3" | "L4" | "L5";
+export type tLevels = "L1" | "L2" | "L3" | "L4" | "L5" | "L6";
 
 export const levels: tLevels[] = ["L1", "L2", "L3", "L4", "L5"];
 
