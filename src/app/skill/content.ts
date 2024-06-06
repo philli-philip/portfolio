@@ -1321,4 +1321,13 @@ export const blankSkills: Skills = [
     category: "citizenship",
     area: "Impact",
   },
+  {
+    checked: false,
+    id: "145",
+    description:
+      "You shape the company structure, see market changes on the horizon and create awareness among other leaders in your organisation.",
+    level: "L6",
+    category: "leadership",
+    area: "Impact",
+  },
 ];

@@ -13,10 +13,7 @@ export default function Section({
   id?: string;
 }) {
   return (
-    <section
-      id={id}
-      className={cn("mx-auto max-w-7xl px-4 lg:px-8", className)}
-    >
+    <section id={id} className={cn("mx-auto px-4 lg:px-8", className)}>
       {children}
     </section>
   );

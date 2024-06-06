@@ -9,12 +9,13 @@ export type Skill = {
   level: tLevels;
   category: tArea;
   checked?: boolean;
+  focus?: boolean;
 };
 
 export type Skills = Skill[];
 
 export type Area = {
-  level: string;
+  level: tLevels;
   score: number;
   maxScore: number;
 };
@@ -80,11 +81,11 @@ export const areas: tArea[] = [
 ];
 export type tLevels = "L1" | "L2" | "L3" | "L4" | "L5" | "L6";
 
-export const levels: tLevels[] = ["L1", "L2", "L3", "L4", "L5"];
+export const levels: tLevels[] = ["L1", "L2", "L3", "L4", "L5", "L6"];
 
 export default function Page() {
   return (
-    <main className="dark:text-white/90">
+    <main className="dark:bg-black dark:text-white/90">
       <Header />
       <Suspense>
         <List />

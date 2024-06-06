@@ -6,7 +6,7 @@ import SkillSection from "./skillSection";
 import { useCallback } from "react";
 import Section from "./section";
 
-import { levels } from "./page";
+import { Analysis, levels } from "./page";
 import Summary from "./summary";
 
 export default function List() {
@@ -53,7 +53,7 @@ export default function List() {
     }
   }, []);
 
-  const ana = {
+  const ana: Analysis = {
     overall: {
       level: mapLevel(countSkill("overall"), 143),
       score: countSkill("overall"),
@@ -143,9 +143,9 @@ export default function List() {
         </div>
       </Section>
       <Summary analysis={ana} />
-      <Section className="my-8">
+      <Section className="py-8">
         <button
-          className="text-gray-700 decoration-gray-400 underline-offset-4 hover:underline"
+          className="text-gray-700 decoration-gray-400 underline-offset-4 hover:underline dark:text-gray-400"
           onClick={() => setSkill(blankSkills)}
         >
           Reset skills

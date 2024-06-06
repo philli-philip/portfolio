@@ -35,7 +35,7 @@ export default function SkillSection({
       <div
         className={cn(
           open && "border-b",
-          "group sticky top-0 border-l border-r border-t border-gray-200 bg-white p-4 hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-900 dark:hover:bg-gray-800"
+          "group sticky top-0 cursor-pointer border-l border-r border-t border-gray-200 bg-white p-4 hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-900 dark:hover:bg-gray-800"
         )}
         onMouseDown={(e) => {
           if (e.button === 0) setOpen(!open);
@@ -47,13 +47,13 @@ export default function SkillSection({
         <p className="text-sm text-gray-500">{content?.description}</p>
         <div
           style={{ width: progress + "%" }}
-          className=" absolute left-0 top-0 -z-10 h-full bg-gray-100 duration-75 group-hover:bg-gray-200 dark:bg-gray-800 group-hover:dark:bg-gray-700"
+          className="absolute left-0 top-0 -z-10 h-full bg-gradient-to-r from-gray-200/30 from-[calc(100%-50px)] to-gray-200 duration-200 group-hover:bg-gray-50 dark:bg-gray-800 dark:from-gray-700/30 dark:to-gray-700 group-hover:dark:bg-gray-700"
         ></div>
       </div>
       <div
         className={cn(
           open ? "h-auto " : "h-0",
-          "grid overflow-hidden border-l border-gray-200 duration-150 lg:grid-cols-4 dark:border-gray-600"
+          "grid overflow-hidden border-l border-gray-200 duration-150 md:grid-cols-2 lg:grid-cols-3  xl:grid-cols-4 dark:border-gray-600"
         )}
       >
         {skills

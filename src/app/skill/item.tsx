@@ -25,30 +25,49 @@ export default function Item({
         <li>{item.area}</li>
         <li>{item.category}</li>
         {checked && <CheckMark height={16} width={16} />}
+        {item.focus && !item.checked && (
+          <div className="h-3 w-3 rounded-full bg-red-600 dark:bg-red-500"></div>
+        )}
       </ul>
       <span
         className={cn(
-          " self-center align-middle text-xl font-light leading-normal",
+          "text-2xl font-light leading-normal md:text-xl xl:text-2xl",
           checked && "text-gray-800/20 line-through dark:text-gray-200/20"
         )}
       >
         {item.description}
       </span>
       <div>
-        <button
-          className={cn(
-            "flex shrink rounded-lg border border-green-800 px-4 py-2 font-normal duration-150",
-            !checked
-              ? "bg-green-800 text-white"
-              : "-ml-2 border border-transparent px-2 text-green-800 dark:text-white/80"
-          )}
-          id={item.id}
-          onMouseDown={(e) => {
-            if (e.button === 0) update(item.id, "checked", !checked);
-          }}
-        >
-          {!checked ? "Check" : "Undo"}
-        </button>
+        <span className="flex flex-row gap-x-4">
+          <button
+            className={cn(
+              "flex shrink rounded-lg border border-green-800 px-4 py-2 font-normal duration-150",
+              !checked
+                ? "bg-green-800 text-white"
+                : "-ml-2 border border-transparent px-2 text-green-800 dark:text-white/80"
+            )}
+            onMouseDown={(e) => {
+              if (e.button === 0) update(item.id, "checked", !checked);
+            }}
+          >
+            {!checked ? "Check" : "Undo"}
+          </button>
+          <button
+            className={cn(
+              "flex shrink rounded-lg border px-4 py-2 font-normal duration-150",
+              item.checked && "hidden",
+              !item.focus
+                ? "border-gray-600 text-gray-800 dark:border-gray-600  dark:text-gray-200"
+                : "-ml-2 border border-transparent px-2 text-green-800 dark:text-white/80"
+            )}
+            onMouseDown={(e) => {
+              if (e.button === 0)
+                update(item.id, "focus", !item.focus || false);
+            }}
+          >
+            {!item.focus ? "Pin" : "Unpin"}
+          </button>
+        </span>
       </div>
     </div>
   );
