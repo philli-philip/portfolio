@@ -129,7 +129,7 @@ export default function List() {
           <p className="pb-4 text-sm font-light text-gray-500 dark:text-gray-400">
             Skills, behaviours that guide you to grow as a designer.
           </p>
-          <div className="border-b">
+          <div className="border-b border-gray-200 dark:border-gray-600">
             {levels.map((item, index) => (
               <SkillSection
                 key={item}
