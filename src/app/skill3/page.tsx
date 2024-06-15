@@ -9,17 +9,17 @@ export const Nudica = localFont({
   src: [
     {
       weight: "300",
-      path: "../../(skill2)/skill2/Nudica-Light.otf",
+      path: "./Nudica-Light.otf",
       style: "normal",
     },
     {
       weight: "400",
-      path: "../../(skill2)/skill2/Nudica-Regular.otf",
+      path: "./Nudica-Regular.otf",
       style: "normal",
     },
     {
       weight: "500",
-      path: "../../(skill2)/skill2/Nudica-Medium.otf",
+      path: "./Nudica-Medium.otf",
       style: "normal",
     },
   ],
