@@ -9,7 +9,7 @@ import Button from "../button";
 import { type Skill, skills } from "../content";
 import Question from "./question";
 import Loading from "../loading";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useLocalStorage } from "@react-hooks-library/core";
 import { Card } from "../card";
 import { type PanInfo, motion, useTransform, useMotionValue } from "framer-motion";
@@ -18,18 +18,24 @@ import { useRouter } from "next/navigation";
 import type { tLevels } from "../../skill/page";
 
 
-type Result = { [L in tLevels]?: string[] }
+type Results = { [L in tLevels]?: string[] }
+
+type LocalData = {
+  version: number,
+  current: number,
+  ongoing: boolean
+  results?: Results,
+}
 
 const defaultRating = { score: 0, max: 0, rating: 1 }
 
 export default function Page() {
-  const [loading, setLoading] = useState(false);
-  const [index, setIndex] = useLocalStorage("currentIndex", 0);
+  const [index, setIndex] = useLocalStorage<number>("currentIndex", 0);
+  const [result, setResult] = useLocalStorage<Results | undefined>("results", undefined)
+  const [, setLVL] = useLocalStorage("resultLVL", "L1")
+  const [localData, setLocalData] = useLocalStorage<LocalData>("ladder", { current: 0, ongoing: true, version: 1 })
   const [item, setItem] = useState<Skill | undefined>(undefined);
   const [nextItem, setNextItem] = useState<Skill | undefined>(undefined);
-  const [overlay, setOverlay] = useState(true);
-  const [result, setResult] = useLocalStorage<Result | undefined>("results", undefined)
-  const [, setLVL] = useLocalStorage("resultLVL", "L1")
   const [rating, setRating] = useState(defaultRating)
   const router = useRouter()
 
@@ -43,49 +49,54 @@ export default function Page() {
   const marginTop = useTransform(x, [-100, 0, 100], [0, -32, 0])
   const scale = useTransform(x, [-100, 0, 100], [1, 0.90, 1])
 
-
   useEffect(() => {
-    () => index > 0 && setOverlay(true)
-  })
+    setItem(skills[localData.current + 1]);
+    setNextItem(skills[localData.current + 2]);
 
-  useEffect(() => {
+    //eslint-disable-next-line
+  }, []);
 
-    setItem(skills[index]);
-    setNextItem(skills[index + 1]);
-    !overlay && setLoading(false);
 
-  }, [index, overlay]);
+
 
   const handleNext = (checked: boolean) => {
     const score = checked ? rating.score + 1 : rating.score
     const max = rating.max + 1
     const nRating = score / max
     const newRating = { score: score, max: max, rating: nRating }
+
     setRating(newRating)
     console.log(newRating)
+
+    setLocalData({ ...localData, results: result, ongoing: true, version: localData.version, current: localData.current + 1 })
 
     if (!checked && item) {
       const lvl = item.level
       const old = result && result[lvl] || []
       setResult({ ...(result), [lvl]: [...old, item.id] });
+      setLocalData({ results: { [lvl]: [...old, item.id] }, ongoing: true, version: localData.version, current: localData.current + 1 })
+
       if (newRating.rating < 0.85 && newRating.max >= 12) {
         item && setLVL(item.level)
+        setLocalData({ ...localData, ongoing: false, version: localData?.version || 1, current: localData.current })
         router.push("result")
       }
     }
 
-
-    const newIndex = index + 1;
-
-    setIndex(newIndex);
-    setItem(skills[newIndex]);
-    setNextItem(skills[index + 1]);
+    setIndex(index + 1);
+    setItem(skills[index + 1]);
+    setNextItem(skills[index + 2]);
   };
+
+  const backToStart = () => {
+    setIndex(0);
+    setItem(skills[0]);
+    setNextItem(skills[1]);
+  }
 
 
 
   const previousCard = (index: number) => {
-
     let newIndex
     if (index <= 0) {
       newIndex = 0
@@ -139,11 +150,17 @@ export default function Page() {
     console.log(rotate)
   }
 
-  const handleReset = () => {
-    setIndex(0);
-    setRating(defaultRating)
-    setResult({})
-    setOverlay(false)
+  const handleReset = (reset: boolean) => {
+    if (reset) {
+      localStorage.removeItem("currentIndex")
+      localStorage.removeItem("results")
+      localStorage.removeItem("resultLVL")
+      localStorage.removeItem("ladder")
+      setLocalData({ ongoing: true, current: 0, version: localData?.version || 0 })
+      backToStart()
+    } else {
+      setLocalData({ ongoing: true, current: localData?.current || 0, version: localData?.version || 0, results: localData?.results })
+    }
   }
 
   const Overlay = () => (
@@ -155,7 +172,7 @@ export default function Page() {
               Continue or Reset?
             </h3>
             <p className="text-center">You want to continue where you left off, or want to start from scratch?</p>
-            <div className="flex flex-row gap-x-4 pt-4"><Button color="red" onClick={() => handleReset()}>From start</Button><Button color="green" onClick={() => setOverlay(false)}>Continue</Button></div>
+            <div className="flex flex-row gap-x-4 pt-4"><Button color="red" onClick={() => handleReset(true)}>From start</Button><Button color="green" onClick={() => handleReset(false)}>Continue</Button></div>
           </Card>
         </div>
       </div>
@@ -171,7 +188,7 @@ export default function Page() {
           <motion.div
             style={{ top: marginTop, opacity: nextOpacity, scale, position: "absolute", width: "100%" }}>
             <Card className="-z-10 absolute lg:h-[460px] h-[400px] flex flex-col gap-y-6 p-6 lg:p-12 w-full">
-              {nextItem && !loading ? <Question item={nextItem} /> : <Loading />}
+              {nextItem ? <Question item={nextItem} /> : <Loading />}
             </Card  >
           </motion.div>
 
@@ -183,7 +200,7 @@ export default function Page() {
 
             <motion.div style={{ opacity }}>
               <Card className="z-10 cursor-pointer relative md:w-[700px] lg:w-[800px] h-[400px] lg:h-[460px] flex flex-col gap-y-6 p-6 lg:p-12">
-                {item && !loading ? <Question item={item} /> : <Loading />}
+                {item ? <Question item={item} /> : <Loading />}
               </Card>
             </motion.div>
 
@@ -192,8 +209,9 @@ export default function Page() {
           </motion.div>
         </div>
         <Footer />
+        <button onClick={() => handleReset(true)}>Reset</button>
       </div>
-      {overlay && <Overlay />}
+      {localData && !localData?.ongoing && <Overlay />}
     </Layout >
   );
 } 
