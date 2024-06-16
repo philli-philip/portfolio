@@ -2,15 +2,13 @@
 
 import { useLocalStorage } from "@react-hooks-library/core";
 import { useEffect, useState } from "react";
-import type { tLevels } from "../../skill/page";
 import { Card } from "../card";
+import type { LocalData } from "../question/page";
 
 type Response = {
   title: string,
   description: string,
 }
-
-type Item = { id: number, result: boolean, lvl: string }
 
 const responses = {
   L1: { title: "Junior Designer", description: "classic Junior Designer." },
@@ -24,15 +22,14 @@ const responses = {
 
 export default function Page() {
 
-  const [results] = useLocalStorage<Item[]>("results", [])
-  const [rLvl] = useLocalStorage<tLevels | undefined>("resultLVL", undefined)
+  const [local] = useLocalStorage<LocalData | undefined>("ladder", undefined)
   const [response, setResponse] = useState<Response | undefined>(undefined)
 
   useEffect(() => {
 
-    rLvl && setResponse(responses[rLvl])
+    local && setResponse(responses[local.rating])
 
-  }, [rLvl, results])
+  }, [local])
 
   return (
     <main>
