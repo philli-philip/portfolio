@@ -1,12 +1,8 @@
-import type { ComponentPropsWithRef } from "react";
 import { cn } from "../../utils/cn";
-import type { ClassNameValue } from "tailwind-merge";
 
-interface Props extends ComponentPropsWithRef<"button"> {
+interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   color?: "green" | "red";
   size?: "medium" | "large";
-  children: JSX.Element[] | JSX.Element | string;
-  classNames?: ClassNameValue;
 }
 
 export default function Button(props: Props) {
@@ -21,7 +17,7 @@ export default function Button(props: Props) {
         "bg-red-500 drop-shadow-[0_8px_0_rgba(220,38,38,1)] hover:drop-shadow-[0_4px_0_rgba(220,38,38,1)] ",
         props.size === "large" ? "h-16 px-6" : "h-12 px-4",
         props.disabled && "bg-gray-300 text-gray-400",
-        props.classNames
+        props.className
       )}
     >
       {props.children}
