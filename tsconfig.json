@@ -32,7 +32,7 @@
     "**/*.cjs",
     "**/*.mjs",
     ".next/types/**/*.ts"
-, "src/utils/eventbus.ts"  ],
+, "src/utils/eventbus.ts", "src/app/skill/skillSection.tsx"  ],
   "exclude": [
     "node_modules",
     ".next"
