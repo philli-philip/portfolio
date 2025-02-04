@@ -13,10 +13,11 @@ export async function POST(request: Request) {
       text: body.message || "empty email",
     });
 
+    console.log(data, error);
+
     if (error) {
       return NextResponse.json({ error }, { status: 500 });
     }
-
     return NextResponse.json(data);
   } catch (error) {
     return NextResponse.json(error);
