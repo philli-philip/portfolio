@@ -39,14 +39,15 @@ export default function Contact() {
 
   useEffect(() => {
     const delayedResponse = debounce(() => {
+      if (i("Hi Philip") || i("Hello Philip")) {
+        response("Hi Stranger! 👋");
+      }
       if (i("interested", "interest") && i("crypto", "Crypto")) {
         response("I am not interested in Crypto projects.");
       } else if (i("how are you")) {
         response(
           "Thanks for asking. I am doing well at the moment. How are you?"
         );
-      } else if (i("Hi Philip") || i("Hello Philip")) {
-        response("Hi Stranger! 👋");
       } else if (message.length > 12 && message.length < 72) {
         response("That is a bit short to start a conversation.");
         setDisabled(true);
