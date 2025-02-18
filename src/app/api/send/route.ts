@@ -1,4 +1,3 @@
-import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -10,16 +9,16 @@ export async function POST(request: Request) {
       from: "Portfolio <philip@mattha.net>",
       to: ["philip.mattha@gmail.com"],
       subject: "Contact from the Portfolio",
-      text: body.message || "empty email",
+      html: "<p>it works!</p>",
     });
 
-    console.log(data, error);
+    console.log(data, body.message, error);
 
     if (error) {
-      return NextResponse.json({ error }, { status: 500 });
+      return Response.json({ error }, { status: 500 });
     }
-    return NextResponse.json(data);
+    return Response.json(data);
   } catch (error) {
-    return NextResponse.json(error);
+    return Response.json({ error }, { status: 500 });
   }
 }
