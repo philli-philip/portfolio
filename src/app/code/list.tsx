@@ -45,6 +45,22 @@ const table: Task = {
   name: "Grids vs. Lists",
   difficulty: "intermediary",
   link: "/code/table",
+  status: "canceled",
+};
+
+const TradingApp: Task = {
+  id: 10,
+  name: "Trading App",
+  difficulty: "intermediary",
+  link: "https://tradepost-eight.vercel.app",
+  status: "completed",
+};
+
+const fBase: Task = {
+  id: 11,
+  name: "Finance Base",
+  difficulty: "master",
+  link: "https://f-base.vercel.app",
   status: "open",
 };
 
@@ -57,6 +73,8 @@ const tasksList: Task[] = [
   powerbank,
   dreiJS,
   table,
+  TradingApp,
+  fBase,
 ];
 
 function sortArrayByAttribute(attribute: string, ascending: boolean) {
