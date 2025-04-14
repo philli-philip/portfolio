@@ -1,6 +1,6 @@
 export type TimeLinePhase = {
   start: Day;
-  type: "childhood" | "adolescence" | "worklife" | "retirement" | "death";
+  type: "childhood" | "adolescence" | "adulthood" | "retirement" | "death";
 };
 
 export type Day = {
@@ -12,5 +12,13 @@ export type Day = {
 export type TimeLineEvent = {
   day: Day;
   title: string;
-  description: string;
+  description?: string;
+};
+
+export type ScaleContextType = {
+  start: Date;
+  end: Date;
+  scale: number;
+  offset: number;
+  sWidth: number;
 };

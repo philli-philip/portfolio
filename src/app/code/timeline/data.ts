@@ -25,7 +25,7 @@ export const mockData: TimeLinePhase[] = [
       month: 2,
       year: 2012,
     },
-    type: "worklife",
+    type: "adulthood",
   },
   {
     start: {
@@ -61,7 +61,7 @@ export const timeLineEvents: TimeLineEvent[] = [
       month: 1,
       year: 1999,
     },
-    title: "EUR Currency",
+    title: "Introduction Euro",
     description: "The Euro is introduced",
   },
   {
@@ -87,11 +87,47 @@ export const timeLineEvents: TimeLineEvent[] = [
 export const privateEvents: TimeLineEvent[] = [
   {
     day: {
-      day: 27,
-      month: 2,
-      year: 1992,
+      day: 1,
+      month: 11,
+      year: 2017,
     },
-    title: "Birth",
-    description: "Welcome to this shitshow.",
+    title: "Moving to Zurich",
+    description: "3550g 53cm",
+  },
+  {
+    day: {
+      day: 7,
+      month: 10,
+      year: 2022,
+    },
+    title: "Roman's birth",
+    description: "3550g 53cm",
+  },
+  {
+    day: {
+      day: 28,
+      month: 8,
+      year: 2024,
+    },
+    title: "Vic's birth",
+    description: "3550g 53cm",
+  },
+  {
+    day: {
+      day: 10,
+      month: 9,
+      year: 2021,
+    },
+    title: "Bought Ederstraße",
+    description: "3550g 53cm",
+  },
+  {
+    day: {
+      day: 10,
+      month: 7,
+      year: 2021,
+    },
+    title: "Met Nina 💕",
+    description: "3550g 53cm",
   },
 ];

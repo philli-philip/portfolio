@@ -1,6 +1,6 @@
 import { cn } from "../../../utils/cn";
 import { Day, TimeLinePhase } from "./timelineTypes";
-import { useScale } from "./page";
+import { useTimelineContext } from "./useTimelineReducer";
 import { compensateOffset } from "./utils";
 
 function getLength(start: Day, end?: Day) {
@@ -12,14 +12,23 @@ function getLength(start: Day, end?: Day) {
 }
 
 export function LifeSections({ sections }: { sections: TimeLinePhase[] }) {
-  const scale = useScale();
-  const colors: Record<TimeLinePhase["type"], string> = {
-    childhood: "bg-green-500",
-    adolescence: "bg-red-500",
-    worklife: "bg-blue-500",
-    retirement: "bg-yellow-500",
+  const { state } = useTimelineContext();
+  const bgColors: Record<TimeLinePhase["type"], string> = {
+    childhood: "bg-green-500/30 hover:bg-green-500/60",
+    adolescence: "bg-red-500/30 hover:bg-red-500/60",
+    adulthood: "bg-blue-500/30 hover:bg-blue-500/60",
+    retirement: "bg-yellow-500/30 hover:bg-yellow-500/60",
     death: "bg-black display-none",
   };
+
+  const textColors: Record<TimeLinePhase["type"], string> = {
+    childhood: "text-green-500",
+    adolescence: "text-red-500",
+    adulthood: "text-blue-500",
+    retirement: "text-yellow-500",
+    death: "text-black display-none",
+  };
+
   return (
     <div className="flex flex-row gap-0.5">
       {sections.map((section, index) => {
@@ -27,20 +36,29 @@ export function LifeSections({ sections }: { sections: TimeLinePhase[] }) {
           <div
             key={index}
             className={cn(
-              "h-2 rounded-sm bg-stone-200 opacity-20",
-              colors[section.type]
+              "group relative h-2 rounded-sm bg-stone-200",
+              bgColors[section.type]
             )}
             style={{
               width: `${
                 getLength(section.start, sections[index + 1]?.start) *
-                scale.scale
+                state.context.scale
               }px`,
               marginInlineStart:
                 index === 0
-                  ? `${compensateOffset(section.start, scale)}px`
+                  ? `${compensateOffset(section.start, state.context)}px`
                   : "0px",
             }}
-          ></div>
+          >
+            <span
+              className={cn(
+                "absolute bottom-2 hidden text-sm capitalize group-hover:block",
+                textColors[section.type]
+              )}
+            >
+              {section.type}
+            </span>
+          </div>
         );
       })}
     </div>

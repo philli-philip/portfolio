@@ -1,32 +1,14 @@
 "use client";
-import { createContext, useContext, useEffect, useState } from "react";
+import { useEffect } from "react";
 import { mockData, privateEvents, timeLineEvents } from "./data";
 import { LifeSections } from "./LifeSections";
 import Today from "./today";
 import PrivateEvents from "./privateEvents";
-
-export type ScaleContextType = {
-  start: Date;
-  end: Date;
-  scale: number;
-  offset: number;
-  sWidth: number;
-};
-export const ScaleContext = createContext<ScaleContextType | undefined>(
-  undefined
-);
-
-// Custom hook to use the scale context
-export const useScale = () => {
-  const context = useContext(ScaleContext);
-  if (!context) {
-    throw new Error("useScale must be used within a ScaleProvider");
-  }
-  return context;
-};
+import Marker from "./marker";
+import { useTimelineContext } from "./useTimelineReducer";
 
 export default function Page() {
-  const [scale, setScale] = useState<ScaleContextType | undefined>(undefined);
+  const { state, dispatch } = useTimelineContext();
 
   useEffect(() => {
     const handleResize = () => {
@@ -35,12 +17,15 @@ export default function Page() {
       const sWidth = window.innerWidth;
       const scale = sWidth / (endYear - startYear);
 
-      setScale({
-        start: new Date(startYear.toString()),
-        end: new Date(endYear.toString()),
-        scale: scale,
-        offset: startYear * scale,
-        sWidth: sWidth,
+      dispatch({
+        type: "setScale",
+        payload: {
+          start: new Date(startYear.toString()),
+          end: new Date(endYear.toString()),
+          scale: scale,
+          offset: startYear * scale,
+          sWidth: sWidth,
+        },
       });
     };
     handleResize();
@@ -51,19 +36,14 @@ export default function Page() {
   }, []);
 
   return (
-    <ScaleContext.Provider value={scale}>
-      <div className="flex h-screen w-screen flex-col justify-center bg-stone-100">
-        {scale && (
-          <>
-            <PrivateEvents type="private" events={privateEvents} />
-            <div className="relative h-2 bg-stone-200">
-              <LifeSections sections={mockData} />
-              <Today date={new Date()} />
-            </div>
-            <PrivateEvents type="public" events={timeLineEvents} />
-          </>
-        )}
+    <div className="flex h-screen w-screen flex-col justify-center bg-stone-100">
+      <PrivateEvents type="private" events={state.private} />
+      <div className="relative h-2 bg-stone-200">
+        <Marker />
+        <LifeSections sections={mockData} />
+        <Today date={new Date()} />
       </div>
-    </ScaleContext.Provider>
+      <PrivateEvents type="public" events={timeLineEvents} />
+    </div>
   );
 }
