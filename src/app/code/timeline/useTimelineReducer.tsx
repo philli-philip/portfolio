@@ -28,6 +28,31 @@ export type TimelineAction =
         type: "private";
         title: string;
         day?: Day;
+        id?: string;
+        isEditing?: boolean;
+      };
+    }
+  | {
+      type: "deleteEvent";
+      payload: {
+        id: string;
+        type: "private";
+      };
+    }
+  | {
+      type: "toggleEdit";
+      payload: {
+        id: string;
+        type: "private";
+      };
+    }
+  | {
+      type: "updateEventTitle";
+      payload: {
+        id: string;
+        title: string;
+        type: "private";
+        day?: Day;
       };
     }
   | {
@@ -54,22 +79,33 @@ const initialState: TimelineState = {
 
 // Define reducer with action type
 export function timeLineReducer(state: TimelineState, action: TimelineAction) {
+  console.log("timeLineReducer", action);
   switch (action.type) {
     case "addEvent":
-      const { type } = action.payload;
+      const { type, day } = action.payload;
       const newEvent: TimeLineEvent = {
         day: action.payload.day || {
-          day: new Date().getDate(),
-          month: new Date().getMonth() + 1,
-          year: new Date().getFullYear(),
+          day: day?.day || new Date().getDate(),
+          month: day?.month || new Date().getMonth() + 1,
+          year: day?.year || new Date().getFullYear(),
         },
         title: action.payload.title,
+        id: action.payload.id || `event-${Date.now()}`,
+        isEditing: action.payload.isEditing || false,
       };
       const result = {
         ...state,
         [type]: [...state[type], newEvent],
       };
       return result;
+    case "updateEventTitle":
+      const { id, title, type: eventType } = action.payload;
+      return {
+        ...state,
+        [eventType]: state[eventType].map((event) =>
+          event.id === id ? { ...event, title, isEditing: false } : event
+        ),
+      };
     case "setScale":
       console.log("setScale", action.payload);
       return {
@@ -77,6 +113,21 @@ export function timeLineReducer(state: TimelineState, action: TimelineAction) {
         context: {
           ...action.payload,
         },
+      };
+    case "deleteEvent":
+      return {
+        ...state,
+        [action.payload.type]: state[action.payload.type].filter(
+          (event) => event.id !== action.payload.id
+        ),
+      };
+    case "toggleEdit":
+      const { id: eventId, type: eventType2 } = action.payload;
+      return {
+        ...state,
+        [eventType2]: state[eventType2].map((event) =>
+          event.id === eventId ? { ...event, isEditing: true } : event
+        ),
       };
     default:
       return state;

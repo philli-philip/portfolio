@@ -39,9 +39,11 @@ export default function Page() {
     <div className="flex h-screen w-screen flex-col justify-center bg-stone-100">
       <PrivateEvents type="private" events={state.private} />
       <div className="relative h-2 bg-stone-200">
-        <Marker />
         <LifeSections sections={mockData} />
         <Today date={new Date()} />
+      </div>
+      <div className="relative h-0">
+        <Marker />
       </div>
       <PrivateEvents type="public" events={timeLineEvents} />
     </div>

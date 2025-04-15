@@ -52,7 +52,7 @@ export function LifeSections({ sections }: { sections: TimeLinePhase[] }) {
           >
             <span
               className={cn(
-                "absolute bottom-2 hidden text-sm capitalize group-hover:block",
+                "absolute bottom-2 z-40 hidden text-sm capitalize group-hover:block",
                 textColors[section.type]
               )}
             >

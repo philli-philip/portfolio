@@ -13,6 +13,8 @@ export type TimeLineEvent = {
   day: Day;
   title: string;
   description?: string;
+  id: string;
+  isEditing?: boolean;
 };
 
 export type ScaleContextType = {
