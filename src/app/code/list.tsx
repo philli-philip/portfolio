@@ -63,6 +63,14 @@ const fBase: Task = {
   link: "https://f-base.vercel.app",
   status: "open",
 };
+const timeline: Task = {
+  id: 10,
+  name: "Timeline",
+  difficulty: "intermediary",
+  link: "/code/timeline",
+  status: "completed",
+  completedAt: new Date("27 April 2025"),
+};
 
 const tasksList: Task[] = [
   qrCode,
@@ -75,6 +83,7 @@ const tasksList: Task[] = [
   table,
   TradingApp,
   fBase,
+  timeline,
 ];
 
 function sortArrayByAttribute(attribute: string, ascending: boolean) {
