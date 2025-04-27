@@ -47,6 +47,14 @@ const table: Task = {
   link: "/code/table",
   status: "open",
 };
+const timeline: Task = {
+  id: 10,
+  name: "Timeline",
+  difficulty: "intermediary",
+  link: "/code/timeline",
+  status: "completed",
+  completedAt: new Date("27 April 2025"),
+};
 
 const tasksList: Task[] = [
   qrCode,
@@ -57,6 +65,7 @@ const tasksList: Task[] = [
   powerbank,
   dreiJS,
   table,
+  timeline,
 ];
 
 function sortArrayByAttribute(attribute: string, ascending: boolean) {
