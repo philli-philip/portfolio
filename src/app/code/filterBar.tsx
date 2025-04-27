@@ -65,7 +65,7 @@ export default function FilterBar() {
         </Menu.Button>
         <Menu.Items className={dropdown}>
           <Menu.Item>
-            <Menu as="div" className="relative">
+            <Menu as="div" className="relative flex flex-row">
               <Menu.Button className={menuItemStyle}>Difficulty</Menu.Button>
               <Menu.Items className={cn(dropdown, dropdownSub)}>
                 {levels.map((item) => (
@@ -88,7 +88,9 @@ export default function FilterBar() {
           </Menu.Item>
           <Menu.Item>
             <Menu as="div" className="relative">
-              <Menu.Button className={menuItemStyle}>Status</Menu.Button>
+              <Menu.Button className={cn(menuItemStyle, "w-full")}>
+                Status
+              </Menu.Button>
               <Menu.Items className={cn(dropdown, dropdownSub)}>
                 {status.map((item) => (
                   <Menu.Item key={item}>
