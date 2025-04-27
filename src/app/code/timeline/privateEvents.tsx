@@ -4,7 +4,7 @@ import { TimeLineEvent } from "./timelineTypes";
 import { useTimelineContext } from "./useTimelineReducer";
 import { compensateOffset, formatter } from "./utils";
 import { useState, KeyboardEvent } from "react";
-import { Check, X } from "lucide-react";
+import { Check, Delete, Trash, X } from "lucide-react";
 
 export default function PrivateEvents({
   events,
@@ -143,7 +143,7 @@ const PrivateEvent = ({
               }}
               className="flex h-6 w-6 items-center justify-center rounded-full bg-red-500 text-white hover:bg-red-600"
             >
-              <X size={12} />
+              <Trash size={12} />
             </button>
           </div>
         ) : (

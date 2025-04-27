@@ -7,7 +7,7 @@ import { useTimelineContext } from "./useTimelineReducer";
 export default function Marker() {
   const { state, dispatch } = useTimelineContext();
   const [date, setDate] = useState<Date | undefined>(undefined);
-  
+
   useEffect(() => {
     const handleMove = (e: PointerEvent) => {
       const part = e.clientX / window.innerWidth;
@@ -29,7 +29,7 @@ export default function Marker() {
   }
   return (
     <div
-      className="absolute top-0 flex w-6 flex-col items-center"
+      className="group absolute top-0 flex w-6 flex-col items-center"
       style={{
         left: `${compensateOffset(date, state.context) - 12}px`,
       }}
@@ -50,7 +50,7 @@ export default function Marker() {
             },
           });
         }}
-        className="absolute -top-7 z-20 flex size-4 cursor-pointer flex-col items-center justify-center rounded-full bg-stone-300 duration-75 hover:bg-stone-400"
+        className="absolute -top-7 z-20 flex size-4 cursor-pointer flex-col items-center justify-center rounded-full bg-stone-300 opacity-0 transition duration-75 hover:bg-stone-400 group-hover:opacity-100"
       >
         <Plus size={12} strokeWidth={3} strokeLinecap="round" />
       </button>
