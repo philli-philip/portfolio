@@ -1,9 +1,15 @@
-import { simpleDetailPageTopNavigation } from "./examples";
+import {
+  simpleDetailPageTopNavigation,
+  twoColumnLayoutWithHeader,
+} from "./examples";
 
 export type ExampleType = {
   title?: string;
   description?: string;
-  layout?: JSX.Element;
+  layout: {
+    area?: JSX.Element;
+    layout?: JSX.Element;
+  };
 };
 
 export type Category = {
@@ -36,7 +42,7 @@ export const libraryData: LibraryData = [
         slug: "detail-pages",
         description:
           "I think there are really only a few pages that you are building over time. This are the ones I created so you do not need to reinvent them again.",
-        examples: [simpleDetailPageTopNavigation],
+        examples: [simpleDetailPageTopNavigation, twoColumnLayoutWithHeader],
       },
       { title: "Dashboard", description: "", slug: "dashboards", examples: [] },
     ],

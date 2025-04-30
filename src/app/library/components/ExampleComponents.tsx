@@ -19,7 +19,7 @@ export function Block({
     yellow:
       "[--pattern-bg:#F7F5F0] [--pattern-fg:#F0EDE6] dark:[--pattern-bg:#20292F] dark:[--pattern-fg:#293339]",
     undefined:
-      "[--pattern-bg:#eee] [--pattern-fg:#eee] dark:[--pattern-bg:#20292F] dark:[--pattern-fg:#293339]",
+      "[--pattern-bg:#eee] [--pattern-fg:#ddd] dark:[--pattern-bg:#20292F] dark:[--pattern-fg:#293339]",
   };
   return (
     <div
