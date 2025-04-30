@@ -1,14 +1,16 @@
-type Example = {
+import { simpleDetailPageTopNavigation } from "./examples";
+
+export type ExampleType = {
   title?: string;
   description?: string;
   layout?: JSX.Element;
 };
 
-type Category = {
+export type Category = {
   title: string;
   slug: string;
   description: string;
-  examples: Example[];
+  examples: ExampleType[];
   preview?: {
     light: URL;
     dark: URL;
@@ -33,15 +35,16 @@ export const libraryData: LibraryData = [
         title: "Detail pages",
         slug: "detail-pages",
         description:
-          "The login page is the first page you see when you open the app.",
-        examples: [],
+          "I think there are really only a few pages that you are building over time. This are the ones I created so you do not need to reinvent them again.",
+        examples: [simpleDetailPageTopNavigation],
       },
       { title: "Dashboard", description: "", slug: "dashboards", examples: [] },
     ],
   },
   {
     title: "Famous examples",
-    description: "",
+    description:
+      "I think there are really only a few pages that you are building over time. This are the ones I created so you do not need to reinvent them again.",
     slug: "famous",
     categories: [
       {
