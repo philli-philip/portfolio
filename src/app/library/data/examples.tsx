@@ -1,5 +1,6 @@
 import { Block } from "../components/ExampleComponents";
 import Button from "../components/layoutElements/Button";
+import Skeleton from "../components/layoutElements/Skeleton";
 import { ExampleType } from "./data";
 
 export const simpleDetailPageTopNavigation: ExampleType = {
@@ -83,9 +84,9 @@ export const twoColumnLayoutWithHeader: ExampleType = {
         <div className="mx-auto flex w-full max-w-4xl flex-col gap-4 px-0 py-6 @md/main:flex-row @md/main:px-6">
           <div className="h-[360px] w-full border-y border-gray-200 bg-white @md/main:w-2/3 @md/main:rounded-xl @md/main:border dark:border-gray-700 dark:bg-gray-800" />
           <div className="flex h-[360px] grow flex-col gap-6 px-4 pt-8">
-            <div className="h-3 w-24 rounded-full bg-gray-300" />
-            <div className="h-3 w-32 rounded-full bg-gray-300" />
-            <div className="h-3 w-20 rounded-full bg-gray-300" />
+            <Skeleton className="w-24" />
+            <Skeleton className="w-32" />
+            <Skeleton className="w-20" />
           </div>
         </div>
       </div>

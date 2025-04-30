@@ -1,4 +1,5 @@
 import { Block } from "../components/ExampleComponents";
+import Skeleton from "../components/layoutElements/Skeleton";
 import { ExampleType } from "./data";
 
 export const twitterLayoutExample: ExampleType = {
@@ -11,15 +12,12 @@ export const twitterLayoutExample: ExampleType = {
         {/* Left Sidebar */}
         <div className="hidden h-full w-[240px] flex-col items-end border-r border-gray-200 px-4 py-4 @xl/twitter:flex dark:border-gray-800">
           <div className="flex h-full w-full flex-col justify-between">
-            <div className="flex flex-col items-start gap-2">
-              {/* Logo Placeholder */}
+            <div className="flex flex-col items-start gap-4">
               <div className="mb-2 h-8 w-8 rounded-full bg-blue-400 dark:bg-blue-500" />
-              {/* Nav Items Placeholders */}
-              <div className="h-6 w-24 rounded-full bg-gray-200 @lg/twitter:w-32 dark:bg-gray-700" />
-              <div className="h-6 w-24 rounded-full bg-gray-200 @lg/twitter:w-32 dark:bg-gray-700" />
-              <div className="h-6 w-24 rounded-full bg-gray-200 @lg/twitter:w-32 dark:bg-gray-700" />
-              <div className="h-6 w-24 rounded-full bg-gray-200 @lg/twitter:w-32 dark:bg-gray-700" />
-              {/* Tweet Button Placeholder */}
+              <Skeleton className="h-6 w-20" />
+              <Skeleton className="h-6 w-24" />
+              <Skeleton className="h-6 w-28" />
+              <Skeleton className="h-6 w-20" />
               <div className="mt-4 h-10 w-10 rounded-full bg-blue-400 @lg/twitter:w-full dark:bg-blue-500" />
             </div>
             {/* Profile Placeholder */}
