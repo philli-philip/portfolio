@@ -2,6 +2,7 @@ import {
   simpleDetailPageTopNavigation,
   twoColumnLayoutWithHeader,
 } from "./examples";
+import { twitterLayoutExample } from "./twitter-examples";
 
 export type ExampleType = {
   title?: string;
@@ -57,7 +58,7 @@ export const libraryData: LibraryData = [
         title: "Social networks",
         slug: "social-networks",
         description: "Facebook, Twitter, Instagram, Linkedin, etc.",
-        examples: [],
+        examples: [twitterLayoutExample],
       },
     ],
   },
