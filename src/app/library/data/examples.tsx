@@ -1,4 +1,5 @@
 import { Block } from "../components/ExampleComponents";
+import Button from "../components/layoutElements/Button";
 import { ExampleType } from "./data";
 
 export const simpleDetailPageTopNavigation: ExampleType = {
@@ -14,7 +15,7 @@ export const simpleDetailPageTopNavigation: ExampleType = {
             <span className="text-2xl font-light leading-none dark:text-white">
               Page title
             </span>
-            <div className="h-8 w-20 rounded bg-orange-500" />
+            <Button color="primary" className="w-28" />
           </div>
         </div>
         <div className="mx-auto w-full max-w-4xl px-0 @md:px-6">
@@ -58,9 +59,9 @@ export const twoColumnLayoutWithHeader: ExampleType = {
               <span className="text-3xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white">
                 Heading
               </span>
-              <div className="flex space-x-2">
-                <div className="h-8 w-20 rounded bg-gray-200 dark:bg-gray-600" />
-                <div className="h-8 w-20 rounded bg-orange-500" />
+              <div className="flex space-x-4">
+                <Button color="neutral" />
+                <Button color="primary" className="w-24" />
               </div>
             </div>
             {/* Tabs */}
