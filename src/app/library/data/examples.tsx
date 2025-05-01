@@ -92,7 +92,7 @@ export const twoColumnLayoutWithHeader: ExampleType = {
       </div>
     ),
     area: (
-      <div className="flex h-[480px] flex-col">
+      <div className="flex flex-col">
         {/* Header Section */}
         <Block
           color="green"
@@ -110,16 +110,16 @@ export const twoColumnLayoutWithHeader: ExampleType = {
           className="h-10 flex-shrink-0 border-b border-gray-200 dark:border-gray-600"
         />
         {/* Content Section */}
-        <div className="flex grow flex-row">
+        <div className="mx-auto flex w-full max-w-4xl grow flex-row">
           <Block
             color="blue"
             name="Primary content"
-            className="grow border-r border-gray-200 dark:border-gray-600"
+            className="h-[404px] grow border-r border-gray-200 dark:border-gray-600"
           />
           <Block
             color="undefined" // Using 'undefined' for the secondary content area
             name="Secondary content"
-            className="w-1/3 flex-shrink-0"
+            className="h-[404px] w-1/3 flex-shrink-0"
           />
         </div>
       </div>
