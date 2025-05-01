@@ -1,3 +1,5 @@
+export const revalidate = 60 * 60 * 24 * 365;
+
 export default function Page() {
   return (
     <div>

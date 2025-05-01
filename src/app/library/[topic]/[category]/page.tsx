@@ -8,6 +8,7 @@ interface Props {
     category: string;
   };
 }
+export const revalidate = 60 * 60 * 24 * 365;
 
 export default function CategoryPage({ params }: Props) {
   const { category, topic } = params;

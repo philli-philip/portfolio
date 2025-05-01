@@ -8,6 +8,8 @@ interface Props {
   };
 }
 
+export const revalidate = 60 * 60 * 24 * 365;
+
 export default function TopicPage({ params }: Props) {
   const { topic } = params;
   const topicData = libraryData.filter((item) => item.slug === topic)[0];
