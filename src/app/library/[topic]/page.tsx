@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { libraryData } from "../data/data";
+import { libraryData } from "../data/data"; // Import libraryData
 
 interface Props {
   params: {
@@ -8,16 +8,15 @@ interface Props {
 }
 
 export async function getStaticPaths() {
+  const paths = libraryData.map((topic) => ({
+    params: { topic: topic.slug },
+  }));
+
   return {
-    paths: [
-      { params: { topic: "application" } },
-      { params: { topic: "famous" } },
-    ],
+    paths,
     fallback: true,
   };
 }
-
-export const revalidate = 60 * 60 * 24 * 365;
 
 export default function TopicPage({ params }: Props) {
   const { topic } = params;

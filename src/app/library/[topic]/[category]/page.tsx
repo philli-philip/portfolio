@@ -1,7 +1,5 @@
-"use client";
-import category from "../../../../../cms/schemas/category";
 import Example from "../../components/Example";
-import { libraryData } from "../../data/data";
+import { libraryData } from "../../data/data"; // Make sure this import exists
 
 interface Props {
   params: {
@@ -11,17 +9,17 @@ interface Props {
 }
 
 export async function getStaticPaths() {
+  const paths = libraryData.flatMap((topic) =>
+    topic.categories.map((category) => ({
+      params: { topic: topic.slug, category: category.slug },
+    }))
+  );
+
   return {
-    paths: [
-      { params: { topic: "application", category: "detail-pages" } },
-      { params: { topic: "application", category: "dashboards" } },
-      { params: { topic: "famous", category: "social-networks" } },
-    ],
-    fallback: true,
+    paths,
+    fallback: true, // or false, or 'blocking' depending on your needs
   };
 }
-
-export const revalidate = 60 * 60 * 24 * 365;
 
 export default function CategoryPage({ params }: Props) {
   const { category, topic } = params;
