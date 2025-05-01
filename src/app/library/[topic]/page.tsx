@@ -1,10 +1,19 @@
-"use client";
 import Link from "next/link";
 import { libraryData } from "../data/data";
 
 interface Props {
   params: {
     topic: string;
+  };
+}
+
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { topic: "application" } },
+      { params: { topic: "famous" } },
+    ],
+    fallback: true,
   };
 }
 

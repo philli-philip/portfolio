@@ -1,4 +1,5 @@
 "use client";
+import category from "../../../../../cms/schemas/category";
 import Example from "../../components/Example";
 import { libraryData } from "../../data/data";
 
@@ -8,6 +9,18 @@ interface Props {
     category: string;
   };
 }
+
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { topic: "application", category: "detail-pages" } },
+      { params: { topic: "application", category: "dashboards" } },
+      { params: { topic: "famous", category: "social-networks" } },
+    ],
+    fallback: true,
+  };
+}
+
 export const revalidate = 60 * 60 * 24 * 365;
 
 export default function CategoryPage({ params }: Props) {
