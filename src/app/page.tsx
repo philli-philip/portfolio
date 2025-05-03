@@ -60,18 +60,27 @@ const Home: NextPage = () => {
       <NavBar current="/" />
       <main className="flex min-h-screen flex-col items-center justify-center">
         <section className="container mb-24 mt-24 grid max-w-6xl grid-cols-12 gap-6 px-8 lg:px-0 xl:mx-auto xl:mb-48 xl:mt-48">
-          <h1 className="text-grey-600 xl:col-start-0 col-span-12 text-4xl font-bold tracking-tight dark:text-gray-200 md:col-span-10 md:text-4xl lg:text-5xl xl:col-span-12 xl:mx-0 xl:max-w-4xl xl:text-6xl xl:leading-[1.1]">
+          <h1 className="text-grey-600 xl:col-start-0 col-span-12 text-4xl font-bold tracking-tight md:col-span-10 md:text-4xl lg:text-5xl xl:col-span-12 xl:mx-0 xl:max-w-4xl xl:text-6xl xl:leading-[1.1] dark:text-gray-200">
             I am{" "}
             <Link
               href="/about"
-              className=" text-green-600 hover:underline dark:text-green-400"
+              className="text-green-600 hover:underline dark:text-green-400"
             >
               Philip Mattha
             </Link>
             , currently Product Design Lead at{" "}
-            <span className="text-blue-600 dark:text-blue-400">
-              Deutsche Bank
-            </span>
+            <Link
+              href={"/blog/why-deutsche-bank"}
+              className="group relative text-blue-600 hover:underline dark:text-blue-400 "
+            >
+              <span className="relative">
+                Deutsche{" "}
+                <span className="absolute -right-4 -top-3 rotate-12 whitespace-nowrap rounded-md border border-gray-200 px-3 py-2 text-sm tracking-normal opacity-0 outline-none duration-150 ease-out group-hover:-top-10 group-hover:rotate-6 group-hover:opacity-100  group-focus:opacity-100 dark:border-0 dark:border-t dark:border-gray-600 dark:bg-gray-800 dark:text-slate-200">
+                  Why ?
+                </span>
+              </span>
+              Bank
+            </Link>
             . Explore my{" "}
             <Link
               className="text-purple-600 hover:underline dark:text-purple-400"
@@ -98,7 +107,7 @@ const Home: NextPage = () => {
           <ShortCuts />
         </section>
         <section className="container max-w-6xl px-8 md:px-0">
-          <div className="lg:grid-cols-5xl mx-auto grid grid-cols-2 place-items-center border-l border-t border-gray-200 dark:border-gray-700 md:grid-cols-4">
+          <div className="lg:grid-cols-5xl mx-auto grid grid-cols-2 place-items-center border-l border-t border-gray-200 md:grid-cols-4 dark:border-gray-700">
             {brands.map((item, index) => (
               <div
                 key={index}
