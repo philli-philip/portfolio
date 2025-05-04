@@ -75,8 +75,8 @@ const Home: NextPage = () => {
             >
               <span className="relative">
                 Deutsche{" "}
-                <span className="absolute -right-4 -top-3 rotate-12 whitespace-nowrap rounded-md border border-gray-200 px-3 py-2 text-sm tracking-normal opacity-0 outline-none duration-150 ease-out group-hover:-top-10 group-hover:rotate-6 group-hover:opacity-100  group-focus:opacity-100 dark:border-0 dark:border-t dark:border-gray-600 dark:bg-gray-800 dark:text-slate-200">
-                  Why ?
+                <span className="group-focus: absolute -right-12 -top-3 rotate-12 whitespace-nowrap rounded-md border border-gray-200 px-3 py-2 text-sm tracking-normal opacity-0 shadow-xl outline-none duration-150 ease-out group-hover:-top-10 group-hover:rotate-6 group-hover:opacity-100 group-focus:opacity-100 dark:border-0 dark:border-t dark:border-gray-600 dark:bg-gray-800 dark:text-slate-200 dark:shadow-none">
+                  Why Deutsche Bank?
                 </span>
               </span>
               Bank
