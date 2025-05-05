@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Example from "../../components/Example";
 import { libraryData } from "../../data/data"; // Make sure this import exists
 
@@ -31,6 +32,10 @@ export default function CategoryPage({ params }: Props) {
 
   return (
     <>
+      <span className="flex flex-row gap-2 pb-4 font-mono text-sm uppercase text-gray-500 dark:text-gray-400">
+        <Link href={{ pathname: `/library/${topic}` }}>{topic}</Link>/
+        <span>{areaData?.title}</span>
+      </span>
       <h1 className="pb-4 text-6xl font-extralight dark:text-gray-200">
         {areaData?.title}
       </h1>
