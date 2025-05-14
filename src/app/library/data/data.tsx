@@ -1,4 +1,5 @@
 import {
+  sidebarLayoutWithHeader,
   simpleDetailPageTopNavigation,
   twoColumnLayoutWithHeader,
 } from "./examples";
@@ -43,7 +44,11 @@ export const libraryData: LibraryData = [
         slug: "detail-pages",
         description:
           "I think there are really only a few pages that you are building over time. This are the ones I created so you do not need to reinvent them again.",
-        examples: [simpleDetailPageTopNavigation, twoColumnLayoutWithHeader],
+        examples: [
+          simpleDetailPageTopNavigation,
+          twoColumnLayoutWithHeader,
+          sidebarLayoutWithHeader,
+        ],
       },
       { title: "Dashboard", description: "", slug: "dashboards", examples: [] },
     ],

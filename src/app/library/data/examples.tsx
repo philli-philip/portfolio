@@ -126,3 +126,59 @@ export const twoColumnLayoutWithHeader: ExampleType = {
     ),
   },
 };
+
+export const sidebarLayoutWithHeader: ExampleType = {
+  title: "Sidebar Layout with Header",
+  description:
+    "A layout featuring a fixed sidebar on the left and a main content area with a header on the right.",
+  layout: {
+    layout: (
+      <div className="flex h-[480px] w-full @container/main">
+        <div className="flex h-full w-48 flex-col space-y-4 border-r border-gray-200 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-800">
+          <Skeleton className="h-4 w-10 rounded-full pb-4" />
+          <Skeleton className="h-2 w-3/4" />
+          <Skeleton className="h-2 w-full" />
+          <Skeleton className="h-2 w-full" />
+          <Skeleton className="h-2 w-2/3" />
+          <Skeleton className="h-2 w-full" />
+          <Skeleton className="h-2 w-1/2" />
+        </div>
+
+        <div className="flex flex-grow flex-col">
+          <div className="flex h-10 items-center justify-between border-b border-gray-200 px-4 dark:border-gray-700">
+            <span className="text-lg font-semibold leading-none dark:text-white">
+              Heading
+            </span>
+            <Button color="primary" className="w-24">
+              Button
+            </Button>
+          </div>
+          <div className="flex-grow p-4 ">
+            <div className="h-full rounded-lg border border-gray-200 bg-white dark:border-gray-600" />
+          </div>
+        </div>
+      </div>
+    ),
+    area: (
+      <div className="flex h-[480px] w-full">
+        <Block
+          color="green"
+          name="Navigation"
+          className="h-full w-48 flex-shrink-0 border-r border-gray-200 dark:border-gray-600"
+        />
+        <div className="flex flex-grow flex-col">
+          <Block
+            color="yellow"
+            name="Title area"
+            className="h-16 flex-shrink-0 border-b border-gray-200 dark:border-gray-600"
+          />
+          <Block
+            color="blue"
+            name="Primary content"
+            className="h-full flex-grow"
+          />
+        </div>
+      </div>
+    ),
+  },
+};
