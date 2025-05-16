@@ -145,15 +145,13 @@ export const sidebarLayoutWithHeader: ExampleType = {
         </div>
 
         <div className="flex flex-grow flex-col">
-          <div className="flex h-10 items-center justify-between border-b border-gray-200 px-4 dark:border-gray-700">
-            <span className="text-lg font-semibold leading-none dark:text-white">
+          <div className="flex items-center justify-between px-4 pt-4">
+            <span className="text-xl font-semibold leading-none dark:text-white">
               Heading
             </span>
-            <Button color="primary" className="w-24">
-              Button
-            </Button>
+            <Button color="primary" className="w-24"></Button>
           </div>
-          <div className="flex-grow p-4 ">
+          <div className="flex-grow p-4">
             <div className="h-full rounded-lg border border-gray-200 bg-white dark:border-gray-600" />
           </div>
         </div>
@@ -166,7 +164,7 @@ export const sidebarLayoutWithHeader: ExampleType = {
           name="Navigation"
           className="h-full w-48 flex-shrink-0 border-r border-gray-200 dark:border-gray-600"
         />
-        <div className="flex flex-grow flex-col">
+        <div className="flex flex-grow flex-col ">
           <Block
             color="yellow"
             name="Title area"
@@ -176,6 +174,78 @@ export const sidebarLayoutWithHeader: ExampleType = {
             color="blue"
             name="Primary content"
             className="h-full flex-grow"
+          />
+        </div>
+      </div>
+    ),
+  },
+};
+
+export const oldFacebook: ExampleType = {
+  title: "Facebook (2014)",
+  description:
+    "The classic Facebook layout with a fixed navigation bar and a main content area with centered feed and two helper bars.",
+  layout: {
+    layout: (
+      <div className="flex h-[480px] w-full flex-col bg-gray-200 @container/main">
+        {/* Navigation Bar */}
+        <div className="flex h-12 w-full flex-shrink-0 items-center justify-center bg-[#4267B1]"></div>
+        {/* Content Area */}
+        <div className="mx-auto flex w-full max-w-4xl flex-grow gap-2 px-4">
+          {/* Left Secondary Content */}
+          <div className="hidden w-[160px] flex-col gap-4 pt-4 @lg:flex">
+            <Skeleton className="h-3 w-[50%]" />
+            <Skeleton className="h-3 w-[65%]" />
+            <Skeleton className="h-3 w-[80%]" />
+            <Skeleton className="h-3 w-[50%]" />
+            <Skeleton className="h-3 w-[40%]" />
+            <Skeleton className="h-3 w-[75%]" />
+            <Skeleton className="h-3 w-[80%]" />
+          </div>
+          {/* Primary Content */}
+          <div className="flex grow flex-col items-start justify-start gap-2 pt-2">
+            <div className="h-24 w-full rounded bg-white"></div>
+            <div className="flex h-56 w-full flex-row gap-2 rounded bg-white p-2 pt-8">
+              <div className="h-full grow rounded-lg bg-gray-200" />
+              <div className="h-full grow rounded-lg bg-gray-200" />
+              <div className="h-full grow rounded-lg bg-gray-200" />
+              <div className="h-full grow rounded-lg bg-gray-200" />
+            </div>
+            <div className="flex h-48 w-full flex-row gap-4 rounded bg-white p-2 py-4">
+              <div className="size-8 rounded-full bg-gray-200" />
+              <div className="grow rounded-lg bg-gray-200" />
+            </div>
+          </div>
+          {/* Right Secondary Content */}
+          <div className="hidden w-1/4 flex-col gap-2 pt-2 @2xl:flex">
+            <div className="h-48 w-full rounded bg-white" />
+            <div className="h-48 w-full rounded bg-white" />
+          </div>
+        </div>
+      </div>
+    ),
+    area: (
+      <div className="flex h-[480px] w-full flex-col @container">
+        <Block
+          color="green"
+          name="Navigation"
+          className="h-12 flex-shrink-0 border-b border-gray-200 dark:border-gray-600"
+        />
+        <div className="mx-auto flex w-full max-w-4xl flex-grow">
+          <Block
+            color="blue"
+            name="Secondary content"
+            className="hidden h-full w-[160px] border-r border-gray-200 @lg:flex dark:border-gray-600"
+          />
+          <Block
+            color="yellow"
+            name="Primary content"
+            className="h-full grow border-r border-gray-200 dark:border-gray-600"
+          />
+          <Block
+            color="blue"
+            name="Secondary content"
+            className="hidden h-full @2xl:flex"
           />
         </div>
       </div>

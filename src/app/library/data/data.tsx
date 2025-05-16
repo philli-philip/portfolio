@@ -2,6 +2,7 @@ import {
   sidebarLayoutWithHeader,
   simpleDetailPageTopNavigation,
   twoColumnLayoutWithHeader,
+  oldFacebook,
 } from "./examples";
 import { twitterLayoutExample } from "./twitter-examples";
 
@@ -50,6 +51,12 @@ export const libraryData: LibraryData = [
           sidebarLayoutWithHeader,
         ],
       },
+      {
+        title: "Feed",
+        description: "",
+        slug: "feeds",
+        examples: [twitterLayoutExample, oldFacebook],
+      },
       { title: "Dashboard", description: "", slug: "dashboards", examples: [] },
     ],
   },
@@ -63,7 +70,7 @@ export const libraryData: LibraryData = [
         title: "Social networks",
         slug: "social-networks",
         description: "Facebook, Twitter, Instagram, Linkedin, etc.",
-        examples: [twitterLayoutExample],
+        examples: [twitterLayoutExample, oldFacebook],
       },
     ],
   },
