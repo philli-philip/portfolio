@@ -7,7 +7,7 @@ import { cn } from "../../../utils/cn";
 
 export default function Navigation() {
   return (
-    <div className="sticky top-12 flex flex-col items-end self-start pt-12">
+    <div className="sticky top-12 flex w-32 flex-shrink-0 flex-col items-end self-start pt-12">
       <Sections />
     </div>
   );

@@ -43,6 +43,16 @@ export const libraryData: LibraryData = [
       {
         title: "Detail pages",
         slug: "detail-pages",
+        preview: {
+          light: new URL(
+            "/public/library/thumbnail/application/detail-page-light.png",
+            import.meta.url
+          ),
+          dark: new URL(
+            "/public/library/thumbnail/application/detail-page-dark.png",
+            import.meta.url
+          ),
+        },
         description:
           "I think there are really only a few pages that you are building over time. This are the ones I created so you do not need to reinvent them again.",
         examples: [

@@ -29,7 +29,18 @@ export default function Page() {
                     key={category.slug}
                     className="flex flex-col border-r border-gray-200 bg-white p-3 transition-colors duration-75 hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:hover:bg-gray-700"
                   >
-                    <div className="mb-3 aspect-video rounded-lg border border-gray-200 bg-gray-100 dark:border-gray-600 dark:bg-gray-600"></div>
+                    <div className="mb-3 aspect-[4/3] overflow-clip rounded-lg border border-gray-200 bg-gray-100 dark:border-gray-600 dark:bg-gray-600">
+                      <img
+                        src={category.preview?.light.href}
+                        alt={category.title}
+                        className="object-cover dark:hidden"
+                      />
+                      <img
+                        src={category.preview?.dark.href}
+                        alt={category.title}
+                        className="hidden object-cover dark:block"
+                      />
+                    </div>
                     <h2 className="pb-0.5 font-bold text-gray-900 dark:text-white">
                       {category.title}
                     </h2>
