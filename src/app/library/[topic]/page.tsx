@@ -46,15 +46,15 @@ const Grid = ({ topic }: { topic: string }) => {
   if (!topicData) return null;
   const categories = topicData.categories;
   return (
-    <div className="border-gray-200md:grid-cols-2 grid grid-cols-2 gap-0 border lg:grid-cols-4">
+    <div className="mb-24 grid grid-cols-2 gap-0 border border-gray-200 md:grid-cols-2 lg:grid-cols-4 dark:border-gray-600">
       {categories.map((category) => {
         return (
           <Link
             href={`/library/${topic}/${category.slug}`}
             key={category.slug}
-            className="flex flex-col border-r bg-white p-3 transition-colors duration-75 hover:bg-gray-100"
+            className="flex flex-col border-r border-gray-200 bg-white p-3 transition-colors duration-75 hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:hover:bg-gray-700"
           >
-            <div className="mb-3 aspect-video rounded-lg border border-gray-200 bg-gray-100"></div>
+            <div className="mb-3 aspect-video rounded-lg border border-gray-200 bg-gray-100 dark:border-gray-600 dark:bg-gray-600"></div>
             <h2 className="pb-0.5 font-bold text-gray-900 dark:text-white">
               {category.title}
             </h2>

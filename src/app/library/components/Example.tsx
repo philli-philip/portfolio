@@ -5,7 +5,7 @@ import { cn } from "../../../utils/cn";
 
 export default function Example({ example }: { example: ExampleType }) {
   const [width, setWidth] = useState(1200);
-  const [active, setActive] = useState<"layout" | "area">("layout");
+  const [active, setActive] = useState<"layout" | "area">("area");
   const isDragging = useRef(false);
   const startX = useRef(0);
   const initialWidth = useRef(0);
