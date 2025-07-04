@@ -2,6 +2,7 @@ import {
   ProjectContainer,
   ProjectDescription,
   ProjectImage,
+  ProjectLink,
   ProjectTitle,
 } from "./project";
 
@@ -35,6 +36,10 @@ export const Planner = ({ active }: { active: string }) => (
       </div>
     </ProjectTitle>
     <ProjectDescription className="dark:bg-gray-600/70">
+      <ProjectLink
+        href="https://f-base.vercel.app/"
+        className="border border-gray-200 hover:bg-gray-300 dark:border-gray-500 dark:bg-transparent dark:text-white dark:hover:bg-white/10"
+      />
       <div className="flex-col gap-2 ">
         <h2 className="text-lg font-semibold dark:text-gray-200">
           Financial planning tool
@@ -65,6 +70,11 @@ export const TradingApp = ({ active }: { active: string }) => (
       </div>
     </ProjectTitle>
     <ProjectDescription>
+      <ProjectLink
+        href="https://tradepost-eight.vercel.app/"
+        className="bg-[gold] hover:bg-[gold]/80"
+      />
+
       <div className="flex-col gap-2 text-[gold]">
         <h2 className="text-lg font-semibold">Trading tool</h2>
         <span className="block pb-6 text-sm font-light opacity-85">2024</span>
@@ -80,7 +90,7 @@ export const TradingApp = ({ active }: { active: string }) => (
 
 export const Bergaffe = ({ active }: { active: string }) => (
   <ProjectContainer
-    className="bg-red-600 md:col-span-2 md:aspect-[2/1]"
+    className="bg-red-600 outline-red-600 md:col-span-2 md:aspect-[2/1]"
     show={show("industrial", active)}
   >
     <ProjectImage

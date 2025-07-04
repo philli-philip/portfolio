@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { cn } from "../../utils/cn";
+import { ArrowUpRight, CircleArrowOutUpRight } from "lucide-react";
 
 export function ProjectContainer({
   children,
@@ -13,17 +14,16 @@ export function ProjectContainer({
   show: boolean;
 }) {
   return (
-    <Link
-      href={href}
+    <div
       aria-disabled={!show}
       className={cn(
-        "outline-hidden group relative flex aspect-[4/5] flex-col overflow-hidden rounded-3xl outline-[16px] outline-offset-4 outline-red-500 duration-300",
+        "outline-hidden group relative flex aspect-[4/5] flex-col overflow-hidden rounded-3xl outline-[16px] outline-offset-4 outline-blue-500 duration-300",
         show ? " opacity-100" : " cursor-default opacity-10",
         className
       )}
     >
       {children}
-    </Link>
+    </div>
   );
 }
 
@@ -41,6 +41,25 @@ export function ProjectImage({
   );
 }
 
+export function ProjectLink({
+  href,
+  className,
+}: {
+  href: string;
+  className?: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className={cn(
+        "peer absolute right-4 top-4 block size-12 rounded-full bg-white p-2 text-black duration-75",
+        className
+      )}
+    >
+      <ArrowUpRight className="size-8" strokeWidth={1.5} />
+    </Link>
+  );
+}
 export function ProjectDescription({
   className,
   children,
@@ -51,7 +70,7 @@ export function ProjectDescription({
   return (
     <span
       className={cn(
-        "absolute top-[100%] h-full w-full p-6 backdrop-blur duration-200 group-hover:top-0 group-focus:top-0 group-aria-disabled:group-hover:top-[100%] group-aria-disabled:group-focus:top-[100%]",
+        "absolute top-[100%] h-full w-full p-6 backdrop-blur duration-200 group-hover:top-0 peer-focus:top-0 group-aria-disabled:group-hover:top-[100%]",
         className
       )}
     >
