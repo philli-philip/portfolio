@@ -71,11 +71,11 @@ export const TradingApp = ({ active }: { active: string }) => (
 
 export const Bergaffe = ({ active }: { active: string }) => (
   <ProjectContainer
-    className="col-span-2 aspect-[2/1] bg-red-600"
+    className="bg-red-600 md:col-span-2 md:aspect-[2/1]"
     show={show("industrial", active)}
   >
     <ProjectImage
-      className="m-3 mb-0 h-[calc(100%-12px)] w-[calc(100%-24px)] overflow-hidden rounded-xl"
+      className="m-3 mb-0 h-[calc(100%-12px)] w-[calc(100%-24px)] overflow-hidden rounded-xl object-cover"
       lightImage={"img/projects/bergaffe-bench.png"}
     />
     <ProjectTitle>
@@ -150,7 +150,7 @@ export const Grip = ({ active }: { active: string }) => (
 export const ThreeJS = ({ active }: { active: string }) => (
   <ProjectContainer className="bg-blue-600" show={show("code", active)}>
     <ProjectImage
-      className=" self-center"
+      className="mx-auto mt-16 w-[80%] shadow-xl shadow-blue-900/80"
       lightImage={"img/projects/three-js.png"}
     />
     <ProjectTitle>
