@@ -18,23 +18,32 @@ function show(category: Category, filter: string | "") {
 }
 
 export const Planner = ({ active }: { active: string }) => (
-  <ProjectContainer className=" bg-gray-100" show={show("code", active)}>
+  <ProjectContainer
+    className=" bg-gray-100 dark:bg-gray-600"
+    show={show("code", active)}
+  >
     <ProjectImage
-      className="absolute left-24 top-16 w-[600px] scale-125 rounded-lg shadow-xl"
+      className="absolute left-24 top-16 w-[600px] scale-125 rounded-lg shadow-xl dark:opacity-80"
       lightImage={"img/projects/financial-planning-tool.png"}
     />
     <ProjectTitle>
       <div className="flex-col gap-2">
-        <h2 className="text-lg font-semibold">Financial planning tool</h2>
-        <span className="text-sm text-gray-600">2025</span>
+        <h2 className="text-lg font-semibold dark:text-gray-200">
+          Financial planning tool
+        </h2>
+        <span className="text-sm text-gray-600 dark:text-gray-300">2025</span>
       </div>
     </ProjectTitle>
-    <ProjectDescription>
-      <div className="flex-col gap-2">
-        <h2 className="text-lg font-semibold">Financial planning tool</h2>
-        <span className="block pb-6 text-sm text-gray-600">2025</span>
+    <ProjectDescription className="dark:bg-gray-600/70">
+      <div className="flex-col gap-2 ">
+        <h2 className="text-lg font-semibold dark:text-gray-200">
+          Financial planning tool
+        </h2>
+        <span className="block pb-6 text-sm text-gray-600 dark:text-gray-300">
+          2025
+        </span>
       </div>
-      <p>
+      <p className="dark:text-gray-200">
         A financial planning tool that allows you to plan your budget and track
         your expenses. It is local only and will not sync with any cloud
         service.
@@ -98,23 +107,28 @@ export const Bergaffe = ({ active }: { active: string }) => (
 );
 
 export const PlasticWaste = ({ active }: { active: string }) => (
-  <ProjectContainer className="bg-gray-100" show={show("industrial", active)}>
+  <ProjectContainer
+    className="bg-gray-100 dark:bg-gray-500"
+    show={show("industrial", active)}
+  >
     <ProjectImage
-      className="m-3 mb-0 h-[calc(100%-12px)] w-[calc(100%-24px)] overflow-hidden rounded-xl object-cover "
+      className="m-3 mb-0 h-[calc(100%-12px)] w-[calc(100%-24px)] overflow-hidden rounded-xl object-cover dark:opacity-80 "
       lightImage={"img/projects/plastic-waste-management.png"}
     />
     <ProjectTitle>
-      <div className="flex-col gap-2  text-gray-800">
+      <div className="flex-col gap-2 text-gray-800">
         <h2 className="text-lg font-medium">Plastic waste management</h2>
         <span className="block text-sm text-gray-600">2014</span>
       </div>
     </ProjectTitle>
-    <ProjectDescription className="bg-gray-50/30 backdrop-blur">
-      <div className="flex-col gap-2 text-gray-800">
+    <ProjectDescription className="bg-gray-50/30 backdrop-blur dark:bg-gray-500/60">
+      <div className="flex-col gap-2 text-gray-800 dark:text-gray-200">
         <h2 className="text-lg font-medium">Plastic waste management</h2>
-        <span className="block pb-6 text-sm text-gray-600">2014</span>
+        <span className="block pb-6 text-sm text-gray-600 dark:text-gray-300">
+          2014
+        </span>
       </div>
-      <p className="text-gray-800">
+      <p className="text-gray-800 dark:text-gray-200  ">
         A financial planning tool that allows you to plan your budget and track
         your expenses.
       </p>
@@ -148,7 +162,10 @@ export const Grip = ({ active }: { active: string }) => (
 );
 
 export const ThreeJS = ({ active }: { active: string }) => (
-  <ProjectContainer className="bg-blue-600" show={show("code", active)}>
+  <ProjectContainer
+    className="bg-blue-600 dark:bg-blue-800"
+    show={show("code", active)}
+  >
     <ProjectImage
       className="mx-auto mt-16 w-[80%] shadow-xl shadow-blue-900/80"
       lightImage={"img/projects/three-js.png"}
