@@ -1,16 +1,14 @@
 import Link from "next/link";
 import { cn } from "../../utils/cn";
-import { ArrowUpRight, CircleArrowOutUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export function ProjectContainer({
   children,
   className,
-  href = "#",
   show,
 }: {
   children: React.ReactNode;
   className?: string;
-  href?: string;
   show: boolean;
 }) {
   return (
