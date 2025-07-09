@@ -21,11 +21,6 @@ const shortCuts = [
     key: "A",
     target: "/about",
   },
-  {
-    label: "Code",
-    key: "C",
-    target: "/code",
-  },
 ];
 
 export default function ShortCuts() {
@@ -34,13 +29,12 @@ export default function ShortCuts() {
   useHotkeys("b", () => void router.push("/blog"));
   useHotkeys("a", () => void router.push("/about"));
   useHotkeys("p", () => void router.push("/projects"));
-  useHotkeys("c", () => void router.push("/code"));
   return (
     <div className="col-span-12 mt-4 flex flex-row flex-wrap items-start">
       {shortCuts.map((item, index) => (
         <Link
           key={index}
-          className="mb-4 mr-4 rounded border border-gray-200 px-4 py-4 shadow-md duration-150 hover:bg-gray-50 hover:text-gray-800 dark:border-0 dark:border-t dark:border-gray-600  dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200  dark:hover:shadow-lg xl:mb-0 xl:mr-8"
+          className="mb-4 mr-4 rounded border border-gray-200 px-4 py-4 shadow-md duration-150 hover:bg-gray-50 hover:text-gray-800 xl:mb-0 xl:mr-8 dark:border-0  dark:border-t dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300  dark:hover:bg-gray-700 dark:hover:text-gray-200 dark:hover:shadow-lg"
           href={item.target}
         >
           {item.label}
