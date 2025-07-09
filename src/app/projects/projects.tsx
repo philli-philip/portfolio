@@ -108,9 +108,10 @@ export const Bergaffe = ({ active }: { active: string }) => (
         <h2 className="text-lg font-bold uppercase italic">Bergaffe</h2>
         <span className="block pb-6 text-sm">2013</span>
       </div>
-      <p className="text-white">
-        A financial planning tool that allows you to plan your budget and track
-        your expenses.
+      <p className="max-w-[50ch] text-white">
+        Bergaffe an Austrian manufacturer of a modular toolset for outdoor
+        adventurer. The first set of 4 tools was aimed to support freestyle
+        snowboarder and skier.
       </p>
     </ProjectDescription>
   </ProjectContainer>
@@ -139,8 +140,9 @@ export const PlasticWaste = ({ active }: { active: string }) => (
         </span>
       </div>
       <p className="text-gray-800 dark:text-gray-200  ">
-        A financial planning tool that allows you to plan your budget and track
-        your expenses.
+        Every region does their recycling different. What belongs into what
+        container? <b>"How can recycling be easier than it is today?"</b> is the
+        core question and my attempt to answer it.
       </p>
     </ProjectDescription>
   </ProjectContainer>
@@ -164,8 +166,9 @@ export const Grip = ({ active }: { active: string }) => (
         <span className="block pb-6 text-sm text-gray-400">2013</span>
       </div>
       <p className="text-white">
-        A financial planning tool that allows you to plan your budget and track
-        your expenses.
+        A carinthian sports gun manufacturer approached me to produce high
+        quality handles for his soon to be sold sport guns. The catch: 21
+        different models, all ergonomic. In 2013 a technical challenge.
       </p>
     </ProjectDescription>
   </ProjectContainer>
@@ -187,13 +190,14 @@ export const ThreeJS = ({ active }: { active: string }) => (
       </div>
     </ProjectTitle>
     <ProjectDescription className="bg-blue-600/60">
+      <ProjectLink href="/code/drei" />
       <div className="flex-col gap-2">
         <h2 className="text-lg font-semibold text-white">Three.js</h2>
         <span className="block pb-6 text-sm text-gray-400">2024</span>
       </div>
       <p className="text-white">
-        A financial planning tool that allows you to plan your budget and track
-        your expenses.
+        Experimenting with three.js and Drei.js to learn the fundamentals of
+        three dimensional worlds in the browser.
       </p>
     </ProjectDescription>
   </ProjectContainer>
