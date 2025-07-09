@@ -16,7 +16,6 @@ import FilterBar from "./filterBar";
 
 export default function Page() {
   const filter = useSearchParams()?.get("cat") ?? "";
-  console.log("filter", filter);
 
   return (
     <>
