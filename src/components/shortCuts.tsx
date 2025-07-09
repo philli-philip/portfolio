@@ -12,7 +12,7 @@ const shortCuts = [
     target: "/blog",
   },
   {
-    label: "Past projects",
+    label: "Projects",
     key: "P",
     target: "/projects",
   },
