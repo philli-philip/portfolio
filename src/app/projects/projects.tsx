@@ -17,26 +17,57 @@ function show(category: Category, filter: string | "") {
   }
   return false;
 }
-
+export const Designladder = ({ active }: { active: string }) => (
+  <ProjectContainer
+    show={show("code", active)}
+    className="bg-gray-100 dark:bg-gray-500"
+  >
+    <ProjectImage
+      className="m-3 mb-0 h-[calc(100%-12px)] w-[calc(100%-24px)] overflow-hidden rounded-xl object-cover dark:opacity-80 "
+      lightImage={"img/projects/design-ladder.png"}
+    />
+    <ProjectTitle>
+      <div className="flex-col gap-2 text-gray-800">
+        <h2 className="text-lg font-semibold">Design ladder</h2>
+        <span className="block text-sm text-gray-600">2024</span>
+      </div>
+    </ProjectTitle>
+    <ProjectDescription className="bg-gray-50/30 backdrop-blur dark:bg-gray-500/60">
+      <ProjectLink
+        href="https://ladder.mattha.net/"
+        className="bg-blue-600 text-white duration-75 hover:scale-[90%] hover:bg-blue-800"
+      />
+      <div className="flex-col gap-2 text-gray-800 dark:text-gray-200">
+        <h2 className="text-lg font-semibold">Design ladder</h2>
+        <span className="block pb-6 text-sm text-gray-600 dark:text-gray-300">
+          2024
+        </span>
+      </div>
+      <p className="text-gray-800 dark:text-gray-200">
+        Self evaluate your design skills across 4 tracks. Get a seniority rating
+        and focus on the next skills to master with guidance and resources.
+      </p>
+    </ProjectDescription>
+  </ProjectContainer>
+);
 export const Powerbank = ({ active }: { active: string }) => (
   <ProjectContainer
     show={show("code", active)}
     className="relative flex flex-col bg-gray-100"
   >
-    <div className="absolute -right-16 -top-12 size-96 bg-red-100/40 blur-2xl" />
-    <div className="absolute -left-2 top-16  size-64 bg-cyan-100 blur-2xl" />
-    <div className="absolute bottom-4 right-2  size-32 bg-green-500/40 blur-xl" />
-    <div className="z-10 flex flex-1 flex-col justify-center">
-      <h1 className="pl-6 text-3xl font-semibold">Powerbank</h1>
-    </div>
+    <div className="absolute -right-16 -top-12 -z-[1] size-96 bg-red-100/40 blur-2xl" />
+    <div className="absolute -left-2 top-16 -z-[1] size-64 bg-cyan-100 blur-2xl" />
+    <div className="absolute bottom-4 right-2 -z-[1] size-32 bg-green-500/40 blur-xl" />
+    <div className="flex flex-1 flex-col justify-center"></div>
     <div className="flex-col gap-2 p-6">
-      <span className="text-sm text-gray-600 dark:text-gray-300">2025</span>
+      <h2 className="text-xl font-semibold">Powerbank</h2>
+      <span className="text-sm text-gray-600 dark:text-gray-300">2023</span>
     </div>
-    <ProjectDescription className="z-20">
+    <ProjectDescription className="">
       <div className="flex-col gap-2 ">
         <h2 className="text-lg font-semibold dark:text-gray-200">Powerbank</h2>
         <span className="block pb-6 text-sm text-gray-600 dark:text-gray-300">
-          2023
+          2024
         </span>
       </div>
       <p className="dark:text-gray-200">
