@@ -7,8 +7,8 @@ import Link from "next/link";
 
 const shortCuts = [
   {
-    label: "Blog",
-    key: "B",
+    label: "Writing",
+    key: "W",
     target: "/blog",
   },
   {
@@ -26,7 +26,7 @@ const shortCuts = [
 export default function ShortCuts() {
   const router = useRouter();
 
-  useHotkeys("b", () => void router.push("/blog"));
+  useHotkeys("w", () => void router.push("/blog"));
   useHotkeys("a", () => void router.push("/about"));
   useHotkeys("p", () => void router.push("/projects"));
   return (
