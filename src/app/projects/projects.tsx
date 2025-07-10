@@ -18,6 +18,36 @@ function show(category: Category, filter: string | "") {
   return false;
 }
 
+export const Powerbank = ({ active }: { active: string }) => (
+  <ProjectContainer
+    show={show("code", active)}
+    className="relative flex flex-col bg-gray-100"
+  >
+    <div className="absolute -right-16 -top-12 size-96 bg-red-100/40 blur-2xl" />
+    <div className="absolute -left-2 top-16  size-64 bg-cyan-100 blur-2xl" />
+    <div className="absolute bottom-4 right-2  size-32 bg-green-500/40 blur-xl" />
+    <div className="z-10 flex flex-1 flex-col justify-center">
+      <h1 className="pl-6 text-3xl font-semibold">Powerbank</h1>
+    </div>
+    <div className="flex-col gap-2 p-6">
+      <span className="text-sm text-gray-600 dark:text-gray-300">2025</span>
+    </div>
+    <ProjectDescription className="z-20">
+      <div className="flex-col gap-2 ">
+        <h2 className="text-lg font-semibold dark:text-gray-200">Powerbank</h2>
+        <span className="block pb-6 text-sm text-gray-600 dark:text-gray-300">
+          2023
+        </span>
+      </div>
+      <p className="dark:text-gray-200">
+        It started as a design challenge how I would envision a enterprise
+        banking app if it would up to me. Quite early on a conflict of interest
+        emerged so I stopped the project.
+      </p>
+    </ProjectDescription>
+  </ProjectContainer>
+);
+
 export const Planner = ({ active }: { active: string }) => (
   <ProjectContainer
     className=" bg-gray-100 dark:bg-gray-600"

@@ -5,7 +5,7 @@ import NavBar from "../../components/navBar";
 import Footer from "../../components/Footer";
 import {
   Bergaffe,
-  Category,
+  Powerbank,
   Grip,
   Planner,
   PlasticWaste,
@@ -25,6 +25,7 @@ export default function Page() {
         <div className="relative flex flex-col gap-6 md:grid md:grid-cols-2">
           <Planner active={filter} />
           <TradingApp active={filter} />
+          <Powerbank active={filter} />
           <ThreeJS active={filter} />
           <PlasticWaste active={filter} />
           <Bergaffe active={filter} />
