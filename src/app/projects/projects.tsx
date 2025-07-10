@@ -61,7 +61,7 @@ export const Powerbank = ({ active }: { active: string }) => (
     <div className="flex flex-1 flex-col justify-center"></div>
     <div className="flex-col gap-2 p-6">
       <h2 className="text-xl font-semibold">Powerbank</h2>
-      <span className="text-sm text-gray-600 dark:text-gray-300">2023</span>
+      <span className="text-sm text-gray-600 dark:text-gray-300">2024</span>
     </div>
     <ProjectDescription className="">
       <div className="flex-col gap-2 ">
@@ -127,7 +127,7 @@ export const TradingApp = ({ active }: { active: string }) => (
     <ProjectTitle>
       <div className="flex-col gap-2 text-[gold]">
         <h2 className="text-lg font-semibold">Trading tool</h2>
-        <span className="block text-sm font-light opacity-85">2024</span>
+        <span className="block text-sm font-light opacity-85">2025</span>
       </div>
     </ProjectTitle>
     <ProjectDescription>
@@ -138,7 +138,7 @@ export const TradingApp = ({ active }: { active: string }) => (
 
       <div className="flex-col gap-2 text-[gold]">
         <h2 className="text-lg font-semibold">Trading tool</h2>
-        <span className="block pb-6 text-sm font-light opacity-85">2024</span>
+        <span className="block pb-6 text-sm font-light opacity-85">2025</span>
       </div>
       <p className="font-light text-[gold] opacity-85">
         A trading tool that allows you track the prices and volume for the game
