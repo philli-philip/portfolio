@@ -20,7 +20,7 @@ function show(category: Category, filter: string | "") {
 export const Designladder = ({ active }: { active: string }) => (
   <ProjectContainer
     show={show("code", active)}
-    className="bg-gray-100 dark:bg-gray-500"
+    className="bg-gray-100 dark:bg-gray-700"
   >
     <ProjectImage
       className="m-3 mb-0 h-[calc(100%-12px)] w-[calc(100%-24px)] overflow-hidden rounded-xl object-cover dark:opacity-80 "
@@ -28,11 +28,13 @@ export const Designladder = ({ active }: { active: string }) => (
     />
     <ProjectTitle>
       <div className="flex-col gap-2 text-gray-800">
-        <h2 className="text-lg font-semibold">Design ladder</h2>
-        <span className="block text-sm text-gray-600">2024</span>
+        <h2 className="text-lg font-semibold dark:text-white">Design ladder</h2>
+        <span className="block text-sm text-gray-600 dark:text-gray-400">
+          2024
+        </span>
       </div>
     </ProjectTitle>
-    <ProjectDescription className="bg-gray-50/30 backdrop-blur dark:bg-gray-500/60">
+    <ProjectDescription className="bg-gray-50/30 backdrop-blur dark:bg-gray-700/60">
       <ProjectLink
         href="https://ladder.mattha.net/"
         className="bg-blue-600 text-white duration-75 hover:scale-[90%] hover:bg-blue-800"
