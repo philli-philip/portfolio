@@ -1,6 +1,3 @@
-"use client";
-
-import { useSearchParams } from "next/navigation";
 import NavBar from "../../components/navBar";
 import Footer from "../../components/Footer";
 import {
@@ -14,8 +11,12 @@ import {
 } from "./projects";
 import FilterBar from "./filterBar";
 
-export default function Page() {
-  const filter = useSearchParams()?.get("cat") ?? "";
+export default async function Page({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | undefined }>;
+}) {
+  const filter = (await searchParams).cat ?? "";
 
   return (
     <>
