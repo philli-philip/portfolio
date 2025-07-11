@@ -204,7 +204,8 @@ export const PlasticWaste = ({ active }: { active: string }) => (
       </div>
       <p className="text-gray-800 dark:text-gray-200  ">
         Every region does their recycling different. What belongs into what
-        container? <b>"How can recycling be easier than it is today?"</b> is the
+        container?
+        <b>&quot;How can recycling be easier than it is today?&quot;</b> is the
         core question and my attempt to answer it.
       </p>
     </ProjectDescription>
