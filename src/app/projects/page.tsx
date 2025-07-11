@@ -5,7 +5,6 @@ import NavBar from "../../components/navBar";
 import Footer from "../../components/Footer";
 import {
   Bergaffe,
-  Powerbank,
   Grip,
   Planner,
   PlasticWaste,
@@ -27,7 +26,6 @@ export default function Page() {
           <Planner active={filter} />
           <TradingApp active={filter} />
           <Designladder active={filter} />
-          <Powerbank active={filter} />
           <ThreeJS active={filter} />
           <PlasticWaste active={filter} />
           <Bergaffe active={filter} />
