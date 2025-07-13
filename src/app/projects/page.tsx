@@ -10,6 +10,12 @@ import {
   Designladder,
 } from "./projects";
 import FilterBar from "./filterBar";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Projects of Philip Mattha",
+  description: "Some of the important projects I worked on.",
+};
 
 export default async function Page({
   searchParams,
