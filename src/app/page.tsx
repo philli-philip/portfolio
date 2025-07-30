@@ -68,7 +68,7 @@ const Home: NextPage = () => {
             >
               Philip Mattha
             </Link>
-            , currently Product Design Lead at{" "}
+            , currently at{" "}
             <Link
               href={"/blog/why-deutsche-bank"}
               className="group relative text-blue-600 hover:underline dark:text-blue-400 "
@@ -81,19 +81,12 @@ const Home: NextPage = () => {
               </span>
               Bank
             </Link>
-            . Explore my{" "}
+            . Explore{" "}
             <Link
               className="text-purple-600 hover:underline dark:text-purple-400"
               href="/projects"
             >
               past projects
-            </Link>
-            ,{" "}
-            <Link
-              href="/code"
-              className="font-mono font-semibold text-lime-600 hover:underline dark:text-lime-400"
-            >
-              code
             </Link>{" "}
             and{" "}
             <Link
