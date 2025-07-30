@@ -11,19 +11,14 @@ const items = [
     target: "/",
   },
   {
-    label: "Writing",
-    key: "B",
-    target: "/blog",
-  },
-  {
-    label: "Code",
-    key: "C",
-    target: "/code",
-  },
-  {
     label: "Projects",
     key: "P",
     target: "/projects",
+  },
+  {
+    label: "Writing",
+    key: "B",
+    target: "/blog",
   },
   {
     label: "About",
