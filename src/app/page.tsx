@@ -51,7 +51,7 @@ const brands = [
 export const metadata: Metadata = {
   title: "Portfolio of Philip Mattha",
   description:
-    "Philip Mattha is a Digital Product Designer with a focus technology.",
+    "Philip Mattha is a Digital Product Designer with a focus on technology.",
 };
 
 const Home: NextPage = () => {

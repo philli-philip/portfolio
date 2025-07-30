@@ -35,8 +35,8 @@ export default async function Page({
           <Designladder active={filter} />
           <ThreeJS active={filter} />
           <PlasticWaste active={filter} />
-          <Bergaffe active={filter} />
           <Grip active={filter} />
+          <Bergaffe active={filter} />
         </div>
         <Footer />
       </main>
