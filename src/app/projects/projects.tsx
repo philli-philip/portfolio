@@ -326,10 +326,9 @@ export const Timeline = ({ active }: { active: string }) => (
         <h2 className="text-2xl font-light">Timeline</h2>
         <span className="block pb-6 text-sm font-light opacity-85">2025</span>
       </div>
-      <p className="font-light  opacity-85">
+      <p className="opacity-80">
         An attempt to visualise my whole life, to have a different perspective
         on how much time I have left, and what milestones I have achieved.
-        <br /> <br /> Some private events are hidden for not logged-in😜 users.
       </p>
     </ProjectDescription>
   </ProjectContainer>
