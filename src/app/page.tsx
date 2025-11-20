@@ -111,7 +111,6 @@ const Home: NextPage = () => {
             ))}
           </div>
         </section>
-        <Contact />
       </main>
       <Footer className="max-w-6xl" />
     </>
