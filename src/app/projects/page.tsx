@@ -39,7 +39,6 @@ export default async function Page({
           <Planner active={filter} />
           <TradingApp active={filter} />
           <Designladder active={filter} />
-          <ThreeJS active={filter} />
           <PlasticWaste active={filter} />
           <Grip active={filter} />
           <Bergaffe active={filter} />
