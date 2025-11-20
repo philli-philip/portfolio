@@ -254,7 +254,7 @@ export const ThreeJS = ({ active }: { active: string }) => (
       </div>
     </ProjectTitle>
     <ProjectDescription className="bg-blue-600/60">
-      <ProjectLink href="/code/drei" />
+      <ProjectLink href="/code/drei" target="_blank" />
       <div className="flex-col gap-2">
         <h2 className="text-lg font-semibold text-white">Three.js</h2>
         <span className="block pb-6 text-sm text-gray-400">2024</span>
@@ -262,6 +262,90 @@ export const ThreeJS = ({ active }: { active: string }) => (
       <p className="text-white">
         Experimenting with three.js and Drei.js to learn the fundamentals of
         three dimensional worlds in the browser.
+      </p>
+    </ProjectDescription>
+  </ProjectContainer>
+);
+
+export const ComplexApp = ({ active }: { active: string }) => (
+  <ProjectContainer
+    className="border border-gray-200 bg-gray-100 bg-[url(/img/projects/dot.png)]  [background-size:20px_20px]"
+    show={show("code", active)}
+  >
+    <ProjectImage
+      className="absolute left-10 top-5 origin-top-left scale-[150%]"
+      lightImage={"img/projects/tiling-approach.png"}
+    />
+    <ProjectTitle>
+      <div className="flex-col gap-2 text-black">
+        <h2 className="text-lg font-semibold">Tiling approach</h2>
+        <span className="block text-sm font-light opacity-85">
+          2025 — ongoing
+        </span>
+      </div>
+    </ProjectTitle>
+    <ProjectDescription className="bg-blue-600/10">
+      <ProjectLink
+        href="https://exper-complex-apps.vercel.app/"
+        target="_blank"
+        className="bg-black text-white hover:bg-blue-600"
+      />
+
+      <div className="flex-col gap-2 text-black">
+        <h2 className="text-lg font-semibold">Tiling approach</h2>
+        <span className="block pb-6 text-sm font-light opacity-85">
+          2025 — ongoing
+        </span>
+      </div>
+      <p className="font-light text-black opacity-85">
+        An approach to create an internal application that is fully customisable
+        by users to create an environment that fits their needs.
+      </p>
+    </ProjectDescription>
+  </ProjectContainer>
+);
+
+export const Moderator = ({ active }: { active: string }) => (
+  <ProjectContainer className="bg-gray-800" show={show("code", active)}>
+    <div className="relative h-auto flex-1 overflow-hidden rounded-t-3xl">
+      <img
+        className="absolute -bottom-0 left-2 h-80 w-[400px] max-w-none"
+        src="img/projects/moderator-desktop.png"
+      />
+      <img
+        className="absolute -bottom-4 -right-3 h-72"
+        src="img/projects/moderator-mobile.png"
+      />
+    </div>
+    <ProjectTitle>
+      <div className="flex-col gap-2 text-orange-500">
+        <h2 className="text-lg font-bold ">Moderator</h2>
+        <span className="block text-sm font-light opacity-85">
+          2025 — ongoing
+        </span>
+      </div>
+    </ProjectTitle>
+    <ProjectDescription className="bg-orange-500 text-white saturate-200">
+      <ProjectLink
+        href="https://moderator.mattha.net/"
+        target="_blank"
+        className="bg-orange-600 text-white hover:bg-orange-400"
+      />
+
+      <div className="flex-col gap-2 ">
+        <h2 className="text-lg font-semibold">Moderator</h2>
+        <span className="block pb-6 text-sm font-light opacity-85">
+          2025 — ongoing
+        </span>
+      </div>
+      <p className="font-light  opacity-85">
+        A markdown based presentation tool that takes inspiration from{" "}
+        <a href="https://sli.dev" className="underline">
+          Sli.dev
+        </a>{" "}
+        but aims to for designer with more visual demands. <br /> <br />
+        Envisioned to take Notion content and convert it into presentation
+        within seconds.
       </p>
     </ProjectDescription>
   </ProjectContainer>

@@ -8,6 +8,8 @@ import {
   ThreeJS,
   TradingApp,
   Designladder,
+  ComplexApp,
+  Moderator,
 } from "./projects";
 import FilterBar from "./filterBar";
 import { Metadata } from "next";
@@ -30,6 +32,8 @@ export default async function Page({
       <main className="mx-auto max-w-3xl px-6 pt-32 md:px-0">
         <FilterBar filter={filter} />
         <div className="relative flex flex-col gap-6 md:grid md:grid-cols-2">
+          <Moderator active={filter} />
+          <ComplexApp active={filter} />
           <Planner active={filter} />
           <TradingApp active={filter} />
           <Designladder active={filter} />
