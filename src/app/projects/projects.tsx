@@ -341,7 +341,7 @@ export const Moderator = ({ active }: { active: string }) => (
         <a href="https://sli.dev" className="underline">
           Sli.dev
         </a>{" "}
-        but aims to for designer with more visual demands. <br /> <br />
+        but aims to be for designer with more visual demands. <br /> <br />
         Envisioned to take Notion content and convert it into presentation
         within seconds.
       </p>
