@@ -254,7 +254,7 @@ export const ThreeJS = ({ active }: { active: string }) => (
       </div>
     </ProjectTitle>
     <ProjectDescription className="bg-blue-600/60">
-      <ProjectLink href="/code/drei" target="_blank" />
+      <ProjectLink href="/code/drei" />
       <div className="flex-col gap-2">
         <h2 className="text-lg font-semibold text-white">Three.js</h2>
         <span className="block pb-6 text-sm text-gray-400">2024</span>
@@ -287,7 +287,6 @@ export const ComplexApp = ({ active }: { active: string }) => (
     <ProjectDescription className="bg-blue-600/10">
       <ProjectLink
         href="https://exper-complex-apps.vercel.app/"
-        target="_blank"
         className="bg-black text-white hover:bg-blue-600"
       />
 
@@ -328,7 +327,6 @@ export const Moderator = ({ active }: { active: string }) => (
     <ProjectDescription className="bg-orange-500 text-white saturate-200">
       <ProjectLink
         href="https://moderator.mattha.net/"
-        target="_blank"
         className="bg-orange-600 text-white hover:bg-orange-400"
       />
 
