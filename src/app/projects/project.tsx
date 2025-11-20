@@ -50,7 +50,7 @@ export function ProjectLink({
     <Link
       href={href}
       className={cn(
-        "peer absolute right-4 top-4 block size-12 rounded-full bg-white p-2 text-black duration-75",
+        "peer absolute right-4 top-4 z-10 block size-12 rounded-full bg-white p-2 text-black duration-75",
         className
       )}
     >

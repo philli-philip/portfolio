@@ -36,7 +36,15 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="flex h-screen w-screen flex-col justify-center bg-stone-100">
+    <div className="relative flex h-screen w-screen flex-col justify-center bg-stone-100">
+      <div className="group absolute left-8 top-8 max-w-sm text-gray-800">
+        <h1 className="text-2xl font-light">Timeline</h1>
+        <p className="h-4 overflow-clip text-ellipsis text-balance text-sm opacity-30 duration-150 group-hover:h-32 group-hover:opacity-100">
+          An attempt to visualise my whole life, to have a different perspective
+          on how much time I have left, and what milestones I have achieved.
+          <br /> <br /> Some private events are hidden for not logged-in users.
+        </p>
+      </div>
       <PrivateEvents type="private" events={state.private} />
       <div className="relative h-2 bg-stone-200">
         <LifeSections sections={mockData} />

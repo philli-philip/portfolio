@@ -304,6 +304,37 @@ export const ComplexApp = ({ active }: { active: string }) => (
   </ProjectContainer>
 );
 
+export const Timeline = ({ active }: { active: string }) => (
+  <ProjectContainer className="bg-gray-100" show={show("code", active)}>
+    <ProjectImage
+      className="absolute top-1/4"
+      lightImage={"img/projects/timeline.png"}
+    />
+    <ProjectTitle>
+      <div className="flex-col gap-2 text-gray-800">
+        <h2 className="text-2xl font-light">Timeline</h2>
+        <span className="block text-sm font-light opacity-85">2025</span>
+      </div>
+    </ProjectTitle>
+    <ProjectDescription className="bg-gray-100/70 text-gray-800">
+      <ProjectLink
+        href="/code/timeline"
+        className=" border border-gray-200 bg-gray-100 text-gray-800 hover:bg-gray-200"
+      />
+
+      <div className="flex-col gap-2 ">
+        <h2 className="text-2xl font-light">Timeline</h2>
+        <span className="block pb-6 text-sm font-light opacity-85">2025</span>
+      </div>
+      <p className="font-light  opacity-85">
+        An attempt to visualise my whole life, to have a different perspective
+        on how much time I have left, and what milestones I have achieved.
+        <br /> <br /> Some private events are hidden for not logged-in😜 users.
+      </p>
+    </ProjectDescription>
+  </ProjectContainer>
+);
+
 export const Moderator = ({ active }: { active: string }) => (
   <ProjectContainer className="bg-gray-800" show={show("code", active)}>
     <div className="relative h-auto flex-1 overflow-hidden rounded-t-3xl">

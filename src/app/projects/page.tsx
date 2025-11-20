@@ -10,6 +10,7 @@ import {
   Designladder,
   ComplexApp,
   Moderator,
+  Timeline,
 } from "./projects";
 import FilterBar from "./filterBar";
 import { Metadata } from "next";
@@ -34,6 +35,7 @@ export default async function Page({
         <div className="relative flex flex-col gap-6 md:grid md:grid-cols-2">
           <Moderator active={filter} />
           <ComplexApp active={filter} />
+          <Timeline active={filter} />
           <Planner active={filter} />
           <TradingApp active={filter} />
           <Designladder active={filter} />
