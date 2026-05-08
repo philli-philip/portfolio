@@ -340,10 +340,12 @@ export const Moderator = ({ active }: { active: string }) => (
       <img
         className="absolute -bottom-0 left-2 h-80 w-[400px] max-w-none"
         src="img/projects/moderator-desktop.png"
+        alt="Moderator desktop screenshot"
       />
       <img
         className="absolute -bottom-4 -right-12 h-72"
         src="img/projects/moderator-mobile.png"
+        alt="Moderator mobile screenshot"
       />
     </div>
     <ProjectTitle>
