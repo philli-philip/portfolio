@@ -10,7 +10,7 @@ const content: Experience[] = [
     timeStart: "2022",
     timeEnd: "",
     description:
-      "VP Design Corporate Cash — Responsible for the experience and visual design for client and internal facing products.",
+      "VP Design Corporate Cash — Responsible for the experience and visual design for corporate client and internal tools to service them.",
   },
   {
     type: "Experience",
@@ -158,20 +158,20 @@ const About = () => {
         <meta name="description" content="Philip's CV" />
       </Head>
       <NavBar current={"/about"} />
-      <main className="relative mx-auto max-w-6xl px-8 pt-32 text-gray-800 dark:text-gray-200 lg:pl-36 lg:pt-48 print:mt-8 print:max-w-full print:text-gray-800">
+      <main className="relative mx-auto max-w-6xl px-8 pt-32 text-gray-800 lg:pl-36 lg:pt-48 dark:text-gray-200 print:mt-8 print:max-w-full print:pt-16 print:text-gray-800">
         <span className="flex flex-1 justify-between">
           <h1 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl xl:text-6xl print:mb-2 print:text-4xl">
             Philip Mattha
           </h1>
           <button
             onClick={handlePrint}
-            className="flex h-12 flex-row place-content-center items-center gap-4 rounded-lg p-3 text-sm text-gray-600 hover:bg-gray-100 focus-visible:outline-orange-600 dark:text-gray-400 dark:hover:bg-gray-700 md:mt-2 xl:mt-4 print:hidden"
+            className="flex h-12 flex-row place-content-center items-center gap-4 rounded-lg p-3 text-sm text-gray-600 hover:bg-gray-100 focus-visible:outline-orange-600 md:mt-2 xl:mt-4 dark:text-gray-400 dark:hover:bg-gray-700 print:hidden"
           >
             <span className="hidden md:block">Print version!</span>
             <Print />
           </button>
         </span>
-        <p className="text-gray-600 dark:text-gray-400 print:text-xs">
+        <p className="pb-12 text-gray-600 dark:text-gray-400 print:text-xs">
           Rubensstraße 15, 12159 Berlin
           <br />
           philip@mattha.net
@@ -180,18 +180,21 @@ const About = () => {
         </p>
         <section className="print:columns-2 print:gap-24">
           {Object.keys(categorizedData).map((sections, index) => (
-            <section className="relative" key={index}>
+            <section className="relative pb-10" key={index}>
               <h2
                 key={index}
-                className="mb-6 mt-8 max-w-2xl text-lg text-gray-500 dark:text-gray-400 lg:absolute lg:right-full lg:mt-0 lg:pr-6 print:absolute print:mb-1 print:mt-0 print:block print:w-[100px] print:-translate-x-[70px] print:translate-y-[50px] print:-rotate-90 print:text-right print:text-sm"
+                className="-left-12 top-40 block w-40 origin-top-left text-right text-lg text-gray-500 lg:absolute lg:mt-0 lg:-rotate-90 lg:pr-2 dark:text-gray-400 print:absolute print:-left-8 print:-rotate-90 print:pr-2 print:text-sm"
               >
                 {sections}
               </h2>
-              <ul className="max-w-2xl lg:mt-12 print:mt-12 print:break-inside-avoid">
+              <ul className="max-w-2xl">
                 {content
                   .filter((item) => item.type === sections)
                   .map((item, index) => (
-                    <li key={index} className="mb-6 print:mb-4 ">
+                    <li
+                      key={index}
+                      className="mb-6 break-inside-avoid print:mb-4"
+                    >
                       <h3 className="mr-4 inline-block text-lg font-medium text-gray-800 dark:text-gray-200 print:mr-2 print:text-sm">
                         {item.title}
                       </h3>

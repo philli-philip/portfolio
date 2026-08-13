@@ -29,6 +29,8 @@ export default defineType({
         { title: "H3", value: "h3" },
         { title: "H4", value: "h4" },
         { title: "Quote", value: "blockquote" },
+        { title: "Code", value: "code" },
+        { title: "Table", value: "table" },
       ],
       lists: [
         { title: "Bullet", value: "bullet" },
